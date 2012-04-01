@@ -1,0 +1,66 @@
+{% extends 'WebdevBlogBundle::layout.html.twig' %}
+
+{% block title %}
+	{{ post.title }}
+{% endblock %}
+
+{% block content %}
+
+	{# meta data #}
+	<div id="blog_post_metadata" class="left small">
+		<table>
+			<tbody>
+				<tr>
+					<td>Erstellt am</td>
+					<td>{{ post.createdAt | date('d.m.Y') }}</td>
+				</tr>
+				<tr>
+					<td>Geändert am</td>
+					<td>{{ post.updatedAt | date('d.m.Y') }}</td>
+				</tr>
+				<tr>
+					<td>Klicks</td>
+					<td>{{ post.clicks }}</td>
+				</tr>
+				<tr>
+					<td>Kommentare</td>
+					<td>10</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>Trackbacks (<a href="">URL</a>)</p>
+		<ul class="no_margin">
+			<li><a href="">Lorem Ipsum</a></li>
+			<li><a href="">Lorem Ipsum dolor</a></li>
+		</ul>
+	</div>
+
+	{# post content #}
+	<h2 class="no_margin">{{ post.title }}</h2>
+	<div id="blog_post_content">
+		{{ post.content | raw }}
+	</div>
+	
+	{# comments #}
+	<h3 class="no_margin clear">Kommentare</h3>
+	<hr class="no_margin"/>
+	<div id="blog_post_comment_new">
+		<p>Wenn du auch einen Kommentar schreiben möchtest, melde dich bitte <a href="">hier</a> an.</p>
+	</div>
+
+{% endblock %}
+
+	
+{% block stylesheets %}
+	{{ parent() }}
+	
+	{% stylesheets 
+		'@WebdevBlogBundle/Resources/public/css/post/view.css'
+		output='resources/compiled/view.css'
+	%}
+			
+		<link href="{{ asset_url }}" rel="stylesheet" type="text/css">
+			
+	{% endstylesheets %}
+			    
+{% endblock %}

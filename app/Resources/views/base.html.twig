@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{% block title %}{% endblock %} - marc's Blog</title>
+		{% block stylesheets %}
+		
+			{% stylesheets 
+				'resources/css/base.css'
+				output='resources/compiled/base.css'
+			%}
+			
+				<link href="{{ asset_url }}" rel="stylesheet" type="text/css">
+			
+			{% endstylesheets %}
+
+		{% endblock %}
+		<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<div id="header_text">
+					<h1>marc's Blog</h1>
+					<p>Dein Computer ist nach zwei Jahren völlig veraltet. Dein Browser nach zwei Monaten.</p>
+				</div>
+				<div id="header_font_size" class="no_margin">
+					<a href="javascript:;" onclick="changeFontSize('-');"><img src="{{ asset('resources/images/fontname_16x16.png') }}"/></a>
+					<a href="javascript:;" onclick="changeFontSize('+');"><img src="{{ asset('resources/images/fontname_26x26.png') }}"/></a>
+				</div>
+				<ul id="header_links" class="small no_margin">
+					<li><a href="">Twitter</a></li>
+					<li><a href="">GitHub</a></li>
+					<li><a href="">Impressum</a></li>
+				</ul>
+			</div>
+			<div id="body">
+				{% block body %}{% endblock %}
+			</div>
+	    </div>
+	    {% block javascripts %}
+	    
+	    	{% javascripts 
+	    	'resources/js/jquery-1.7.js'
+	    	'resources/js/base.js'
+	    	output='resources/compiled/base.js'
+	    	%}
+	    	
+	    	<script type="text/javascript" src="{{ asset_url }}"></script>
+	    	
+	    	{% endjavascripts %}
+		{% endblock %}
+	</body>
+</html>

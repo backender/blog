@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+	<div id="blog_sidebar" class="right">
+		<p>Projekte</p>
+		<hr />
+		<ul>
+			<li><a href="">Lorem Ipsum</a></li>
+			<li><a href="">Lorem Ipsum</a></li>
+		</ul>
+		<p>Archiv</p>
+		<hr />
+		<ul>
+			<li><a href="">Lorem Ipsum</a></li>
+			<li><a href="">Lorem Ipsum</a></li>
+		</ul>
+		<p>Blogroll</p>
+		<hr />
+		<ul>
+			<li><a href="">Lorem Ipsum</a></li>
+			<li><a href="">Lorem Ipsum</a></li>
+		</ul>
+	</div>
+	
+	{% block content %}{% endblock %}
+	
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	
+	{% stylesheets 
+		'@WebdevBlogBundle/Resources/public/css/layout.css'
+		output='resources/compiled/layout.css'
+	%}
+			
+		<link href="{{ asset_url }}" rel="stylesheet" type="text/css">
+			
+	{% endstylesheets %}
+				
+{% endblock %}
