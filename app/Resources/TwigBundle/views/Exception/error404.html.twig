@@ -1,6 +1,6 @@
-{# {% extend '::base.html.twig' %} #}
+{% extends '::base.html.twig' %}
 
-{# {% block body %} #}
+{% block body %}
 	<h2>Seite nicht gefunden!</h2>
-	<pre>Fehlermeldung: </pre>
-{# {% endblock %} #}
+	<pre>Fehlermeldung: {{ exception.message }}</pre>
+{% endblock %}
