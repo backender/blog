@@ -2,6 +2,8 @@
 
 namespace Webdev\BlogBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,15 @@ class Tag
      */
     private $quantifier;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Post", mappedBy="tags")
+     */
+    private $posts;
+    
+    public function __construct()
+    {
+    	$this->posts = new ArrayCollection();	
+    }
 
     /**
      * Get id
@@ -88,5 +99,27 @@ class Tag
     public function getQuantifier()
     {
         return $this->quantifier;
+    }
+
+    /**
+     * Add posts
+     *
+     * @param Webdev\BlogBundle\Entity\Post $posts
+     * @return Tag
+     */
+    public function addPost(\Webdev\BlogBundle\Entity\Post $posts)
+    {
+        $this->posts[] = $posts;
+        return $this;
+    }
+
+    /**
+     * Get posts
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getPosts()
+    {
+        return $this->posts;
     }
 }
