@@ -41,6 +41,8 @@
 		<ul>
   			{% for tag in post.tags %}
   				<li style="display: inline; list-style-type: none;"><a href="">{{ tag.name }}</a></li>
+  			{% else %}
+  				<li>Keine Tags vorhanden</li>
   			{% endfor %}
   		</ul>
 
