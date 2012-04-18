@@ -37,6 +37,13 @@
 
 	{# post content #}
 	<h2 class="no_margin">{{ post.title }}</h2>
+	<p class="small no margin left">Tags:</p>
+		<ul>
+  			{% for tag in post.tags %}
+  				<li style="display: inline; list-style-type: none;"><a href="">{{ tag.name }}</a></li>
+  			{% endfor %}
+  		</ul>
+
 	<div id="blog_post_content">
 		{{ post.content | raw }}
 	</div>
