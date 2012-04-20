@@ -22,6 +22,12 @@ twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
 
+services:
+    webdevText.twig.extension:
+        class: Webdev\BlogBundle\Extension\WebdevTextExtension
+        tags:
+            - { name: twig.extension }
+
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
