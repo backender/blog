@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Webdev\BlogBundle\Entity\Tag;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 
 
@@ -15,6 +16,7 @@ class SearchController extends Controller
     /**
      * @Route("/tag/{name}", name="blog_search_tag")
      * @Template()
+     * @Secure(roles="ROLE_USER")
      */
     public function tagAction($name)
     {
