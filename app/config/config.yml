@@ -1,4 +1,4 @@
-imports:
+ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
@@ -21,12 +21,6 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
-
-services:
-    webdevText.twig.extension:
-        class: Webdev\BlogBundle\Extension\TextExtension
-        tags:
-            - { name: twig.extension }
 
 # Assetic Configuration
 assetic:
