@@ -19,6 +19,7 @@ class SidebarController extends Controller
 		
     	//get all tags
     	$tags = $em->getRepository('WebdevBlogBundle:Tag')->findAll();
+    	shuffle($tags);
     	
         return array('tags' => $tags);
     }

@@ -22,7 +22,9 @@ class SearchController extends Controller
 		
     	//get tag
     	$tag = $em->getRepository('WebdevBlogBundle:Tag')->findOneByName($name);
-    	
+    	if(!$tag) {
+    		throw $this->createNotFoundException('Tag "' . $name . '" ist nicht vorhanden.');
+    	}
         return array('tag' => $tag);
     }
 }
