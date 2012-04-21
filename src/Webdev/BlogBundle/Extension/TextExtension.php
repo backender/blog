@@ -1,11 +1,11 @@
 <?php
 namespace Webdev\BlogBundle\Extension;
 
-class WebdevTextExtension extends \Twig_Extension
+class TextExtension extends \Twig_Extension
 {
 	public function getName()
 	{
-		return 'webdev_text_twig_extension';
+		return 'text_twig_extension';
 	}
 	
 	public function getFilters()

@@ -24,7 +24,7 @@ twig:
 
 services:
     webdevText.twig.extension:
-        class: Webdev\BlogBundle\Extension\WebdevTextExtension
+        class: Webdev\BlogBundle\Extension\TextExtension
         tags:
             - { name: twig.extension }
 
