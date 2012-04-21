@@ -2,4 +2,7 @@
 <buildpath>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 	<buildpathentry excluding="app/cache|app/logs" kind="src" path="app"/>
+	<buildpathentry kind="src" path="vendor"/>
+	<buildpathentry kind="src" path="bin"/>
+	<buildpathentry excluding="app/|vendor/|bin/" kind="src" path=""/>
 </buildpath>
