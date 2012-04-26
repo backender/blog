@@ -12,14 +12,14 @@
 			<tbody>
 				<tr>
 					<td>Autor</td>
-					<td>post.user.username</td>
+					<td>{{ post.user.username }}</td>
 				</tr>
 				<tr>
 					<td>Erstellt am</td>
 					<td>{{ post.createdAt | date('d.m.Y') }}</td>
 				</tr>
 				<tr>
-					<td>Ge√§ndert am</td>
+					<td>Geändert am</td>
 					<td>{{ post.updatedAt | date('d.m.Y') }}</td>
 				</tr>
 				<tr>
@@ -28,7 +28,7 @@
 				</tr>
 				<tr>
 					<td>Kommentare</td>
-					<td>post.comments | length</td>
+					<td>{{ post.comments | length }}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -59,13 +59,17 @@
 	<h3 class="no_margin clear">Kommentare</h3>
 	<hr class="no_margin"/>
 	<div id="blog_post_comment_new">
+	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+		{% render 'WebdevBlogBundle:Comment:newComment' with { 'slug':post.slug } %}
+	{% else %}
 		<p>Wenn du auch einen Kommentar schreiben möchtest, melde dich bitte <a href="{{ path('login') }}">hier</a> an.</p>
-	</div>
-	for comment in post.comments
+	{% endif %}
+	</div>	
+	{% for comment in post.comments %}
 	<div id="comment_comment.id" class="blog_post_comment">
-		{% include 'WebdevBlogBundle:Comment:comment.html.twig' %}
+		{% include 'WebdevBlogBundle:Comment:comment.html.twig' with { 'comment': comment } %}
 	</div>
-	endfor
+	{% endfor %}
 
 {% endblock %}
 

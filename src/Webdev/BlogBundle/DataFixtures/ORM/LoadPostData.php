@@ -15,7 +15,7 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
 {
 	public function getOrder()
 	{
-		return 2;
+		return 4;
 	}
 	
 	public function load(ObjectManager $manager)
@@ -27,6 +27,7 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
 		$post1->addTag($this->getReference('tag1'));
 		$post1->addTag($this->getReference('tag2'));
 		$post1->addTag($this->getReference('tag3'));
+		$post1->setUser($this->getReference('admin'));
 		
 		$post2 = new Post();
 		$post2->setTitle('second symfony post');
@@ -35,6 +36,7 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
 		$post2->addTag($this->getReference('tag1'));
 		$post2->addTag($this->getReference('tag2'));
 		//$post2->addTag($this->getReference('tag3'));
+		$post2->setUser($this->getReference('admin'));
 		
 		$manager->persist($post1);
 		$manager->persist($post2);

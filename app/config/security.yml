@@ -22,7 +22,8 @@ security:
         secured_area:
             pattern: .*
             anonymous: ~
-            form_login: ~
+            form_login:
+                target_path_parameter: _target_path
             logout: ~
 
     access_control:
