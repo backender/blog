@@ -1,4 +1,4 @@
-<form action="{{ path('newComment') }}" method="post" {{ form_enctype(newcomment) }}>
+<form action="{{ path('post_newComment', {'slug': slug}) }}" method="post" {{ form_enctype(newcomment) }}>
 	{{ form_widget(newcomment) }}
     <input type="submit" />
 </form>
