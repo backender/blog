@@ -14,7 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class PostController extends Controller
 {
     /**
-     * @Route("/post/{slug}", name="blog_post_view")
+     * @Route("/post/{slug}/", name="blog_post_view")
      * @Template()
      */
     public function viewAction($slug)

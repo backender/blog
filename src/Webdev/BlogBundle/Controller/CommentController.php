@@ -18,20 +18,25 @@ use Symfony\Component\HttpFoundation\Response;
 class CommentController extends Controller
 {    
 	/**
-	 * @Route("/post/{slug}/comment", name="post_newComment")
+	 * @Route("/post/{slug}/comment/{origin}/", name="post_newComment")
      */
-	public function newCommentAction($slug)
+	public function newCommentAction($slug, $origin = NULL)
 	{
-		$request = $this->getRequest();
-		
+		$request = $this->getRequest();		
 		$em = $this->getDoctrine()->getEntityManager();
+
 		$post = $em->getRepository('WebdevBlogBundle:Post')->findOneBySlug($slug);
 		
 		$comment = new Comment();
 		$comment->setContent('');
 		$comment->setCreatedAt(new \DateTime());
 		$comment->setUser($this->getUser());
-		$comment->setPost($post);
+		if ($origin == NULL) {
+			$comment->setPost($post);
+		} else {
+			$origin_comment = $em->getRepository('WebdevBlogBundle:Comment')->findOneById($origin);
+			$comment->setOrigin($origin_comment);
+		}
 		
 		$form = $this->createFormBuilder($comment)
 		->add('content', 'textarea')
@@ -50,6 +55,8 @@ class CommentController extends Controller
 				return $this->redirect($this->generateUrl("blog_post_view", array('slug' => $slug)));
 			}
 		}
-		return $this->render('WebdevBlogBundle:Comment:newcomment.html.twig', array('newcomment' => $form->createView(), 'slug' => $slug));
+		
+		return $this->render('WebdevBlogBundle:Comment:newcomment.html.twig', array('newcomment' => $form->createView(), 'slug' => $slug, 'origin' => $origin));
 	}
+	
 }
