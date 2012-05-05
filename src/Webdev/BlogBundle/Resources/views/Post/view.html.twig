@@ -62,7 +62,7 @@
 	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 		{% render 'WebdevBlogBundle:Comment:newComment' with { 'slug':post.slug } %}
 	{% else %}
-		<p>Wenn du auch einen Kommentar schreiben möchtest, melde dich bitte <a href="{{ path('login') }}">hier</a> an.</p>
+		<p>Wenn du auch einen Kommentar schreiben möchtest, melde dich bitte <a href="{{ path('fos_user_security_login') }}">hier</a> an.</p>
 	{% endif %}
 	</div>	
 	{% for comment in post.comments %}

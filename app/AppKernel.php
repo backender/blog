@@ -18,7 +18,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
         		
-        	new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),	
+        	new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
+        	new FOS\UserBundle\FOSUserBundle(),
         	
             new Webdev\BlogBundle\WebdevBlogBundle(),
             new Webdev\AppBundle\WebdevAppBundle(),
