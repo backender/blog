@@ -30,9 +30,9 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 		$userManager = $this->container->get('fos_user.user_manager');
 		
 		$user = $userManager->createUser();
-		$user->setUsername('John');
+		$user->setUsername('marc');
 		$user->setEmail('john.doe@example.com');
-		$user->setPlainPassword('12345');
+		$user->setPlainPassword('marc');
 		$user->setEnabled("1");
 		
 		$userManager->updateUser($user);
