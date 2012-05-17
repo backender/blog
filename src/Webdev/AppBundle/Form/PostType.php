@@ -12,13 +12,18 @@ class PostType extends AbstractType
         $builder
             ->add('title')
             ->add('slug')
-            ->add('content')
+            //->add('content')
+        	->add('content', 'textarea', array(
+        		'attr' => array(
+            	'class' => 'tinymce',
+            	'data-theme' => 'advanced' // simple, medium, bbcode
+       		 )))
             ->add('created_at')
             ->add('updated_at')
-            ->add('clicks')
             ->add('tags')
             ->add('user')
         ;
+
     }
 
     public function getName()

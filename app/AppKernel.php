@@ -23,6 +23,9 @@ class AppKernel extends Kernel
         	
             new Webdev\BlogBundle\WebdevBlogBundle(),
             new Webdev\AppBundle\WebdevAppBundle(),
+        		
+        	new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+        	new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -2,6 +2,8 @@
 
 namespace Webdev\AppBundle\Controller;
 
+use Webdev\AppBundle\Service\PostService;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -19,14 +21,6 @@ use Symfony\Component\Security\Core\SecurityContext;
  */
 class PostController extends Controller
 {
-	public function createSlug($str)
-	{
-		$str = strtolower(trim($str));
-		$str = preg_replace('/[^a-z0-9-]/', '-', $str);
-		$str = preg_replace('/-+/', "-", $str);
-	
-		return $str;
-	}
 	
     /**
      * Lists all Post entities.
@@ -78,7 +72,8 @@ class PostController extends Controller
         $entity = new Post();
         $form   = $this->createForm(new PostType(), $entity);
         $form->remove('slug'); //don't wanna have it when i create a new post
-        
+        $form->remove('updated_at'); // *
+        $form->remove('user');
 
         return array(
             'entity' => $entity,
@@ -103,8 +98,15 @@ class PostController extends Controller
         if ($form->isValid()) {
         	
         	//let's set the slug here
-        	$slug = $this->createSlug($entity->getTitle());
+        	$slug = $this->get("webdevPost.service");
+        	$slug = $slug->createSlug($entity->getTitle());
         	$entity->setSlug($slug);
+        	
+        	//set updated_at == created_at
+        	$entity->setUpdatedAt($entity->getCreatedAt());
+        	
+        	//set user
+        	$entity->setUser($this->getUser());
         	
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($entity);
