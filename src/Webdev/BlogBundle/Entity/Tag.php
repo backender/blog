@@ -46,6 +46,10 @@ class Tag
     {
     	$this->posts = new ArrayCollection();	
     }
+    
+    public function __toString() {
+    	return $this->name;
+    }
 
     /**
      * Get id

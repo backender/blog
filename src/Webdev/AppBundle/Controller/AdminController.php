@@ -13,9 +13,9 @@ use JMS\SecurityExtraBundle\Annotation\Secure;
 class AdminController extends Controller
 {
 	/**
-	 * @Route("/admin", name="admin_dashboard")
+	 * @Route("/admin/", name="admin_dashboard")
 	 * @Template()
-	 * @Secure(roles="ROLE_USER")
+	 * @Secure(roles="ROLE_ADMIN")
 	 */
 	public function dashboardAction() 
 	{
