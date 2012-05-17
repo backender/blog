@@ -90,6 +90,10 @@ class Post
     	$this->tags = new ArrayCollection();
     	$this->comments = new ArrayCollection();
     }
+    
+    public function __toString() {
+    	return $this->slug;
+    }
 
     /**
      * Get id

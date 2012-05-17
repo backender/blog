@@ -62,6 +62,10 @@ class Comment
     {
     	$this->answers = new ArrayCollection();
     }
+    
+    public function __toString() {
+    	return $this->content;
+    }
 
     /**
      * Get id
