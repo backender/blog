@@ -39,13 +39,14 @@ class CommentController extends Controller
 		}
 		
 		$form = $this->createFormBuilder($comment)
-		->add('content', 'textarea', array(
+		/*->add('content', 'textarea', array(
         	'attr' => array(
             	'class' => 'tinymce',
             	'data-theme' => 'simple' // simple, advanced, bbcode
         		)
 			)
-		)
+		)*/
+		->add('content', 'ckeditor')
 		->getForm();
 		
 		$validator = $this->get('validator');
