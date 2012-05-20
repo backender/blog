@@ -1,0 +1,3 @@
+services:
+    webdevPost.service:
+        class: Webdev\AppBundle\Service\PostService

@@ -15,7 +15,7 @@ class LoadTagData extends AbstractFixture implements OrderedFixtureInterface
 {
 	public function getOrder()
 	{
-		return 1;
+		return 2;
 	}
 	
 	public function load(ObjectManager $manager)

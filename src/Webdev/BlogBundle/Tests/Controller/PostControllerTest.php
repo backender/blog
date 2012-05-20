@@ -6,21 +6,49 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class PostControllerTest extends WebTestCase
 {
-    public function testView()
+    /*
+    public function testCompleteScenario()
     {
+        // Create a new client to browse the application
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/post/symfony2-tutorial');
+        // Create a new entry in the database
+        $crawler = $client->request('GET', '/admin/post/');
+        $this->assertTrue(200 === $client->getResponse()->getStatusCode());
+        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
-        $this->assertTrue($crawler->filter('h2:contains("symfony2 Tutorial")')->count() > 0);
+        // Fill in the form and submit it
+        $form = $crawler->selectButton('Create')->form(array(
+            'post[field_name]'  => 'Test',
+            // ... other fields to fill
+        ));
+
+        $client->submit($form);
+        $crawler = $client->followRedirect();
+
+        // Check data in the show view
+        $this->assertTrue($crawler->filter('td:contains("Test")')->count() > 0);
+
+        // Edit the entity
+        $crawler = $client->click($crawler->selectLink('Edit')->link());
+
+        $form = $crawler->selectButton('Edit')->form(array(
+            'post[field_name]'  => 'Foo',
+            // ... other fields to fill
+        ));
+
+        $client->submit($form);
+        $crawler = $client->followRedirect();
+
+        // Check the element contains an attribute with value equals "Foo"
+        $this->assertTrue($crawler->filter('[value="Foo"]')->count() > 0);
+
+        // Delete the entity
+        $client->submit($crawler->selectButton('Delete')->form());
+        $crawler = $client->followRedirect();
+
+        // Check the entity has been delete on the list
+        $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
     }
-    
-    public function testPostLoader()
-    {
-    	$client = static::createClient();
-    	
-        $crawler = $client->request('GET', '/post/symfony2-tutorial');
-    	    	
-    	$this->assertEquals($crawler->filterXPath('/html/body/div/div[2]/ul/li/a')->text(), 'symfony 2');
-    }
+    */
 }

@@ -18,10 +18,15 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
         		
-        	new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),	
+        	new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
+        	new FOS\UserBundle\FOSUserBundle(),
         	
             new Webdev\BlogBundle\WebdevBlogBundle(),
             new Webdev\AppBundle\WebdevAppBundle(),
+        		
+        	new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+        	//new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+        	new Trsteel\CkeditorBundle\TrsteelCkeditorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

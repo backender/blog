@@ -11,6 +11,10 @@
 		<table>
 			<tbody>
 				<tr>
+					<td>Autor</td>
+					<td>{{ post.user.username }}</td>
+				</tr>
+				<tr>
 					<td>Erstellt am</td>
 					<td>{{ post.createdAt | date('d.m.Y') }}</td>
 				</tr>
@@ -24,7 +28,7 @@
 				</tr>
 				<tr>
 					<td>Kommentare</td>
-					<td>10</td>
+					<td>{{ post.comments | length }}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -37,15 +41,16 @@
 
 	{# post content #}
 	<h2 class="no_margin">{{ post.title }}</h2>
-	<p class="small no margin left">Tags:</p>
-		<ul>
-  			{% for tag in post.tags %}
-  				<li style="display: inline; list-style-type: none;"><a href="{{ path('blog_search_tag', { 'name': tag.name }) }}">{{ tag.name }}</a></li>
-  			{% else %}
-  				<li>Keine Tags vorhanden</li>
-  			{% endfor %}
-  		</ul>
-
+	<div id="blog_post_tags">
+		<p class="small no_margin left">Tags:</p>
+			<ul class="small no_margin left">
+				{% for tag in post.tags %}
+					<li><a href="{{ path('blog_search_tag', { 'name': tag.name }) }}">{{ tag.name }}</a></li>
+				{% else %}
+					<li>Keine Tags vorhanden.</li>
+				{% endfor %}
+			</ul>
+	</div>
 	<div id="blog_post_content">
 		{{ post.content | raw }}
 	</div>
@@ -54,16 +59,25 @@
 	<h3 class="no_margin clear">Kommentare</h3>
 	<hr class="no_margin"/>
 	<div id="blog_post_comment_new">
-		<p>Wenn du auch einen Kommentar schreiben möchtest, melde dich bitte <a href="">hier</a> an.</p>
+	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+		{% render 'WebdevBlogBundle:Comment:newComment' with { 'slug':post.slug } %}
+	{% else %}
+		<p>Wenn du auch einen Kommentar schreiben möchtest, melde dich bitte <a href="{{ path('fos_user_security_login') }}">hier</a> an.</p>
+	{% endif %}
+	</div>	
+	{% for comment in post.comments %}
+	<div id="comment_comment.id" class="blog_post_comment">
+		{% include 'WebdevBlogBundle:Comment:comment.html.twig' with { 'comment': comment } %}
 	</div>
+	{% endfor %}
 
 {% endblock %}
 
-	
 {% block stylesheets %}
+
 	{{ parent() }}
 	
-	{% stylesheets 
+	{% stylesheets
 		'@WebdevBlogBundle/Resources/public/css/post/view.css'
 		output='resources/compiled/view.css'
 	%}
@@ -71,5 +85,20 @@
 		<link href="{{ asset_url }}" rel="stylesheet" type="text/css">
 			
 	{% endstylesheets %}
-			    
+
+{% endblock %}
+
+{% block javascripts %}
+
+	{{ parent() }}
+	    
+	{% javascripts
+		'@WebdevBlogBundle/Resources/public/js/comment.js'
+		output='resources/compiled/view.js'
+	%}
+	    	
+	<script type="text/javascript" src="{{ asset_url }}"></script>
+	    	
+	{% endjavascripts %}
+	    
 {% endblock %}

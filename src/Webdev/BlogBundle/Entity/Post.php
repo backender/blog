@@ -64,12 +64,23 @@ class Post
      * @ORM\Column(name="clicks", type="integer")
      */
     private $clicks;
-   
+    
     /**
      * @ORM\ManyToMany(targetEntity="Tag", inversedBy="posts")
      * @ORM\JoinTable(name="post_tags")
      */
     private $tags;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Webdev\AppBundle\Entity\User", inversedBy="posts")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
+     */
+    private $user;
+    
+    /**
+	 * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+     */
+    private $comments;
     
     public function __construct()
     {
@@ -77,6 +88,7 @@ class Post
     	$this->updated_at = new \DateTime();
     	$this->clicks = 0;
     	$this->tags = new ArrayCollection();
+    	$this->comments = new ArrayCollection();
     }
 
     /**
@@ -249,6 +261,18 @@ class Post
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set user
+     *
+     * @param Webdev\AppBundle\Entity\User $user
+     * @return Post
+     */
+    public function setUser(\Webdev\AppBundle\Entity\User $user)
+    {
+        $this->user = $user;
+        return $this;
     }
 
     /**
