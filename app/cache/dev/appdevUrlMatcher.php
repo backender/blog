@@ -266,6 +266,59 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_admin_post_delete:
 
+        // admin_project
+        if (rtrim($pathinfo, '/') === '/admin/project') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'admin_project');
+            }
+            return array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::indexAction',  '_route' => 'admin_project',);
+        }
+
+        // admin_project_show
+        if (0 === strpos($pathinfo, '/admin/project') && preg_match('#^/admin/project/(?P<id>[^/]+?)/show$#xs', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::showAction',)), array('_route' => 'admin_project_show'));
+        }
+
+        // admin_project_new
+        if ($pathinfo === '/admin/project/new') {
+            return array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::newAction',  '_route' => 'admin_project_new',);
+        }
+
+        // admin_project_create
+        if ($pathinfo === '/admin/project/create') {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_admin_project_create;
+            }
+            return array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::createAction',  '_route' => 'admin_project_create',);
+        }
+        not_admin_project_create:
+
+        // admin_project_edit
+        if (0 === strpos($pathinfo, '/admin/project') && preg_match('#^/admin/project/(?P<id>[^/]+?)/edit$#xs', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::editAction',)), array('_route' => 'admin_project_edit'));
+        }
+
+        // admin_project_update
+        if (0 === strpos($pathinfo, '/admin/project') && preg_match('#^/admin/project/(?P<id>[^/]+?)/update$#xs', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_admin_project_update;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::updateAction',)), array('_route' => 'admin_project_update'));
+        }
+        not_admin_project_update:
+
+        // admin_project_delete
+        if (0 === strpos($pathinfo, '/admin/project') && preg_match('#^/admin/project/(?P<id>[^/]+?)/delete$#xs', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_admin_project_delete;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::deleteAction',)), array('_route' => 'admin_project_delete'));
+        }
+        not_admin_project_delete:
+
         // login_old
         if ($pathinfo === '/login_old') {
             return array (  '_controller' => 'Webdev\\AppBundle\\Controller\\SecurityController::loginAction',  '_route' => 'login_old',);
@@ -353,6 +406,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // blog_search_tag
         if (0 === strpos($pathinfo, '/tag') && preg_match('#^/tag/(?P<name>[^/]+?)$#xs', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\SearchController::tagAction',)), array('_route' => 'blog_search_tag'));
+        }
+
+        // blog_search_project
+        if (0 === strpos($pathinfo, '/project') && preg_match('#^/project/(?P<name>[^/]+?)$#xs', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\SearchController::projectAction',)), array('_route' => 'blog_search_project'));
         }
 
         // fos_user_security_login

@@ -16,7 +16,6 @@ class SearchController extends Controller
     /**
      * @Route("/tag/{name}", name="blog_search_tag")
      * @Template()
-     * @Secure(roles="ROLE_USER")
      */
     public function tagAction($name)
     {
@@ -28,5 +27,22 @@ class SearchController extends Controller
     		throw $this->createNotFoundException('Tag "' . $name . '" ist nicht vorhanden.');
     	}
         return array('tag' => $tag);
+    }
+    
+    /**
+     * @Route("/project/{name}", name="blog_search_project")
+     * @Template()
+     */
+    public function projectAction($name)
+    {
+    	$em = $this->getDoctrine()->getEntityManager();
+    
+    	//get tag
+    	$project = $em->getRepository('WebdevBlogBundle:Project')->findOneByName($name);
+    	
+    	if(!$project) {
+    		throw $this->createNotFoundException('Projekt "' . $name . '" ist nicht vorhanden.');
+    	}
+    	return array('project' => $project);
     }
 }

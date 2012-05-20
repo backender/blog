@@ -23,4 +23,16 @@ class SidebarController extends Controller
     	
         return array('tags' => $tags);
     }
+    
+    /**
+     * @Template()
+     */
+    public function showProjectsAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $projects = $em->getRepository('WebdevBlogBundle:Project')->findAll();
+
+        return array('projects' => $projects);
+    }
 }

@@ -82,6 +82,12 @@ class Post
      */
     private $comments;
     
+    /**
+     * @ORM\ManyToOne(targetEntity="Webdev\BlogBundle\Entity\Project", inversedBy="posts")
+     * @ORM\JoinColumn(name="project_id", referencedColumnName="id", nullable=true, onDelete="CASCADE")
+     */
+    private $projects;
+    
     public function __construct()
     {
     	$this->created_at = new \DateTime();
@@ -297,5 +303,29 @@ class Post
     public function getComments()
     {
         return $this->comments;
+    }
+
+
+
+    /**
+     * Set projects
+     *
+     * @param Webdev\BlogBundle\Entity\Project $projects
+     * @return Post
+     */
+    public function setProjects(\Webdev\BlogBundle\Entity\Project $projects = null)
+    {
+        $this->projects = $projects;
+        return $this;
+    }
+
+    /**
+     * Get projects
+     *
+     * @return Webdev\BlogBundle\Entity\Project 
+     */
+    public function getProjects()
+    {
+        return $this->projects;
     }
 }

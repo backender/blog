@@ -22,6 +22,7 @@ class PostType extends AbstractType
             ->add('updated_at')
             ->add('tags')
             ->add('user')
+            ->add('projects')
         ;
 
     }

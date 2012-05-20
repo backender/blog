@@ -16,6 +16,7 @@
             <th>Created_at</th>
             <th>Updated_at</th>
             <th>Clicks</th>
+            <th>Project</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -29,6 +30,7 @@
             <td>{% if entity.createdat %}{{ entity.createdat|date('Y-m-d H:i:s') }}{% endif%}</td>
             <td>{% if entity.updatedat %}{{ entity.updatedat|date('Y-m-d H:i:s') }}{% endif%}</td>
             <td>{{ entity.clicks }}</td>
+            <td>{{ entity.projects }}</td>
             <td>
                 <ul>
                     <li>

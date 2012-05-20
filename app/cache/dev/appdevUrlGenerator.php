@@ -51,6 +51,13 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        'admin_post_edit' => true,
        'admin_post_update' => true,
        'admin_post_delete' => true,
+       'admin_project' => true,
+       'admin_project_show' => true,
+       'admin_project_new' => true,
+       'admin_project_create' => true,
+       'admin_project_edit' => true,
+       'admin_project_update' => true,
+       'admin_project_delete' => true,
        'login_old' => true,
        'login_check' => true,
        'logout' => true,
@@ -64,6 +71,7 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        'post_newComment' => true,
        'blog_post_view' => true,
        'blog_search_tag' => true,
+       'blog_search_project' => true,
        'fos_user_security_login' => true,
        'fos_user_security_check' => true,
        'fos_user_security_logout' => true,
@@ -291,6 +299,41 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         return array(array (  0 => 'id',), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\PostController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/admin/post',  ),));
     }
 
+    private function getadmin_projectRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/project/',  ),));
+    }
+
+    private function getadmin_project_showRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::showAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/admin/project',  ),));
+    }
+
+    private function getadmin_project_newRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/project/new',  ),));
+    }
+
+    private function getadmin_project_createRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::createAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/admin/project/create',  ),));
+    }
+
+    private function getadmin_project_editRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::editAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/admin/project',  ),));
+    }
+
+    private function getadmin_project_updateRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::updateAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/update',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/admin/project',  ),));
+    }
+
+    private function getadmin_project_deleteRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\ProjectController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/admin/project',  ),));
+    }
+
     private function getlogin_oldRouteInfo()
     {
         return array(array (), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\SecurityController::loginAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/login_old',  ),));
@@ -354,6 +397,11 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function getblog_search_tagRouteInfo()
     {
         return array(array (  0 => 'name',), array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\SearchController::tagAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'name',  ),  1 =>   array (    0 => 'text',    1 => '/tag',  ),));
+    }
+
+    private function getblog_search_projectRouteInfo()
+    {
+        return array(array (  0 => 'name',), array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\SearchController::projectAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'name',  ),  1 =>   array (    0 => 'text',    1 => '/project',  ),));
     }
 
     private function getfos_user_security_loginRouteInfo()

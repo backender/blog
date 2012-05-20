@@ -33,7 +33,7 @@ class LoadCommentData extends AbstractFixture implements OrderedFixtureInterface
 	public function load(ObjectManager $manager)
 	{
 		$userManager = $this->container->get('fos_user.user_manager');
-		$user1 = $userManager->findUserByUsername('John');
+		$user1 = $userManager->findUserByUsername('marc');
 				
 		$comment1 = new Comment();
 		$comment1->setPost($this->getReference('post1'));

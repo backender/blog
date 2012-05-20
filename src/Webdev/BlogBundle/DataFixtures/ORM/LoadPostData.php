@@ -31,7 +31,7 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface, C
 	public function load(ObjectManager $manager)
 	{
 		$userManager = $this->container->get('fos_user.user_manager');
-		$user1 = $userManager->findUserByUsername('John');
+		$user1 = $userManager->findUserByUsername('marc');
 		
 		$post1 = new Post();
 		$post1->setTitle('symfony2 Tutorial');
