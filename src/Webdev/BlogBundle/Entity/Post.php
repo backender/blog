@@ -73,7 +73,7 @@ class Post
     
     /**
      * @ORM\ManyToOne(targetEntity="Webdev\AppBundle\Entity\User", inversedBy="posts")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="cascade")
      */
     private $user;
     
@@ -84,7 +84,7 @@ class Post
     
     /**
      * @ORM\ManyToOne(targetEntity="Webdev\BlogBundle\Entity\Project", inversedBy="posts")
-     * @ORM\JoinColumn(name="project_id", referencedColumnName="id", nullable=true, onDelete="CASCADE")
+     * @ORM\JoinColumn(name="project_id", referencedColumnName="id", nullable=true, onDelete="set null")
      */
     private $projects;
     
