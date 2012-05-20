@@ -408,7 +408,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_FactoryService()
     {
-        return $this->services['form.factory'] = new \Symfony\Component\Form\FormFactory(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('field' => 'form.type.field', 'form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'csrf' => 'form.type.csrf', 'entity' => 'form.type.entity', 'fos_user_username' => 'fos_user.username_form_type', 'fos_user_profile' => 'fos_user.profile.form.type', 'fos_user_registration' => 'fos_user.registration.form.type', 'fos_user_change_password' => 'fos_user.change_password.form.type', 'fos_user_resetting' => 'fos_user.resetting.form.type', 'ckeditor' => 'form.type.ckeditor'), array('field' => array(0 => 'form.type_extension.field'), 'form' => array(0 => 'form.type_extension.csrf')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))));
+        return $this->services['form.factory'] = new \Symfony\Component\Form\FormFactory(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('field' => 'form.type.field', 'form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'csrf' => 'form.type.csrf', 'entity' => 'form.type.entity', 'fos_user_username' => 'fos_user.username_form_type', 'fos_user_profile' => 'fos_user.profile.form.type', 'fos_user_registration' => 'fos_user.registration.form.type', 'fos_user_change_password' => 'fos_user.change_password.form.type', 'fos_user_resetting' => 'fos_user.resetting.form.type', 'ckeditor' => 'trsteel_ckeditor.form.type'), array('field' => array(0 => 'form.type_extension.field'), 'form' => array(0 => 'form.type_extension.csrf')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))));
     }
 
     /**
@@ -448,19 +448,6 @@ class appDevDebugProjectContainer extends Container
     protected function getForm_Type_ChoiceService()
     {
         return $this->services['form.type.choice'] = new \Symfony\Component\Form\Extension\Core\Type\ChoiceType();
-    }
-
-    /**
-     * Gets the 'form.type.ckeditor' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return Ivory\CKEditorBundle\Form\Type\CKEditorType A Ivory\CKEditorBundle\Form\Type\CKEditorType instance.
-     */
-    protected function getForm_Type_CkeditorService()
-    {
-        return $this->services['form.type.ckeditor'] = new \Ivory\CKEditorBundle\Form\Type\CKEditorType();
     }
 
     /**
@@ -1623,7 +1610,7 @@ class appDevDebugProjectContainer extends Container
         $l = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $k, '/logout', '/', NULL);
         $l->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($j, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_manager')), 'main', $a, $c), 2 => $l, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $e, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $k, 'main', array('check_path' => '/login_check', 'login_path' => '/login', 'use_forward' => false, 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false, 'failure_path' => NULL, 'failure_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), NULL, NULL, $a, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '4fb56a1bd771c', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $j, $e, $a)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $k, new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($this->get('http_kernel'), $k, '/login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($j, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_manager')), 'main', $a, $c), 2 => $l, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $e, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $k, 'main', array('check_path' => '/login_check', 'login_path' => '/login', 'use_forward' => false, 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false, 'failure_path' => NULL, 'failure_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), NULL, NULL, $a, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '4fb8eb075f90f', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $j, $e, $a)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $k, new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($this->get('http_kernel'), $k, '/login', false), NULL, NULL, $a));
     }
 
     /**
@@ -2541,6 +2528,64 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'trsteel_ckeditor.form.type' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Trsteel\CkeditorBundle\Form\CkeditorType A Trsteel\CkeditorBundle\Form\CkeditorType instance.
+     */
+    protected function getTrsteelCkeditor_Form_TypeService()
+    {
+        $this->services['trsteel_ckeditor.form.type'] = $instance = new \Trsteel\CkeditorBundle\Form\CkeditorType($this);
+
+        $instance->addTransformer($this->get('trsteel_ckeditor.transformer.strip_js'), 'strip_js');
+        $instance->addTransformer($this->get('trsteel_ckeditor.transformer.strip_css'), 'strip_css');
+        $instance->addTransformer($this->get('trsteel_ckeditor.transformer.strip_comments'), 'strip_comments');
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'trsteel_ckeditor.transformer.strip_comments' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Trsteel\CkeditorBundle\Transformer\StripComments A Trsteel\CkeditorBundle\Transformer\StripComments instance.
+     */
+    protected function getTrsteelCkeditor_Transformer_StripCommentsService()
+    {
+        return $this->services['trsteel_ckeditor.transformer.strip_comments'] = new \Trsteel\CkeditorBundle\Transformer\StripComments();
+    }
+
+    /**
+     * Gets the 'trsteel_ckeditor.transformer.strip_css' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Trsteel\CkeditorBundle\Transformer\StripCSS A Trsteel\CkeditorBundle\Transformer\StripCSS instance.
+     */
+    protected function getTrsteelCkeditor_Transformer_StripCssService()
+    {
+        return $this->services['trsteel_ckeditor.transformer.strip_css'] = new \Trsteel\CkeditorBundle\Transformer\StripCSS();
+    }
+
+    /**
+     * Gets the 'trsteel_ckeditor.transformer.strip_js' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Trsteel\CkeditorBundle\Transformer\StripJS A Trsteel\CkeditorBundle\Transformer\StripJS instance.
+     */
+    protected function getTrsteelCkeditor_Transformer_StripJsService()
+    {
+        return $this->services['trsteel_ckeditor.transformer.strip_js'] = new \Trsteel\CkeditorBundle\Transformer\StripJS();
+    }
+
+    /**
      * Gets the 'twig' service.
      *
      * This service is shared.
@@ -2559,7 +2604,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\CodeExtension($this));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($this->get('router')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension($this->get('form.csrf_provider'), array(0 => 'form_div_layout.html.twig', 1 => 'IvoryCKEditorBundle:Form:ckeditor_widget.html.twig')));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension($this->get('form.csrf_provider'), array(0 => 'form_div_layout.html.twig', 1 => 'TrsteelCkeditorBundle:Form:ckeditor_widget.html.twig')));
         $instance->addExtension(new \Twig_Extension_Debug());
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(0 => 'WebdevBlogBundle')));
         $instance->addExtension($this->get('webdevtext.twig.extension'));
@@ -2869,7 +2914,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_manager'), $this->get('fos_user.user_checker'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('4fb56a1bd771c')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_manager'), $this->get('fos_user.user_checker'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('4fb8eb075f90f')), true);
 
         $instance->setEventDispatcher($this->get('event_dispatcher'));
 
@@ -3014,7 +3059,7 @@ class appDevDebugProjectContainer extends Container
                 'WebdevBlogBundle' => 'Webdev\\BlogBundle\\WebdevBlogBundle',
                 'WebdevAppBundle' => 'Webdev\\AppBundle\\WebdevAppBundle',
                 'StfalconTinymceBundle' => 'Stfalcon\\Bundle\\TinymceBundle\\StfalconTinymceBundle',
-                'IvoryCKEditorBundle' => 'Ivory\\CKEditorBundle\\IvoryCKEditorBundle',
+                'TrsteelCkeditorBundle' => 'Trsteel\\CkeditorBundle\\TrsteelCkeditorBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
@@ -3264,7 +3309,7 @@ class appDevDebugProjectContainer extends Container
             'twig.exception_listener.controller' => 'Symfony\\Bundle\\TwigBundle\\Controller\\ExceptionController::showAction',
             'twig.form.resources' => array(
                 0 => 'form_div_layout.html.twig',
-                1 => 'IvoryCKEditorBundle:Form:ckeditor_widget.html.twig',
+                1 => 'TrsteelCkeditorBundle:Form:ckeditor_widget.html.twig',
             ),
             'twig.options' => array(
                 'debug' => true,
@@ -3522,7 +3567,102 @@ class appDevDebugProjectContainer extends Container
                     ),
                 ),
             ),
-            'form.type.ckeditor.class' => 'Ivory\\CKEditorBundle\\Form\\Type\\CKEditorType',
+            'trsteel_ckeditor.form.type.class' => 'Trsteel\\CkeditorBundle\\Form\\CkeditorType',
+            'trsteel_ckeditor.ckeditor.transformers' => array(
+                0 => 'strip_js',
+                1 => 'strip_css',
+                2 => 'strip_comments',
+            ),
+            'trsteel_ckeditor.ckeditor.toolbar' => array(
+                0 => 'document',
+                1 => 'clipboard',
+                2 => 'editing',
+                3 => '/',
+                4 => 'basicstyles',
+                5 => 'paragraph',
+                6 => 'links',
+                7 => '/',
+                8 => 'insert',
+                9 => 'styles',
+                10 => 'tools',
+            ),
+            'trsteel_ckeditor.ckeditor.toolbar_groups' => array(
+                'document' => array(
+                    0 => 'Source',
+                    1 => '-',
+                    2 => 'Save',
+                    3 => '-',
+                    4 => 'Templates',
+                ),
+                'clipboard' => array(
+                    0 => 'Cut',
+                    1 => 'Copy',
+                    2 => 'Paste',
+                    3 => 'PasteText',
+                    4 => 'PasteFromWord',
+                    5 => '-',
+                    6 => 'Undo',
+                    7 => 'Redo',
+                ),
+                'editing' => array(
+                    0 => 'Find',
+                    1 => 'Replace',
+                    2 => '-',
+                    3 => 'SelectAll',
+                ),
+                'basicstyles' => array(
+                    0 => 'Bold',
+                    1 => 'Italic',
+                    2 => 'Underline',
+                    3 => 'Strike',
+                    4 => 'Subscript',
+                    5 => 'Superscript',
+                    6 => '-',
+                    7 => 'RemoveFormat',
+                ),
+                'paragraph' => array(
+                    0 => 'NumberedList',
+                    1 => 'BulletedList',
+                    2 => '-',
+                    3 => 'Outdent',
+                    4 => 'Indent',
+                    5 => '-',
+                    6 => 'JustifyLeft',
+                    7 => 'JustifyCenter',
+                    8 => 'JustifyRight',
+                    9 => 'JustifyBlock',
+                ),
+                'links' => array(
+                    0 => 'Link',
+                    1 => 'Unlink',
+                    2 => 'Anchor',
+                ),
+                'insert' => array(
+                    0 => 'Image',
+                    1 => 'Flash',
+                    2 => 'Table',
+                    3 => 'HorizontalRule',
+                ),
+                'styles' => array(
+                    0 => 'Styles',
+                    1 => 'Format',
+                ),
+                'tools' => array(
+                    0 => 'Maximize',
+                    1 => 'ShowBlocks',
+                ),
+            ),
+            'trsteel_ckeditor.ckeditor.startup_outline_blocks' => true,
+            'trsteel_ckeditor.ckeditor.ui_color' => NULL,
+            'trsteel_ckeditor.ckeditor.width' => NULL,
+            'trsteel_ckeditor.ckeditor.height' => NULL,
+            'trsteel_ckeditor.ckeditor.language' => NULL,
+            'trsteel_ckeditor.ckeditor.filebrowser_browse_url' => NULL,
+            'trsteel_ckeditor.ckeditor.filebrowser_upload_url' => NULL,
+            'trsteel_ckeditor.ckeditor.filebrowser_image_browse_url' => NULL,
+            'trsteel_ckeditor.ckeditor.filebrowser_image_upload_url' => NULL,
+            'trsteel_ckeditor.ckeditor.filebrowser_flash_browse_url' => NULL,
+            'trsteel_ckeditor.ckeditor.filebrowser_flash_upload_url' => NULL,
             'web_profiler.debug_toolbar.class' => 'Symfony\\Bundle\\WebProfilerBundle\\EventListener\\WebDebugToolbarListener',
             'web_profiler.debug_toolbar.intercept_redirects' => false,
             'web_profiler.debug_toolbar.mode' => 2,

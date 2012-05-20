@@ -18,7 +18,7 @@ $loader->registerNamespaces(array(
     'Doctrine\\DBAL'   => __DIR__.'/../vendor/doctrine-dbal/lib',
     'Doctrine'         => __DIR__.'/../vendor/doctrine/lib',
 	'Stfalcon'         => __DIR__.'/../vendor/bundles', //tinymce
-	'Ivory' 		   => __DIR__.'/../vendor/bundles', //ckeditor
+	'Trsteel'		   => __DIR__.'/../vendor/bundles', //ckeditor
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',

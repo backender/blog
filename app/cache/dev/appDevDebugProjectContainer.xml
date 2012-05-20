@@ -22,7 +22,7 @@
       <parameter key="WebdevBlogBundle">Webdev\BlogBundle\WebdevBlogBundle</parameter>
       <parameter key="WebdevAppBundle">Webdev\AppBundle\WebdevAppBundle</parameter>
       <parameter key="StfalconTinymceBundle">Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle</parameter>
-      <parameter key="IvoryCKEditorBundle">Ivory\CKEditorBundle\IvoryCKEditorBundle</parameter>
+      <parameter key="TrsteelCkeditorBundle">Trsteel\CkeditorBundle\TrsteelCkeditorBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -270,7 +270,7 @@
     <parameter key="twig.exception_listener.controller">Symfony\Bundle\TwigBundle\Controller\ExceptionController::showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
-      <parameter>IvoryCKEditorBundle:Form:ckeditor_widget.html.twig</parameter>
+      <parameter>TrsteelCkeditorBundle:Form:ckeditor_widget.html.twig</parameter>
     </parameter>
     <parameter key="twig.options" type="collection">
       <parameter key="debug">true</parameter>
@@ -520,7 +520,102 @@
         </parameter>
       </parameter>
     </parameter>
-    <parameter key="form.type.ckeditor.class">Ivory\CKEditorBundle\Form\Type\CKEditorType</parameter>
+    <parameter key="trsteel_ckeditor.form.type.class">Trsteel\CkeditorBundle\Form\CkeditorType</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.transformers" type="collection">
+      <parameter>strip_js</parameter>
+      <parameter>strip_css</parameter>
+      <parameter>strip_comments</parameter>
+    </parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.toolbar" type="collection">
+      <parameter>document</parameter>
+      <parameter>clipboard</parameter>
+      <parameter>editing</parameter>
+      <parameter>/</parameter>
+      <parameter>basicstyles</parameter>
+      <parameter>paragraph</parameter>
+      <parameter>links</parameter>
+      <parameter>/</parameter>
+      <parameter>insert</parameter>
+      <parameter>styles</parameter>
+      <parameter>tools</parameter>
+    </parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.toolbar_groups" type="collection">
+      <parameter key="document" type="collection">
+        <parameter>Source</parameter>
+        <parameter>-</parameter>
+        <parameter>Save</parameter>
+        <parameter>-</parameter>
+        <parameter>Templates</parameter>
+      </parameter>
+      <parameter key="clipboard" type="collection">
+        <parameter>Cut</parameter>
+        <parameter>Copy</parameter>
+        <parameter>Paste</parameter>
+        <parameter>PasteText</parameter>
+        <parameter>PasteFromWord</parameter>
+        <parameter>-</parameter>
+        <parameter>Undo</parameter>
+        <parameter>Redo</parameter>
+      </parameter>
+      <parameter key="editing" type="collection">
+        <parameter>Find</parameter>
+        <parameter>Replace</parameter>
+        <parameter>-</parameter>
+        <parameter>SelectAll</parameter>
+      </parameter>
+      <parameter key="basicstyles" type="collection">
+        <parameter>Bold</parameter>
+        <parameter>Italic</parameter>
+        <parameter>Underline</parameter>
+        <parameter>Strike</parameter>
+        <parameter>Subscript</parameter>
+        <parameter>Superscript</parameter>
+        <parameter>-</parameter>
+        <parameter>RemoveFormat</parameter>
+      </parameter>
+      <parameter key="paragraph" type="collection">
+        <parameter>NumberedList</parameter>
+        <parameter>BulletedList</parameter>
+        <parameter>-</parameter>
+        <parameter>Outdent</parameter>
+        <parameter>Indent</parameter>
+        <parameter>-</parameter>
+        <parameter>JustifyLeft</parameter>
+        <parameter>JustifyCenter</parameter>
+        <parameter>JustifyRight</parameter>
+        <parameter>JustifyBlock</parameter>
+      </parameter>
+      <parameter key="links" type="collection">
+        <parameter>Link</parameter>
+        <parameter>Unlink</parameter>
+        <parameter>Anchor</parameter>
+      </parameter>
+      <parameter key="insert" type="collection">
+        <parameter>Image</parameter>
+        <parameter>Flash</parameter>
+        <parameter>Table</parameter>
+        <parameter>HorizontalRule</parameter>
+      </parameter>
+      <parameter key="styles" type="collection">
+        <parameter>Styles</parameter>
+        <parameter>Format</parameter>
+      </parameter>
+      <parameter key="tools" type="collection">
+        <parameter>Maximize</parameter>
+        <parameter>ShowBlocks</parameter>
+      </parameter>
+    </parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.startup_outline_blocks">true</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.ui_color">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.width">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.height">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.language">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.filebrowser_browse_url">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.filebrowser_upload_url">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.filebrowser_image_browse_url">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.filebrowser_image_upload_url">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.filebrowser_flash_browse_url">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.filebrowser_flash_upload_url">null</parameter>
     <parameter key="web_profiler.debug_toolbar.class">Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
@@ -1498,7 +1593,7 @@
               <argument key="fos_user_registration">fos_user.registration.form.type</argument>
               <argument key="fos_user_change_password">fos_user.change_password.form.type</argument>
               <argument key="fos_user_resetting">fos_user.resetting.form.type</argument>
-              <argument key="ckeditor">form.type.ckeditor</argument>
+              <argument key="ckeditor">trsteel_ckeditor.form.type</argument>
             </argument>
             <argument type="collection">
               <argument key="field" type="collection">
@@ -1964,7 +2059,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>4fb56a1bd771c</argument>
+            <argument>4fb8eb075f90f</argument>
           </service>
         </argument>
       </argument>
@@ -2165,7 +2260,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>4fb56a1bd771c</argument>
+            <argument>4fb8eb075f90f</argument>
             <argument type="service" id="monolog.logger.security"/>
           </service>
         </argument>
@@ -2325,7 +2420,7 @@
             <argument type="service" id="form.csrf_provider"/>
             <argument type="collection">
               <argument>form_div_layout.html.twig</argument>
-              <argument>IvoryCKEditorBundle:Form:ckeditor_widget.html.twig</argument>
+              <argument>TrsteelCkeditorBundle:Form:ckeditor_widget.html.twig</argument>
             </argument>
           </service>
         </argument>
@@ -2828,8 +2923,30 @@
       <tag name="twig.extension" alias="stfalcon_tinymce"/>
       <argument type="service" id="service_container"/>
     </service>
-    <service id="form.type.ckeditor" class="Ivory\CKEditorBundle\Form\Type\CKEditorType">
+    <service id="trsteel_ckeditor.form.type" class="Trsteel\CkeditorBundle\Form\CkeditorType">
       <tag name="form.type" alias="ckeditor"/>
+      <argument type="service" id="service_container"/>
+      <call method="addTransformer">
+        <argument type="service" id="trsteel_ckeditor.transformer.strip_js"/>
+        <argument>strip_js</argument>
+      </call>
+      <call method="addTransformer">
+        <argument type="service" id="trsteel_ckeditor.transformer.strip_css"/>
+        <argument>strip_css</argument>
+      </call>
+      <call method="addTransformer">
+        <argument type="service" id="trsteel_ckeditor.transformer.strip_comments"/>
+        <argument>strip_comments</argument>
+      </call>
+    </service>
+    <service id="trsteel_ckeditor.transformer.strip_js" class="Trsteel\CkeditorBundle\Transformer\StripJS">
+      <tag name="trsteel_ckeditor.transformer" alias="strip_js"/>
+    </service>
+    <service id="trsteel_ckeditor.transformer.strip_css" class="Trsteel\CkeditorBundle\Transformer\StripCSS">
+      <tag name="trsteel_ckeditor.transformer" alias="strip_css"/>
+    </service>
+    <service id="trsteel_ckeditor.transformer.strip_comments" class="Trsteel\CkeditorBundle\Transformer\StripComments">
+      <tag name="trsteel_ckeditor.transformer" alias="strip_comments"/>
     </service>
     <service id="web_profiler.debug_toolbar" class="Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener">
       <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" priority="-128"/>
