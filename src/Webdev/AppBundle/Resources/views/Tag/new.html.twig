@@ -1,3 +1,13 @@
+{% extends 'WebdevAppBundle::admin.html.twig' %}
+
+{% block title %}Comments{% endblock %}
+
+{% block body %}
+	
+{% block content %}
+
+{{ parent() }}
+
 <h1>Tag creation</h1>
 
 <form action="{{ path('admin_tag_create') }}" method="post" {{ form_enctype(form) }}>
@@ -14,3 +24,6 @@
         </a>
     </li>
 </ul>
+{% endblock %}
+	
+{% endblock %}

@@ -74,6 +74,7 @@ class PostController extends Controller
         $form->remove('slug'); //don't wanna have it when i create a new post
         $form->remove('updated_at'); // *
         $form->remove('user');
+        
 
         return array(
             'entity' => $entity,

@@ -39,7 +39,7 @@ class Comment
     
     /**
      * @ORM\ManyToOne(targetEntity="Webdev\AppBundle\Entity\User", inversedBy="comments")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="cascade")
      */
     private $user;
     

@@ -1,3 +1,13 @@
+{% extends 'WebdevAppBundle::admin.html.twig' %}
+
+{% block title %}Comments{% endblock %}
+
+{% block body %}
+	
+{% block content %}
+
+{{ parent() }}
+
 <h1>Tag list</h1>
 
 <table class="records_list">
@@ -37,3 +47,6 @@
         </a>
     </li>
 </ul>
+{% endblock %}
+	
+{% endblock %}

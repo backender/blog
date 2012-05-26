@@ -395,6 +395,14 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\CommentController::newCommentAction',)), array('_route' => 'post_newComment'));
         }
 
+        // blog_post_index
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'blog_post_index');
+            }
+            return array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\PostController::indexAction',  '_route' => 'blog_post_index',);
+        }
+
         // blog_post_view
         if (0 === strpos($pathinfo, '/post') && preg_match('#^/post/(?P<slug>[^/]+?)/?$#xs', $pathinfo, $matches)) {
             if (substr($pathinfo, -1) !== '/') {

@@ -1,0 +1,13 @@
+{% extends 'WebdevBlogBundle::layout.html.twig' %}
+
+{% block title %}
+	Blog
+{% endblock %}
+
+{% block content %}
+	{% for post in post %}
+		{% include 'WebdevBlogBundle:Post:postPreview.html.twig' with { 'post': post } %}
+	{% else %}
+		<li>Keine Posts vorhanden.</li>
+	{% endfor %}
+{% endblock %}

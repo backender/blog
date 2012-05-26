@@ -1,6 +1,15 @@
 {% extends '::base.html.twig' %}
 
-{% block content %}{% endblock %}
+{% block content %}
+	<ul>
+		<li><a href="{{ path('admin_dashboard') }}">Dashboard</a></li>
+		<li><a href="{{ path('admin_post') }}">Posts</a></li>
+		<li><a href="{{ path('admin_tag') }}">Tags</a></li>
+		<li><a href="{{ path('admin_comment') }}">Comments</a></li>
+		<li><a href="{{ path('admin_project') }}">Projekte</a></li>
+	</ul>
+	<hr />
+{% endblock %}
 
 
 {% block stylesheets %}

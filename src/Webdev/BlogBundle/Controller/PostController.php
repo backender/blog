@@ -13,6 +13,23 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class PostController extends Controller
 {
+	/**
+	 * @Route("/", name="blog_post_index")
+	 * @Template()
+	 */
+	public function indexAction()
+	{
+		$em = $this->getDoctrine()->getEntityManager();
+	
+		$post = $em->getRepository('WebdevBlogBundle:Post')->findAll();
+		if(!$post) {
+			throw $this->createNotFoundException('Keine Blogposts gefunden');
+		}
+		 
+		return array('post' => $post);
+
+	}
+	
     /**
      * @Route("/post/{slug}/", name="blog_post_view")
      * @Template()

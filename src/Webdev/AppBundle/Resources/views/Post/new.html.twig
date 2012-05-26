@@ -6,6 +6,8 @@
 	
 {% block content %}
 
+{{ parent() }}
+
 <h1>Post creation</h1>
 
 <form action="{{ path('admin_post_create') }}" method="post" {{ form_enctype(form) }}>

@@ -43,7 +43,7 @@ pre
 
 body
 {
-	background-color: #EAEAEA;
+	background-color: #FFFFFF;
 	font-size: 15px;
 }
 
@@ -120,6 +120,5 @@ div#header_text p
 div#body
 {
 	padding-top: 15px;
-	border-top: 1px solid;
 	clear: both;
 }

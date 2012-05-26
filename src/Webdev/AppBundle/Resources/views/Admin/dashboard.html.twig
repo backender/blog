@@ -1,9 +1,14 @@
 {% extends 'WebdevAppBundle::admin.html.twig' %}
 
+
 {% block title %}Dashboard{% endblock %}
 
 {% block body %}
 	
-	{% block content %}{% endblock %}
+	{% block content %}
+		{{ parent() }}
+		
+		<p>this is the dashboard</p>
+	{% endblock %}
 	
 {% endblock %}
