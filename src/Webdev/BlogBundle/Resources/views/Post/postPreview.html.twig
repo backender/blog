@@ -1,6 +1,6 @@
-<div>
-	<p>{{ post.title }}</p>
-	<p>
+<div class="post_list fullbody">
+	<h1><p class="post_list_title">{{ post.title }}</p></h1>
+	<p class="post_list_text">
 		{{ post.content | striptags | truncate }}<br />
 		<a href="{{ path('blog_post_view', { 'slug': post.slug }) }}">weiterlesen</a>		
 	</p>

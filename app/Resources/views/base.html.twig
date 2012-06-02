@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7 ]> <html lang="es" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="es" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="es" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="es" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="es" class="no-js"> <!--<![endif]-->
+
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>{% block title %}{% endblock %} - marc's Blog</title>
+		<title>{% block title %}{% endblock %} - Backender's Blog</title>
 		{% block stylesheets %}
 		
 			{% stylesheets 
 				'resources/css/base.css'
-				output='resources/compiled/base.css'
 			%}
 			
 				<link href="{{ asset_url }}" rel="stylesheet" type="text/css">
@@ -20,32 +26,77 @@
 		<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 	</head>
 	<body>
-		<div id="container">
-			<div id="header">
-				<div id="header_text">
-					<h1><a href="{{ path('blog_post_index') }}">backender</a></h1>
-					<p></p><br />
-				</div>
-				<div id="header_font_size" class="no_margin">
-					<a href="javascript:;" onclick="changeFontSize('-');"><img src="{{ asset('resources/images/fontname_16x16.png') }}"/></a>
-					<a href="javascript:;" onclick="changeFontSize('+');"><img src="{{ asset('resources/images/fontname_26x26.png') }}"/></a>
-				</div>
-				<ul id="header_links" class="small no_margin">
-					<li><a href="">Twitter</a></li>
-					<li><a href="">GitHub</a></li>
-					<li><a href="">Impressum</a></li>
+		
+		<div id="leftbar" class="ch-fixed-sidebar ch-left">
+			<div class="ch-box">	
+				<!-- your sidebar here -->
+				 <div id="menu">
+				 	<div id="menu_title" class="box_black heading inmenue">Backender</div>
+				 	<a id="logo" href="{{ path('blog_post_index') }}"></a>
+				 	<div id="menu_social" class="box_black inmenue">f g t x</div>
+				 	<div id="menu_tweet" class="inmenue">
+				 		<p>It’s always nice to get a feedback. Why not give me a simple tweet:</p>
+				 		<form action="">
+				 			<textarea rows="7" id="tweet_textarea" class="inmenue">@backender&nbsp;</textarea>
+				 		</form>
+				 	</div>
+ 					{% block menu %}{% endblock %}
+			
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-						<li><a href="{{ path('logout') }}">Logout</a></li>
-						<li><a href="{{ path('admin_dashboard') }}">Dashboard</a></li>
+						<ul>
+							<li><a href="{{ path('logout') }}">Logout</a></li>
+							<li><a href="{{ path('admin_dashboard') }}">Dashboard</a></li>
+						</ul>
 					{% else %}	
-						<li><a href="{{ path('admin_dashboard') }}">Login</a></li>
+						<ul>	
+							<li><a href="{{ path('admin_dashboard') }}">Login</a></li>
+						</ul>
 					{% endif %}
-				</ul>
+ 				</div>
+ 				<!-- sidebar ending here -->
 			</div>
-			<div id="body">
-				{% block body %}{% endblock %}
+		</div>
+
+		
+		<div class="ch-elastic-content ch-right">
+			<div id="header" class="ch-box">
+				<h1>My Site Header</h1>
+				
+				<!-- header starts here -->
+				<a href="{{ path('blog_post_index') }}">header</a>
+				<!-- header ends here -->
+				
 			</div>
-	    </div>
+			
+			<div id="body_title" class="ch-box">
+				<h1>My Site Header</h1>
+			</div>
+			
+			<div id="content" class="ch-box">				
+				<!-- your content here -->
+				 	
+ 					<div id="body_container" class="cf">
+ 						<div id="body_content" class="left">
+ 							<div class="inbody">
+ 								{% block body %}{% endblock %}
+ 							</div>
+ 						</div>
+ 						<div id="rightbar" class="left">
+ 							{% block rightbar %}{% endblock %}
+ 						</div>
+ 					</div>				
+				<!-- content ends here -->
+				
+			</div>
+		</div>
+
+		<div id="footer">
+			<p>Download <strong>Chico Mesh</strong> from <a href="http://chico-ui.com.ar/mesh">http://chico-ui.com.ar/mesh</a></p>
+		</div>
+
+ 		
+
+
 	    {% block javascripts %}
 	    
 	    	{% javascripts 

@@ -1,8 +1,13 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+	
+	{% block content %}{% endblock %}
+	
+{% endblock %}
 
-	<div id="blog_sidebar" class="right">
+{% block rightbar %}
+	<div id="rightbar_menue" class="inrightbar">
 		{% render 'WebdevBlogBundle:Sidebar:tagcloud' %}
 		{% render 'WebdevBlogBundle:Sidebar:showProjects' %}
 		<p>Archiv</p>
@@ -18,9 +23,6 @@
 			<li><a href="">Lorem Ipsum</a></li>
 		</ul>
 	</div>
-	
-	{% block content %}{% endblock %}
-	
 {% endblock %}
 
 {% block stylesheets %}
