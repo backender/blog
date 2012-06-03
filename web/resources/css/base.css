@@ -184,7 +184,7 @@ div#menu_title{
 div#menu_social
 {
 	margin-bottom: 50px;
-	height: 25px;
+	height: 20px;
 }
 
 #tweet_textarea{
@@ -250,6 +250,13 @@ div#rightbar
 	padding-left: 25px;
 }
 
+.rightbar_ul{
+	padding: 0;
+}
+
+.rightbar_capter{
+	height: 30px;
+}
 
 /*
  * footer
