@@ -1,6 +1,5 @@
-<p>Projekte</p>
-<hr />
-<ul id="projects">
+<ul class="rightbar_ul">
+	<li class="rightbar_capter box_black">Projects</li>
 	{% for project in projects %}
 		<li><a href="{{ path('blog_search_project', { 'name': project.name }) }}">{{ project.name }}</a></li>
 	{% else %}
