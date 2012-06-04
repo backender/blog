@@ -6,7 +6,6 @@
 <!--[if IE 8 ]>    <html lang="es" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="es" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="es" class="no-js"> <!--<![endif]-->
-
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>{% block title %}{% endblock %} - Backender's Blog</title>
@@ -25,13 +24,14 @@
 		{% endblock %}
 		<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 	</head>
+	
 	<body>
 		
 		<div id="leftbar" class="ch-fixed-sidebar ch-left">
 			<div class="ch-box">	
 				<!-- your sidebar here -->
 				 <div id="menu">
-				 	<div id="menu_title" class="box_black heading inmenue">Backender</div>
+				 	<div class="box_black box_large inmenue">Backender</div>
 				 	<a id="logo" href="{{ path('blog_post_index') }}"></a>
 				 	<div id="menu_social" class="box_black inmenue">f g t x</div>
 				 	<div id="menu_tweet" class="inmenue">
@@ -60,17 +60,19 @@
 		
 		<div class="ch-elastic-content ch-right">
 			<div id="header" class="ch-box">
+			{% block navigation %}
 				<h1>My Site Header</h1>
 				
 				<!-- header starts here -->
 				<a href="{{ path('blog_post_index') }}">header</a>
 				<!-- header ends here -->
-				
+			{% endblock %}
 			</div>
-			
-			<div id="body_title" class="ch-box">
+			{% block body_title %}
+				<div id="body_title" class="ch-box">
 				<h1>My Site Header</h1>
-			</div>
+				</div>
+			{% endblock %}
 			
 			<div id="content" class="ch-box">				
 				<!-- your content here -->

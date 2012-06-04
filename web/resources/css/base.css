@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300);
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -16,12 +18,13 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
 	margin: 0;
-	/*padding: 0;
+	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;*/
+
+	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -117,8 +120,21 @@ a
  */
 .box_black{
 	background-color: black;
+	color: white;
 }
 
+.box_large{
+	height: 50px;
+	font-size: 24pt;
+}
+
+.box_medium{
+	height: 35px;
+}
+
+.box_smal{
+	height: 25px;
+}
 /*
  * html, body
  */
@@ -168,10 +184,6 @@ div#menu
 	padding: 0;
 }
 
-div#menu_title{
-	height: 50px;
-}
-
 #logo
 {
 	width: 167px;
@@ -198,7 +210,7 @@ div#menu_social
 div#header
 {
 	margin: 50px 50px 0 0;
-	height: 75px;
+	height: 48px;
 }
 
 /*
@@ -207,7 +219,7 @@ div#header
 div#body_title
 {
 	margin-right:50px;
-	height: 200px;
+	height: 150px;
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
 }
@@ -241,7 +253,7 @@ div#body_content
 div#rightbar
 {
 	border-left: 2px solid black;
-	width: 19.9%;
+	width: 19.7%;
 	padding-top: 25px;
 	/*padding-left: 25px;*/
 	
@@ -254,8 +266,13 @@ div#rightbar
 	padding: 0;
 }
 
+.rightbar_ul li{
+	margin-bottom: 5px;
+}
+
 .rightbar_capter{
 	height: 30px;
+	margin-top: 25px;
 }
 
 /*
