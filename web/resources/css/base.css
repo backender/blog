@@ -19,11 +19,11 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-weight: 400;
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -32,6 +32,9 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	line-height: 1;
+}
+p{
 	line-height: 1;
 }
 ol, ul {
@@ -50,6 +53,20 @@ table {
 	border-spacing: 0;
 }
 
+h1{
+	font-size: 24pt;
+	font-weight: 300;
+}
+
+h2{
+	line-height: 1;
+}
+
+h3{
+	font-size: 24pt;
+	font-weight: 400;
+}
+
 /* Elastic Layout: 2 columns, left fixed sidebar */
 
 .ch-fixed-sidebar {
@@ -58,11 +75,11 @@ table {
 }	
 
 .ch-left.ch-fixed-sidebar{
-	margin:0px 50px 0px 50px; /* margin-right, gutter */
+	margin:0px 25px 0px 50px; /* margin-right, gutter */
 }
 
 .ch-right.ch-elastic-content{
-	margin:0px 0px 0px 300px; /* same as width, plus gutter */
+	margin:25px 0px 0px 275px; /* same as width, plus gutter */
 }
 
 
@@ -79,10 +96,6 @@ a
 	border: 0;
 }
 
- .heading
-{
-	
-}
 
 .left
 {
@@ -124,12 +137,14 @@ a
 }
 
 .box_large{
+	display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 	height: 50px;
-	font-size: 24pt;
 }
 
 .box_medium{
-	height: 35px;
+	height: 30px;
 }
 
 .box_smal{
@@ -168,6 +183,11 @@ div#container
 	width: 200px;
 }
 
+.inmenue p{
+	font-size: 13pt;
+	
+}
+
  div#leftbar
 {
 	
@@ -175,7 +195,6 @@ div#container
  
 div#menu
 {
-	width: 300px;
 	min-height: 95%; /* Mindesthöhe für moderne Browser */
 	height:auto !important; /* Important Regel für moderne Browser */ 
 	height:95%; /* Mindesthöhe für den IE */ 
@@ -195,13 +214,19 @@ div#menu
 
 div#menu_social
 {
-	margin-bottom: 50px;
+	text-align: center;
+	margin-bottom: 35px;
 	height: 20px;
 }
 
 #tweet_textarea{
 	width: 192px;
-	border: 2px solid black;	
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	border-left:none;
+	border-right:none;
+	margin-top: 10px;	
+	padding: 5px 0;
 }
 
 /*
@@ -210,7 +235,13 @@ div#menu_social
 div#header
 {
 	margin: 50px 50px 0 0;
+	padding-left: 25px;
 	height: 48px;
+	vertical-align: middle;
+	display: table-cell;
+}
+div#header a{
+	text-decoration: none;
 }
 
 /*
@@ -219,15 +250,22 @@ div#header
 div#body_title
 {
 	margin-right:50px;
-	height: 150px;
+	margin-top: 10px;
+	height: 100px;
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
+	padding: 20px 25px 25px 25px;
+}
+
+div#body_title h2{
+	font-size: 40pt;
+	font-weight: 700;
 }
 
 div#content
 {
 	margin-right: 50px;
-	margin-top: 25px;
+	margin-top: 15px;
 }
 
 /*
@@ -252,14 +290,14 @@ div#body_content
  */
 div#rightbar
 {
-	border-left: 2px solid black;
+	/*border-left: 2px solid black;*/
 	width: 19.7%;
 	padding-top: 25px;
 	/*padding-left: 25px;*/
 	
 }
 .inrightbar{
-	padding-left: 25px;
+	/*padding-left: 15px;*/
 }
 
 .rightbar_ul{
@@ -268,11 +306,14 @@ div#rightbar
 
 .rightbar_ul li{
 	margin-bottom: 5px;
+	padding-left: 5px;
 }
 
 .rightbar_capter{
-	height: 30px;
 	margin-top: 25px;
+	vertical-align: middle;
+	display: table-cell;
+	width: 1%;
 }
 
 /*
@@ -295,21 +336,23 @@ div#footer {
  */
 .post_list
 {
-	margin-bottom: 25px;
+	margin-bottom: 50px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	height: 40px;
+	padding: 5px 0 5px 0;
 }
 
 .post_list_title
 {
-	border-top: 2px solid black;
-	border-bottom: 2px solid black;
-	height: 50px;
-	padding: 5px 0 5px 0;
+	height: 40px;
 	vertical-align: middle;
+	display: table-cell;
 }
 
 .post_list_text
 {
-	
+	margin-top: 10px;	
 }
 
 ul#rightbar_menue
