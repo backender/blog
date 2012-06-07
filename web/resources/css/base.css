@@ -20,6 +20,8 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	font-weight: 400;
+	color: black;
+	
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -36,6 +38,13 @@ body {
 }
 p{
 	line-height: 1;
+	font-size: 11pt;
+    font-weight: 300;
+}
+hr{
+	height: 2px;
+	background-color:black;
+	border:0;
 }
 ol, ul {
 	list-style: none;
@@ -94,6 +103,8 @@ p
 a
 {
 	border: 0;
+	text-decoration: none;
+	color: black;
 }
 
 
@@ -141,6 +152,7 @@ a
     vertical-align: middle;
     text-align: center;
 	height: 50px;
+	font-weight: 300;
 }
 
 .box_medium{
@@ -251,7 +263,7 @@ div#body_title
 {
 	margin-right:50px;
 	margin-top: 10px;
-	height: 100px;
+	
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
 	padding: 20px 25px 25px 25px;
@@ -302,11 +314,16 @@ div#rightbar
 
 .rightbar_ul{
 	padding: 0;
+	margin-bottom: 25px;
 }
 
 .rightbar_ul li{
-	margin-bottom: 5px;
 	padding-left: 5px;
+}
+
+.rightbar_ul li a{
+	font-size: 13pt;
+	font-weight: 300;
 }
 
 .rightbar_capter{
@@ -314,6 +331,12 @@ div#rightbar
 	vertical-align: middle;
 	display: table-cell;
 	width: 1%;
+}
+
+.rightbar_capter h3{
+	font-size: 16pt;
+	font-weight: 300;
+	color: white;
 }
 
 /*
@@ -336,10 +359,10 @@ div#footer {
  */
 .post_list
 {
-	margin-bottom: 50px;
+	margin-bottom: 25px;
 	border-top: 2px solid black;
-	border-bottom: 2px solid black;
-	height: 40px;
+	/*border-bottom: 2px solid black;
+	height: 40px;*/
 	padding: 5px 0 5px 0;
 }
 
@@ -348,11 +371,22 @@ div#footer {
 	height: 40px;
 	vertical-align: middle;
 	display: table-cell;
+	font-size: 20pt;
 }
 
 .post_list_text
 {
-	margin-top: 10px;	
+	margin-top: 5px;
+	padding-top: 5px;
+	font-weight: 300;
+	font-size: 11pt;
+	line-height: 1.5;
+	border-top: 2px solid black;	
+}
+
+.post_list_text a
+{
+	font-weight: 700;
 }
 
 ul#rightbar_menue
@@ -360,6 +394,6 @@ ul#rightbar_menue
 	width: 100%;
 }
 
-li.title{
-		
+#form_content{
+	width: 100%;
 }

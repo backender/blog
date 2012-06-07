@@ -31,7 +31,7 @@
 			<div class="ch-box">	
 				<!-- your sidebar here -->
 				 <div id="menu">
-				 	<a href="{{ path('blog_post_index') }}"><div class="box_black box_large inmenue"><h1>Backender</h1></div></a>
+				 	<a href="{{ path('blog_post_index') }}"><h1><div class="box_black box_large inmenue">Backender</div></h1></a>
 				 	<a id="logo" href="{{ path('blog_post_index') }}"></a>
 				 	<div id="menu_social" class="box_black inmenue">f g t x</div>
 				 	<div id="menu_tweet" class="inmenue">
@@ -69,7 +69,7 @@
 			</div>
 			{% block body_title %}
 				<div id="body_title" class="ch-box">
-				<h2>My Site Header where I'll always try to write a least two lines...</h2>
+				<h2>{% block body_title_text %}Welcome to Backender’s new Blog...<br />It’s all about programming and my daily technical issues!{% endblock %}</h2>
 				</div>
 			{% endblock %}
 			
