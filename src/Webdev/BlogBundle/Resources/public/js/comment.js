@@ -3,7 +3,7 @@
  * 
  * @param comment_id
  */
-/*function toggleCommentAnswers(comment_id)
+function toggleCommentAnswers(comment_id)
 {
 	answers = $('#comment_' + comment_id).find('div').first();
 	link = $('#comment_' + comment_id).find('a').first();
@@ -21,4 +21,15 @@
 	
 	// toggle answers
 	answers.slideToggle('slow');
-}*/
+}
+
+function toggleCommentBox(comment_id)
+{
+$(document).ready(function(){
+        $('#top').toggle(function(){
+            $('#mid').slideDown();
+        }, function(){
+            $('#mid').slideUp();
+        });
+    });
+}

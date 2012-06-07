@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class CommentController extends Controller
-{    
+{
 	/**
 	 * @Route("/post/{slug}/comment/{origin}/", name="post_newComment")
      */
@@ -39,14 +39,7 @@ class CommentController extends Controller
 		}
 		
 		$form = $this->createFormBuilder($comment)
-		/*->add('content', 'textarea', array(
-        	'attr' => array(
-            	'class' => 'tinymce',
-            	'data-theme' => 'simple' // simple, advanced, bbcode
-        		)
-			)
-		)*/
-		->add('content', 'ckeditor')
+		->add('content', 'textarea')
 		->getForm();
 		
 		$validator = $this->get('validator');

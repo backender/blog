@@ -4,6 +4,8 @@
 	{{ post.title }}
 {% endblock %}
 
+{% block body_title_text %}{{ post.title }}{% endblock %}
+
 {% block content %}
 
 	{# meta data #}
@@ -40,7 +42,6 @@
 	</div>
 
 	{# post content #}
-	<h2 class="no_margin">{{ post.title }}</h2>
 	<div id="blog_post_tags">
 		<p class="small no_margin left">Tags:</p>
 			<ul class="small no_margin left">
@@ -56,7 +57,7 @@
 	</div>
 	
 	{# comments #}
-	<h3 class="no_margin clear">Kommentare</h3>
+	<h3 id="post_comment_title" class="clear">Comments</h3>
 	<hr class="no_margin"/>
 	<div id="blog_post_comment_new">
 	{% if is_granted('IS_AUTHENTICATED_FULLY') %}

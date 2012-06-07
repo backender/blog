@@ -6,7 +6,6 @@
 <!--[if IE 8 ]>    <html lang="es" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="es" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="es" class="no-js"> <!--<![endif]-->
-
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>{% block title %}{% endblock %} - Backender's Blog</title>
@@ -25,19 +24,20 @@
 		{% endblock %}
 		<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 	</head>
+	
 	<body>
 		
 		<div id="leftbar" class="ch-fixed-sidebar ch-left">
 			<div class="ch-box">	
 				<!-- your sidebar here -->
 				 <div id="menu">
-				 	<div id="menu_title" class="box_black heading inmenue">Backender</div>
+				 	<a href="{{ path('blog_post_index') }}"><h1><div class="box_black box_large inmenue">Backender</div></h1></a>
 				 	<a id="logo" href="{{ path('blog_post_index') }}"></a>
 				 	<div id="menu_social" class="box_black inmenue">f g t x</div>
 				 	<div id="menu_tweet" class="inmenue">
 				 		<p>It’s always nice to get a feedback. Why not give me a simple tweet:</p>
 				 		<form action="">
-				 			<textarea rows="7" id="tweet_textarea" class="inmenue">@backender&nbsp;</textarea>
+				 			<textarea rows="4" id="tweet_textarea" class="inmenue">@backender&nbsp;</textarea>
 				 		</form>
 				 	</div>
  					{% block menu %}{% endblock %}
@@ -60,17 +60,18 @@
 		
 		<div class="ch-elastic-content ch-right">
 			<div id="header" class="ch-box">
-				<h1>My Site Header</h1>
-				
+			{% block navigation %}				
 				<!-- header starts here -->
-				<a href="{{ path('blog_post_index') }}">header</a>
-				<!-- header ends here -->
+				<h3><a href="{{ path('blog_post_index') }}">Blog</a></h3>
 				
+				<!-- header ends here -->
+			{% endblock %}
 			</div>
-			
-			<div id="body_title" class="ch-box">
-				<h1>My Site Header</h1>
-			</div>
+			{% block body_title %}
+				<div id="body_title" class="ch-box">
+				<h2>{% block body_title_text %}Welcome to Backender’s new Blog...<br />It’s all about programming and my daily technical issues!{% endblock %}</h2>
+				</div>
+			{% endblock %}
 			
 			<div id="content" class="ch-box">				
 				<!-- your content here -->
