@@ -4,7 +4,7 @@
  	Tag: {{ tag.name }}
  {% endblock %}
  
- {% block body_title_text %}You're looking for a tag, huh?<br />Well here all posts tagged with {{ tag.name }}:{% endblock %}
+ {% block body_title_text %}You're looking for a tag, huh?<br />Well here are all posts tagged with {{ tag.name }}:{% endblock %}
  
  {% block content %}
  	{% for post in tag.posts %}

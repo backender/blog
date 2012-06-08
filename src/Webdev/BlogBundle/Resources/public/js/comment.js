@@ -3,33 +3,27 @@
  * 
  * @param comment_id
  */
+$(document).ready(function(){
+  $(".blog_post_comment_body").next("div").toggle();
+});
+
 function toggleCommentAnswers(comment_id)
 {
-	answers = $('#comment_' + comment_id).find('div').first();
-	link = $('#comment_' + comment_id).find('a').first();
+	answers = $('#answer_' + comment_id);
+	link = $('#comment_' + comment_id).find('.answer_text').first();
 	
 	// change link text
 	if(answers.is(':visible')) {
 	
-		link.text('einblenden');
+		link.text('Click here to give an Answer');
 		
 	} else {
 		
-		link.text('ausblenden');
+		link.text('Hide');
 		
 	}
 	
 	// toggle answers
-	answers.slideToggle('slow');
+	answers.slideToggle('fast');
 }
 
-function toggleCommentBox(comment_id)
-{
-$(document).ready(function(){
-        $('#top').toggle(function(){
-            $('#mid').slideDown();
-        }, function(){
-            $('#mid').slideUp();
-        });
-    });
-}

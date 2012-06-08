@@ -1,13 +1,16 @@
- {% extends 'WebdevBlogBundle::layout.html.twig' %}
+{% extends 'WebdevBlogBundle::layout.html.twig' %}
  
- {% block title %}
- 	Project: {{ project.name }}
- {% endblock %}
+{% block title %}
+	Project: {{ project.name }}
+{% endblock %}
+ 
+{% block body_title_text %}Own a project is awesome! ...<br />I guess you're looking for: {{ project.name }}{% endblock %}
+
  
  {% block content %}
- 	<h2>Posts für "{{ project.name }}"</h2>
- 	<p>Beschreibung:<br />{{ project.description }}<p>
- 	<hr />
+ 	<p><h2>Description:</h2><p><br />
+ 	<p class="project_description">{{ project.description }}</p>
+	<br />
  	{% for post in project.posts %}
  		{% include 'WebdevBlogBundle:Post:postPreview.html.twig' with { 'post': post } %}
  	{% else %}

@@ -46,7 +46,7 @@
 		<p class="small no_margin left">Tags:</p>
 			<ul class="small no_margin left">
 				{% for tag in post.tags %}
-					<li><a href="{{ path('blog_search_tag', { 'name': tag.name }) }}">{{ tag.name }}</a></li>
+					<li><a style="font-size: {{ tag.quantifier / 10 + 1 }}em" href="{{ path('blog_search_tag', { 'name': tag.name }) }}">{{ tag.name }}</a></li>
 				{% else %}
 					<li>Keine Tags vorhanden.</li>
 				{% endfor %}
@@ -67,7 +67,7 @@
 	{% endif %}
 	</div>	
 	{% for comment in post.comments %}
-	<div id="comment_comment.id" class="blog_post_comment">
+	<div id="comment_{{ comment.id }}" class="blog_post_comment">
 		{% include 'WebdevBlogBundle:Comment:comment.html.twig' with { 'comment': comment } %}
 	</div>
 	{% endfor %}

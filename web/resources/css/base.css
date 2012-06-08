@@ -293,6 +293,11 @@ div#body_content
 .inbody{
 	padding-right: 25px;
 }
+.inbody h2{
+	font-size: 32pt;
+	padding-left:25px;
+}
+
 .fullbody{
 	width: 100%;
 }
@@ -349,7 +354,18 @@ div#footer {
 	bottom:0;
 	position:fixed;
 	background: black;
-	
+	display: table;
+}
+
+div#footer p{
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 25px;
+}
+
+div#footer *{
+	color:white;
+	font-size: 10pt;
 }
 
 /* --------------------------------------------------------- */
@@ -396,4 +412,11 @@ ul#rightbar_menue
 
 #form_content{
 	width: 100%;
+}
+
+.project_description{
+	font-size: 20pt;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-bottom: 25px;
 }

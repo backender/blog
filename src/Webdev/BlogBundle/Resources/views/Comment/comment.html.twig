@@ -1,20 +1,22 @@
 <p class="blog_post_comment_header">
 	{{ comment.user.username }} 
-	<span class="small italic">({{ comment.createdAt | comment_date }})</span>
-		<span class="right">
-			{{ comment.answers | length }} {{ comment.answers | length > 1 ? 'Antworten' : 'Antwort' }} | 
-			<a href="#">Reply</a>
+	<span class="blog_post_comment_header_date">({{ comment.createdAt | comment_date }})</span>
+		<span class="blog_post_comment_header_answer right">
+			<span style="font-weight: 700;">{{ comment.answers | length }}</span> {{ comment.answers | length > 1 ? 'Answers' : 'Answer' }} | 
+			<span class="answer_text" style="cursor:pointer;" onclick="toggleCommentAnswers({{ comment.id }})">Click here to give an Answer</span>
 		</span>
 	</p>
 
 <p class="blog_post_comment_body">{{ comment.content }}</p>
 
+	<div id="answer_{{ comment.id }}">
 	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-		{% render 'WebdevBlogBundle:Comment:newComment' with { 'slug': post.slug, 'origin': comment.id } %}
+		{% render 'WebdevBlogBundle:Comment:newAnswer' with { 'slug': post.slug, 'origin': comment.id } %}
 	{% endif %}
-
+	</div>
+	
 {% for answer in comment.answers %}
-<div id="comment_{{ answer.id }}" class="blog_post_comment blog_post_comment_answer">
+<div id="comment_{{ answer.id }}" class="blog_post_comment_answer">
 	{% include 'WebdevBlogBundle:Comment:comment.html.twig' with { 'comment': answer } %}
 </div>
 {% endfor %}
