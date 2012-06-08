@@ -1,5 +1,5 @@
 <p class="blog_post_comment_header">
-	{{ comment.user.username }} 
+		{{ comment.name }}
 	<span class="blog_post_comment_header_date">({{ comment.createdAt | comment_date }})</span>
 		<span class="blog_post_comment_header_answer right">
 			<span style="font-weight: 700;">{{ comment.answers | length }}</span> {{ comment.answers | length > 1 ? 'Answers' : 'Answer' }} | 
@@ -10,9 +10,7 @@
 <p class="blog_post_comment_body">{{ comment.content }}</p>
 
 	<div id="answer_{{ comment.id }}">
-	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 		{% render 'WebdevBlogBundle:Comment:newAnswer' with { 'slug': post.slug, 'origin': comment.id } %}
-	{% endif %}
 	</div>
 	
 {% for answer in comment.answers %}

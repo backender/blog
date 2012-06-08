@@ -30,11 +30,15 @@ class CommentController extends Controller
 		$comment = new Comment();
 		$comment->setContent('');
 		$comment->setCreatedAt(new \DateTime());
-		$comment->setUser($this->getUser());
-		
+		if ($this->getUser() != NULL){
+			$comment->setUser($this->getUser());
+		}
 		$comment->setPost($post);
 		
 		$form = $this->createFormBuilder($comment)
+		->add('name', 'text')
+		->add('email', 'text')
+		->add('url', 'text')
 		->add('content', 'textarea')
 		->getForm();
 		
@@ -68,7 +72,9 @@ class CommentController extends Controller
 		$comment = new Comment();
 		$comment->setContent('');
 		$comment->setCreatedAt(new \DateTime());
-		$comment->setUser($this->getUser());
+		if ($this->getUser() != NULL){
+			$comment->setUser($this->getUser());
+		}
 		//if ($origin == NULL) {
 		//	$comment->setPost($post);
 		//} else {
@@ -77,6 +83,9 @@ class CommentController extends Controller
 		//}
 		
 		$form = $this->createFormBuilder($comment)
+		->add('name', 'text')
+		->add('email', 'text')
+		->add('url', 'text')
 		->add('content', 'textarea')
 		->getForm();
 		

@@ -3,6 +3,7 @@
 namespace Webdev\BlogBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -39,9 +40,31 @@ class Comment
     
     /**
      * @ORM\ManyToOne(targetEntity="Webdev\AppBundle\Entity\User", inversedBy="comments")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="cascade")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true, onDelete="cascade")
      */
     private $user;
+    
+    /**
+     * @var string $name
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+    
+    /**
+     * @var string $email
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+    
+    
+    /**
+     * @var text $url
+     *
+     * @ORM\Column(name="url", type="text", nullable=true)
+     */
+    private $url;
     
     /**
      * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
@@ -141,6 +164,73 @@ class Comment
     public function getUser()
     {
         return $this->user;
+    }
+
+
+    /**
+     * Set url
+     *
+     * @param text $url
+     * @return URL
+     */
+    public function setUrl($url)
+    {
+    	$this->url = $url;
+    	return $this;
+    }
+    
+    /**
+     * Get url
+     *
+     * @return text
+     */
+    public function getUrl()
+    {
+    	return $this->url;
+    }
+    
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return name
+     */
+    public function setName($name)
+    {
+    	$this->name = $name;
+    	return $this;
+    }
+    
+    /**
+     * Get name
+     *
+     * @return name
+     */
+    public function getName()
+    {
+    	return $this->name;
+    }
+    
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return email
+     */
+    public function setEmail($email)
+    {
+    	$this->email = $email;
+    	return $this;
+    }
+    
+    /**
+     * Get email
+     *
+     * @return email
+     */
+    public function getEmail()
+    {
+    	return $this->email;
     }
 
     /**
