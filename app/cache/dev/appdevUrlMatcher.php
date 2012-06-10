@@ -170,6 +170,59 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Webdev\\AppBundle\\Controller\\AdminController::dashboardAction',  '_route' => 'admin_dashboard',);
         }
 
+        // admin_blogroll
+        if (rtrim($pathinfo, '/') === '/admin/blogroll') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'admin_blogroll');
+            }
+            return array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::indexAction',  '_route' => 'admin_blogroll',);
+        }
+
+        // admin_blogroll_show
+        if (0 === strpos($pathinfo, '/admin/blogroll') && preg_match('#^/admin/blogroll/(?P<id>[^/]+?)/show$#xs', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::showAction',)), array('_route' => 'admin_blogroll_show'));
+        }
+
+        // admin_blogroll_new
+        if ($pathinfo === '/admin/blogroll/new') {
+            return array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::newAction',  '_route' => 'admin_blogroll_new',);
+        }
+
+        // admin_blogroll_create
+        if ($pathinfo === '/admin/blogroll/create') {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_admin_blogroll_create;
+            }
+            return array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::createAction',  '_route' => 'admin_blogroll_create',);
+        }
+        not_admin_blogroll_create:
+
+        // admin_blogroll_edit
+        if (0 === strpos($pathinfo, '/admin/blogroll') && preg_match('#^/admin/blogroll/(?P<id>[^/]+?)/edit$#xs', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::editAction',)), array('_route' => 'admin_blogroll_edit'));
+        }
+
+        // admin_blogroll_update
+        if (0 === strpos($pathinfo, '/admin/blogroll') && preg_match('#^/admin/blogroll/(?P<id>[^/]+?)/update$#xs', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_admin_blogroll_update;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::updateAction',)), array('_route' => 'admin_blogroll_update'));
+        }
+        not_admin_blogroll_update:
+
+        // admin_blogroll_delete
+        if (0 === strpos($pathinfo, '/admin/blogroll') && preg_match('#^/admin/blogroll/(?P<id>[^/]+?)/delete$#xs', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_admin_blogroll_delete;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::deleteAction',)), array('_route' => 'admin_blogroll_delete'));
+        }
+        not_admin_blogroll_delete:
+
         // admin_comment
         if (rtrim($pathinfo, '/') === '/admin/comment') {
             if (substr($pathinfo, -1) !== '/') {
@@ -434,6 +487,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // blog_search_project
         if (0 === strpos($pathinfo, '/project') && preg_match('#^/project/(?P<name>[^/]+?)$#xs', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\SearchController::projectAction',)), array('_route' => 'blog_search_project'));
+        }
+
+        // blog_search_archive
+        if (0 === strpos($pathinfo, '/archive') && preg_match('#^/archive/(?P<name>[^/]+?)$#xs', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\SearchController::archiveAction',)), array('_route' => 'blog_search_archive'));
         }
 
         // fos_user_security_login

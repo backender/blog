@@ -26,19 +26,16 @@
 	</head>
 	
 	<body>
-		
+		<a href="https://github.com/backender"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 		<div id="leftbar" class="ch-fixed-sidebar ch-left">
 			<div class="ch-box">	
 				<!-- your sidebar here -->
 				 <div id="menu">
 				 	<a href="{{ path('blog_post_index') }}"><h1><div class="box_black box_large inmenue">Backender</div></h1></a>
 				 	<a id="logo" href="{{ path('blog_post_index') }}"></a>
-				 	<div id="menu_social" class="box_black inmenue">f g t x</div>
+				 	<div id="menu_social" class="box_black inmenue"><span>f</span> g t x</div>
 				 	<div id="menu_tweet" class="inmenue">
-				 		<p>It’s always nice to get a feedback. Why not give me a simple tweet:</p>
-				 		<form action="">
-				 			<textarea rows="4" id="tweet_textarea" class="inmenue">@backender&nbsp;</textarea>
-				 		</form>
+				 		<p>It’s always nice to get a feedback. Why not send <a target="_blank" href="http://twitter.com/mjnetch">@backender</a> a simple tweet on twitter?</p>
 				 	</div>
  					{% block menu %}{% endblock %}
 			

@@ -1,0 +1,18 @@
+{% extends 'WebdevBlogBundle::layout.html.twig' %}
+ 
+{% block title %}
+	{{ year }}
+{% endblock %}
+ 
+{% block body_title_text %}You're doing right! ...<br />Why not dip into the past: {{ year }}{% endblock %}
+
+ 
+ {% block content %}
+ 	
+ 	{% for post in archive %}
+ 		{% include 'WebdevBlogBundle:Post:postPreview.html.twig' with { 'post': post } %}
+ 	{% else %}
+ 		<p>No posts found</p>
+ 	{% endfor %}
+ 	
+ {% endblock %}

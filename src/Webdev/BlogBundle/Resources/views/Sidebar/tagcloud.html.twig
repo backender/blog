@@ -14,33 +14,11 @@
 
 <ul class="rightbar_ul">
 	<li class="rightbar_capter box_black box_medium" style="margin-top: 0 !important;"><h3>Tags</h3></li>
-	<div id="cloudId"></div>
+	<li style="padding-top:5px;">	
 	{% for tag in tags %}
-		<li style="font-size: {{ tag.quantifier / 10 + 1 }}em"><a href="{{ path('blog_search_tag', { 'name': tag.name }) }}">{{ tag.name }}</a></li>
+		<a style="font-size: {{ (tag.posts | length + tag.quantifier) / 5 + 1 }}em; padding-right:5px;" href="{{ path('blog_search_tag', { 'name': tag.name }) }}">{{ tag.name }}</a>
 	{% else %}
-		<li>Keine Tags vorhanden</li>
+		Keine Tags vorhanden
 	{% endfor %}
+	</li>
 </ul>
-
-<script type="text/javascript">
-
-var arrWords = [
-                {word: 'Tagbeschriftung 1', count: 1, href: 'http://www.link_1.de'},
-                {word: 'Tagbeschriftung 2', count: 2, href: 'http://www.link_2.de'},
-                //...
-                {word: 'Tagbeschriftung n', count: n, href: 'http://www.link_n.de'}
-              ];
-              
-	$(function(){
-	  $('#cloudId').tagcloud({
-	    words: arrWords,    // Tagcloud-Array
-	    fontMin: 0.75,      // Minimale Schriftgrösse (hier: 0.75em)
-	    fontMax: 1.75,      // Maximale Schriftgrösse (hier: 1.75em)
-	    fontUnit: 'em',     // Einheit für die Schriftgrösse (hier: em)
-	    animFontDiff: 0.4,  // Angabe der Schriftgrössenänderung beim Hover (hier: 0.4em)
-	    animDuration: 400   // Dauer der Hover-Animation in Millisekunden (hier: 400 ms)
-	  })
-	});
-
-	
-</script>

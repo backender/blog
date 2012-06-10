@@ -6,6 +6,8 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Webdev\BlogBundle\Entity\Tag;
+use Webdev\BlogBundle\Entity\Post;
+use Doctrine\Common\Collections\ArrayCollection;
 
 
 class SidebarController extends Controller
@@ -35,4 +37,42 @@ class SidebarController extends Controller
 
         return array('projects' => $projects);
     }
+    
+	/**
+	 * @Template()
+	 */
+	public function showArchiveAction() 
+	{
+		$em = $this->getDoctrine()->getEntityManager();
+		
+		$archive = array();
+		
+		$posts = $em->getRepository('WebdevBlogBundle:Post')->findAll();
+		$p = count($posts);
+		
+		for($i = 0; $i < $p; $i++)
+		{
+			$created_at = $posts[$i]->getCreatedAt();
+			$created_at = date_format($created_at, "Y");
+			if(!in_array($created_at, $archive)){
+				array_push($archive, $created_at);
+			}
+		}
+		sort($archive);
+		
+		return array('archive' => $archive);
+	}
+	
+	/**
+	 * @Template()
+	 */
+	public function showBlogrollAction()
+	{
+		$em = $this->getDoctrine()->getEntityManager();
+	
+		$blogroll = $em->getRepository('WebdevBlogBundle:Blogroll')->findAll();
+	
+		return array('blogroll' => $blogroll);
+	}
+
 }

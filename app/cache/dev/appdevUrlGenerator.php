@@ -39,6 +39,13 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        '_configurator_step' => true,
        '_configurator_final' => true,
        'admin_dashboard' => true,
+       'admin_blogroll' => true,
+       'admin_blogroll_show' => true,
+       'admin_blogroll_new' => true,
+       'admin_blogroll_create' => true,
+       'admin_blogroll_edit' => true,
+       'admin_blogroll_update' => true,
+       'admin_blogroll_delete' => true,
        'admin_comment' => true,
        'admin_comment_show' => true,
        'admin_comment_new' => true,
@@ -76,6 +83,7 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        'blog_post_view' => true,
        'blog_search_tag' => true,
        'blog_search_project' => true,
+       'blog_search_archive' => true,
        'fos_user_security_login' => true,
        'fos_user_security_check' => true,
        'fos_user_security_logout' => true,
@@ -241,6 +249,41 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function getadmin_dashboardRouteInfo()
     {
         return array(array (), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\AdminController::dashboardAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/',  ),));
+    }
+
+    private function getadmin_blogrollRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/blogroll/',  ),));
+    }
+
+    private function getadmin_blogroll_showRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::showAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/admin/blogroll',  ),));
+    }
+
+    private function getadmin_blogroll_newRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/blogroll/new',  ),));
+    }
+
+    private function getadmin_blogroll_createRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::createAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/admin/blogroll/create',  ),));
+    }
+
+    private function getadmin_blogroll_editRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::editAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/admin/blogroll',  ),));
+    }
+
+    private function getadmin_blogroll_updateRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::updateAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/update',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/admin/blogroll',  ),));
+    }
+
+    private function getadmin_blogroll_deleteRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Webdev\\AppBundle\\Controller\\BlogrollController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/admin/blogroll',  ),));
     }
 
     private function getadmin_commentRouteInfo()
@@ -426,6 +469,11 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function getblog_search_projectRouteInfo()
     {
         return array(array (  0 => 'name',), array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\SearchController::projectAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'name',  ),  1 =>   array (    0 => 'text',    1 => '/project',  ),));
+    }
+
+    private function getblog_search_archiveRouteInfo()
+    {
+        return array(array (  0 => 'name',), array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\SearchController::archiveAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'name',  ),  1 =>   array (    0 => 'text',    1 => '/archive',  ),));
     }
 
     private function getfos_user_security_loginRouteInfo()

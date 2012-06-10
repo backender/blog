@@ -37,12 +37,48 @@ class SearchController extends Controller
     {
     	$em = $this->getDoctrine()->getEntityManager();
     
-    	//get tag
+    	//get project
     	$project = $em->getRepository('WebdevBlogBundle:Project')->findOneByName($name);
     	
     	if(!$project) {
     		throw $this->createNotFoundException('Projekt "' . $name . '" ist nicht vorhanden.');
     	}
     	return array('project' => $project);
+    }
+    
+    /**
+     * @Route("/archive/{name}", name="blog_search_archive")
+     * @Template()
+     */
+    public function archiveAction($name)
+    {
+    	$em = $this->getDoctrine()->getEntityManager();
+    	
+    	$archive = array();
+    	
+    	//get archive
+    	//$archive = $em->getRepository('WebdevBlogBundle:Post')->findAll();
+    	
+    	$query = $em->createQuery(
+    			'SELECT p FROM WebdevBlogBundle:Post p ORDER BY p.created_at DESC' //latest first
+    	);
+    	$posts = $query->getResult();
+    	
+    	if(!$posts) {
+    		throw $this->createNotFoundException('No Posts in "' . $name.' ->'.print_r($posts));
+    	}
+    	
+    	$p = count($posts);
+    	
+    	for($i = 0; $i < $p; $i++)
+    	{
+    		$created_at = $posts[$i]->getCreatedAt();
+    		$created_at = date_format($created_at, "Y");
+    		if($name == $created_at){
+    			array_push($archive, $posts[$i]);
+    		}
+    	}
+    	
+    	return array('archive' => $archive, 'year' => $name);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Webdev\AppBundle\Controller;
 
+use Webdev\BlogBundle\Entity\Tag;
+
 use Webdev\AppBundle\Service\PostService;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -109,7 +111,7 @@ class PostController extends Controller
         	//set user
         	$entity->setUser($this->getUser());
         	
-            $em = $this->getDoctrine()->getEntityManager();
+        	$em = $this->getDoctrine()->getEntityManager();
             $em->persist($entity);
             $em->flush();
 

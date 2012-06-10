@@ -1,0 +1,8 @@
+<ul class="rightbar_ul">
+	<li class="rightbar_capter box_medium box_black"><h3>Archive</h3></li>
+	{% for year in archive %}
+		<li><a href="{{ path('blog_search_archive', { 'name': year }) }}">{{ year }}</a></li>
+	{% else %}
+		<li>No posts for {{ year }}</li>
+	{% endfor %}
+</ul>

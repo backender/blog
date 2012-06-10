@@ -50,3 +50,4 @@
 [2012-05-29 19:37:26] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /images/logo.png" (uncaught exception) at /Users/marc/git/blog/app/cache/prod/classes.php line 4434 [] []
 [2012-05-29 19:37:46] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /resources/css/images/logo.png" (uncaught exception) at /Users/marc/git/blog/app/cache/prod/classes.php line 4434 [] []
 [2012-06-01 13:31:29] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /resources/css/images/logo.png" (uncaught exception) at /Users/marc/git/blog/app/cache/prod/classes.php line 4434 [] []
+[2012-06-10 14:34:33] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /" (uncaught exception) at /Users/marc/git/blog/app/cache/prod/classes.php line 4434 [] []

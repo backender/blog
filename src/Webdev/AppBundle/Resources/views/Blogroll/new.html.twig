@@ -1,0 +1,29 @@
+{% extends 'WebdevAppBundle::admin.html.twig' %}
+
+{% block title %}Blogroll{% endblock %}
+
+{% block body %}
+	
+{% block content %}
+
+{{ parent() }}
+
+<h1>Blogroll creation</h1>
+
+<form action="{{ path('admin_blogroll_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_blogroll') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
+	
+{% endblock %}

@@ -1,0 +1,7 @@
+<ul class="rightbar_ul">
+	<li class="rightbar_capter box_medium box_black"><h3>Blogroll</h3></li>
+	{% for blog in blogroll %}
+		<li><a target="_blank" href="{{ blog.url }}">{{ blog.name }}</a></li>
+
+	{% endfor %}
+</ul>

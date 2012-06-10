@@ -44,7 +44,7 @@ class Tag
     
     public function __construct()
     {
-    	$this->posts = new ArrayCollection();	
+    	$this->posts = new ArrayCollection();
     }
     
     public function __toString() {
