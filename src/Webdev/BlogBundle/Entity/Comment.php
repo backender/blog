@@ -35,6 +35,7 @@ class Comment
      * @var string $content
      *
      * @ORM\Column(name="content", type="text")
+     * @Assert\NotBlank()
      */
     private $content;
     
@@ -48,6 +49,7 @@ class Comment
      * @var string $name
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     * @Assert\NotBlank()
      */
     private $name;
     
@@ -55,6 +57,11 @@ class Comment
      * @var string $email
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      */
     private $email;
     
@@ -63,6 +70,8 @@ class Comment
      * @var text $url
      *
      * @ORM\Column(name="url", type="text", nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Url
      */
     private $url;
     

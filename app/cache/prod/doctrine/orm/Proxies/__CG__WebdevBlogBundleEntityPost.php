@@ -42,10 +42,10 @@ class Post extends \Webdev\BlogBundle\Entity\Post implements \Doctrine\ORM\Proxy
     }
 
     
-    public function onUpdate()
+    public function __toString()
     {
         $this->__load();
-        return parent::onUpdate();
+        return parent::__toString();
     }
 
     public function getId()
@@ -129,10 +129,58 @@ class Post extends \Webdev\BlogBundle\Entity\Post implements \Doctrine\ORM\Proxy
         return parent::getClicks();
     }
 
+    public function addTag(\Webdev\BlogBundle\Entity\Tag $tags)
+    {
+        $this->__load();
+        return parent::addTag($tags);
+    }
+
+    public function getTags()
+    {
+        $this->__load();
+        return parent::getTags();
+    }
+
+    public function getUser()
+    {
+        $this->__load();
+        return parent::getUser();
+    }
+
+    public function setUser(\Webdev\AppBundle\Entity\User $user)
+    {
+        $this->__load();
+        return parent::setUser($user);
+    }
+
+    public function addComment(\Webdev\BlogBundle\Entity\Comment $answers)
+    {
+        $this->__load();
+        return parent::addComment($answers);
+    }
+
+    public function getComments()
+    {
+        $this->__load();
+        return parent::getComments();
+    }
+
+    public function setProjects(\Webdev\BlogBundle\Entity\Project $projects = NULL)
+    {
+        $this->__load();
+        return parent::setProjects($projects);
+    }
+
+    public function getProjects()
+    {
+        $this->__load();
+        return parent::getProjects();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'title', 'slug', 'content', 'created_at', 'updated_at', 'clicks');
+        return array('__isInitialized__', 'id', 'title', 'slug', 'content', 'created_at', 'updated_at', 'clicks', 'tags', 'user', 'comments', 'projects');
     }
 
     public function __clone()

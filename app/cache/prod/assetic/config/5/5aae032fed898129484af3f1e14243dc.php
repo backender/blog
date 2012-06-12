@@ -36,4 +36,21 @@ return array (
       'combine' => NULL,
     ),
   ),
+  'fc66e6e' => 
+  array (
+    0 => 
+    array (
+      0 => '@WebdevBlogBundle/Resources/public/js/comment.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => 'resources/compiled/view.js',
+      'name' => 'fc66e6e',
+      'debug' => NULL,
+      'combine' => NULL,
+    ),
+  ),
 );

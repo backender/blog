@@ -102,12 +102,12 @@ div.blog_post_comment_answer
 {
 	
 	margin-left: 30px;
-margin-top: 15px;
-border-left: 1px solid;
-margin-bottom: 10px;
-padding-left: 10px;
-border-top: 1px solid;
-padding-top: 10px;
+	margin-top: 15px;
+	border-left: 1px solid;
+	margin-bottom: 10px;
+	padding-left: 10px;
+	border-top: 1px solid;
+	padding-top: 10px;
 }
 
 p.blog_post_comment_header
@@ -132,11 +132,11 @@ p.blog_post_comment_header
 }
 p.blog_post_comment_body
 {
-margin: 0;
-font-size: 11pt;
-padding-top: 5px;
-padding-bottom: 5px;
-font-weight: 300;
+	margin: 0;
+	font-size: 11pt;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: 300;
 }
 
 #form div input{

@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 class CommentController extends Controller
 {
 	/**
-	 * @Route("/post/{slug}/comment", name="post_newComment")
+	 * @Route("/post/{slug}/", name="post_newComment")
 	 */
 	public function newCommentAction($slug)
 	{
@@ -39,15 +39,17 @@ class CommentController extends Controller
 		->add('name', 'text')
 		->add('email', 'text')
 		->add('url', 'text')
-		->add('content', 'textarea')
+		->add('content', 'textarea', array(
+				'label'  => 'Text',
+		))
 		->getForm();
-		
-		$validator = $this->get('validator');
-		$errors = $validator->validate($comment);
 		
 		if ($request->getMethod() == 'POST') {
 			$form->bindRequest($request);
-		
+			
+			$validator = $this->get('validator');
+			$errors = $validator->validate($comment);
+			
 			if ($form->isValid()) {
 				$em = $this->getDoctrine()->getEntityManager();
 				$em->persist($comment);
@@ -56,7 +58,9 @@ class CommentController extends Controller
 			}
 		}
 		
-		return $this->render('WebdevBlogBundle:Comment:newcomment.html.twig', array('newComment' => $form->createView(), 'slug' => $slug));
+		return $this->render('WebdevBlogBundle:Comment:newcomment.html.twig', array('newComment' => $form->createView(), 'slug' => $slug, 'post' => $post));
+		//return array('newComment' => $form->createView(), 'slug' => $slug, 'post' => $post);
+		
 	}
 	
 	/**

@@ -55,26 +55,31 @@
 	<div id="blog_post_content">
 		{{ post.content | raw }}
 	</div>
-	
+{% endblock %}
+
+
+{% block Comment %}
 	{# comments #}
 	<h3 id="post_comment_title" class="clear">Comments</h3>
 	<hr class="no_margin"/>
-	<div id="blog_post_comment_new">
+	<div id="blog_post_comme{% block newComment %}nt_new">
+	
 		{% render 'WebdevBlogBundle:Comment:newComment' with { 'slug':post.slug } %}
+	{% endblock %}
 	</div>	
 	{% for comment in post.comments %}
 	<div id="comment_{{ comment.id }}" class="blog_post_comment">
 		{% include 'WebdevBlogBundle:Comment:comment.html.twig' with { 'comment': comment } %}
 	</div>
 	{% endfor %}
-
 {% endblock %}
 
-{% block stylesheets %}
 
+
+{% block stylesheets %}
 	{{ parent() }}
 	
-	{% stylesheets
+	{% stylesheets 
 		'@WebdevBlogBundle/Resources/public/css/post/view.css'
 		output='resources/compiled/view.css'
 	%}
@@ -82,8 +87,9 @@
 		<link href="{{ asset_url }}" rel="stylesheet" type="text/css">
 			
 	{% endstylesheets %}
-
+				
 {% endblock %}
+
 
 {% block javascripts %}
 
