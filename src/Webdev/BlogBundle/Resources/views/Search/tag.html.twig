@@ -10,7 +10,7 @@
  	{% for post in tag.posts %}
  		{% include 'WebdevBlogBundle:Post:postPreview.html.twig' with { 'post': post } %}
  	{% else %}
- 		<p>Keine Posts zugeordnet</p>
+ 		<p>No posts found</p>
  	{% endfor %}
  	
  {% endblock %}

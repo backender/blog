@@ -443,12 +443,12 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
 
     private function getpost_newCommentRouteInfo()
     {
-        return array(array (  0 => 'slug',), array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\CommentController::newCommentAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'slug',  ),  2 =>   array (    0 => 'text',    1 => '/post',  ),));
+        return array(array (  0 => 'slug',), array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\CommentController::newCommentAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/comment',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'slug',  ),  2 =>   array (    0 => 'text',    1 => '/post',  ),));
     }
 
     private function getpost_newAnswerRouteInfo()
     {
-        return array(array (  0 => 'slug',  1 => 'origin',), array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\CommentController::newAnswerAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'origin',  ),  2 =>   array (    0 => 'text',    1 => '/comment',  ),  3 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'slug',  ),  4 =>   array (    0 => 'text',    1 => '/post',  ),));
+        return array(array (  0 => 'slug',  1 => 'origin',), array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\CommentController::newAnswerAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'origin',  ),  2 =>   array (    0 => 'text',    1 => '/answer',  ),  3 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'slug',  ),  4 =>   array (    0 => 'text',    1 => '/post',  ),));
     }
 
     private function getblog_post_indexRouteInfo()

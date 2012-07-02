@@ -1,8 +1,4 @@
-{% extends 'WebdevBlogBundle:Post:view.html.twig' %}
-
-{% block newComment %}
-<form action="{{ path('post_newComment', {'slug': slug}) }}" method="post" {{ form_enctype(newComment) }}>
+<form action="{{ path('post_newComment', { 'slug': slug }) }}" method="post" {{ form_enctype(newComment) }}>
 	{{ form_widget(newComment) }}
     <input type="submit" />
 </form>
-{% endblock %}

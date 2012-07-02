@@ -8,7 +8,19 @@
 
 {% block content %}
 
-	{# meta data #}
+	{# post content #}
+	<div id="blog_post_tags">
+		<p class="small no_margin left">Tags:</p>
+			<ul class="small no_margin left">
+				{% for tag in post.tags %}
+					<li><a style="font-size: {{ tag.quantifier / 10 + 1 }}em" href="{{ path('blog_search_tag', { 'name': tag.name }) }}">{{ tag.name }}</a></li>
+				{% else %}
+					<li>Nothing tagged.</li>
+				{% endfor %}
+			</ul>
+	</div>
+	
+		{# meta data #}
 	<div id="blog_post_metadata" class="left small">
 		<table>
 			<tbody>
@@ -17,53 +29,41 @@
 					<td>{{ post.user.username }}</td>
 				</tr>
 				<tr>
-					<td>Erstellt am</td>
+					<td>Created at</td>
 					<td>{{ post.createdAt | date('d.m.Y') }}</td>
 				</tr>
 				<tr>
-					<td>Geändert am</td>
+					<td>Modified at</td>
 					<td>{{ post.updatedAt | date('d.m.Y') }}</td>
 				</tr>
 				<tr>
-					<td>Klicks</td>
+					<td>Clicks</td>
 					<td>{{ post.clicks }}</td>
 				</tr>
 				<tr>
-					<td>Kommentare</td>
+					<td>Comments</td>
 					<td>{{ post.comments | length }}</td>
 				</tr>
 			</tbody>
 		</table>
+		{#
 		<p>Trackbacks (<a href="">URL</a>)</p>
 		<ul class="no_margin">
 			<li><a href="">Lorem Ipsum</a></li>
 			<li><a href="">Lorem Ipsum dolor</a></li>
 		</ul>
+		#}
 	</div>
-
-	{# post content #}
-	<div id="blog_post_tags">
-		<p class="small no_margin left">Tags:</p>
-			<ul class="small no_margin left">
-				{% for tag in post.tags %}
-					<li><a style="font-size: {{ tag.quantifier / 10 + 1 }}em" href="{{ path('blog_search_tag', { 'name': tag.name }) }}">{{ tag.name }}</a></li>
-				{% else %}
-					<li>Keine Tags vorhanden.</li>
-				{% endfor %}
-			</ul>
-	</div>
+	
 	<div id="blog_post_content">
 		{{ post.content | raw }}
 	</div>
-{% endblock %}
 
-
-{% block Comment %}
 	{# comments #}
 	<h3 id="post_comment_title" class="clear">Comments</h3>
 	<hr class="no_margin"/>
-	<div id="blog_post_comme{% block newComment %}nt_new">
-	
+	<div id="blog_post_comment_new">
+	{% block newComment %}
 		{% render 'WebdevBlogBundle:Comment:newComment' with { 'slug':post.slug } %}
 	{% endblock %}
 	</div>	

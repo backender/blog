@@ -1,16 +1,22 @@
 <p class="blog_post_comment_header">
 		{{ comment.name }}
 	<span class="blog_post_comment_header_date">({{ comment.createdAt | comment_date }})</span>
+		<!-- 
 		<span class="blog_post_comment_header_answer right">
 			<span style="font-weight: 700;">{{ comment.answers | length }}</span> {{ comment.answers | length > 1 ? 'Answers' : 'Answer' }} | 
 			<span class="answer_text" style="cursor:pointer;" onclick="toggleCommentAnswers({{ comment.id }})">Click here to give an Answer</span>
 		</span>
+		-->
 	</p>
 
 <p class="blog_post_comment_body">{{ comment.content }}</p>
-
+{#
 	<div id="answer_{{ comment.id }}">
-		{% render 'WebdevBlogBundle:Comment:newAnswer' with { 'slug': post.slug, 'origin': comment.id } %}
+	
+	{% block newAnswer %}
+	{% render 'WebdevBlogBundle:Comment:newAnswer' with { 'slug': post.slug, 'origin': comment.id } %}
+	{% endblock %}
+	
 	</div>
 	
 {% for answer in comment.answers %}
@@ -18,3 +24,5 @@
 	{% include 'WebdevBlogBundle:Comment:comment.html.twig' with { 'comment': answer } %}
 </div>
 {% endfor %}
+
+#}

@@ -451,15 +451,12 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         not_admin_tag_delete:
 
         // post_newComment
-        if (0 === strpos($pathinfo, '/post') && preg_match('#^/post/(?P<slug>[^/]+?)/?$#xs', $pathinfo, $matches)) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'post_newComment');
-            }
+        if (0 === strpos($pathinfo, '/post') && preg_match('#^/post/(?P<slug>[^/]+?)/comment$#xs', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\CommentController::newCommentAction',)), array('_route' => 'post_newComment'));
         }
 
         // post_newAnswer
-        if (0 === strpos($pathinfo, '/post') && preg_match('#^/post/(?P<slug>[^/]+?)/comment/(?P<origin>[^/]+?)/?$#xs', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/post') && preg_match('#^/post/(?P<slug>[^/]+?)/answer/(?P<origin>[^/]+?)/?$#xs', $pathinfo, $matches)) {
             if (substr($pathinfo, -1) !== '/') {
                 return $this->redirect($pathinfo.'/', 'post_newAnswer');
             }

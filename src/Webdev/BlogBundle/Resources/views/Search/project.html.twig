@@ -9,12 +9,12 @@
  
  {% block content %}
  	<p><h2>Description:</h2><p><br />
- 	<p class="project_description">{{ project.description }}</p>
+ 	<p class="project_description">{{ project.description|raw }}</p>
 	<br />
  	{% for post in project.posts %}
  		{% include 'WebdevBlogBundle:Post:postPreview.html.twig' with { 'post': post } %}
  	{% else %}
- 		<p>Keine Posts zugeordnet</p>
+ 		<p>No Posts found for this project</p>
  	{% endfor %}
  	
  {% endblock %}

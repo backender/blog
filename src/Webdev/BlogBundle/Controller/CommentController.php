@@ -18,9 +18,9 @@ use Symfony\Component\HttpFoundation\Response;
 class CommentController extends Controller
 {
 	/**
-	 * @Route("/post/{slug}/", name="post_newComment")
+	 * @Route("/post/{slug}/comment", name="post_newComment")
 	 */
-	public function newCommentAction($slug)
+	public function newCommentAction($slug, $display = false)
 	{
 		$request = $this->getRequest();		
 		$em = $this->getDoctrine()->getEntityManager();
@@ -42,31 +42,42 @@ class CommentController extends Controller
 		->add('content', 'textarea', array(
 				'label'  => 'Text',
 		))
+		->add('isPost','hidden', array('data' => 'newComment', 'property_path' => FALSE))
 		->getForm();
 		
 		if ($request->getMethod() == 'POST') {
-			$form->bindRequest($request);
-			
-			$validator = $this->get('validator');
-			$errors = $validator->validate($comment);
-			
-			if ($form->isValid()) {
-				$em = $this->getDoctrine()->getEntityManager();
-				$em->persist($comment);
-				$em->flush();
-				return $this->redirect($this->generateUrl("blog_post_view", array('slug' => $slug)));
+			$isPost = $request->get("form");
+			//throw $this->createNotFoundException($isPost['isPost']);
+			if ($isPost['isPost'] == "newComment") {
+				$display = true;
+				
+				$form->bindRequest($request);
+				
+				$validator = $this->get('validator');
+				$errors = $validator->validate($comment);
+				
+				if ($form->isValid()) {
+					$em = $this->getDoctrine()->getEntityManager();
+					$em->persist($comment);
+					$em->flush();
+					return $this->redirect($this->generateUrl("blog_post_view", array('slug' => $slug)));
+				}
 			}
 		}
 		
-		return $this->render('WebdevBlogBundle:Comment:newcomment.html.twig', array('newComment' => $form->createView(), 'slug' => $slug, 'post' => $post));
-		//return array('newComment' => $form->createView(), 'slug' => $slug, 'post' => $post);
-		
+		if ($display == false) {
+			return $this->render('WebdevBlogBundle:Comment:newcomment.html.twig', array('newComment' => $form->createView(), 'slug' => $slug));
+							
+		} else {
+			return $this->render('WebdevBlogBundle:Comment:newcomment_embed.html.twig', array('newComment' => $form->createView(), 'slug' => $slug, 'post' => $post));
+			//return array('newComment' => $form->createView(), 'slug' => $slug, 'post' => $post);
+		}
 	}
 	
 	/**
-	 * @Route("/post/{slug}/comment/{origin}/", name="post_newAnswer")
+	 * @Route("/post/{slug}/answer/{origin}/", name="post_newAnswer")
      */
-	public function newAnswerAction($slug, $origin = NULL)
+	public function newAnswerAction($slug, $origin = NULL, $display = false)
 	{
 		$request = $this->getRequest();		
 		$em = $this->getDoctrine()->getEntityManager();
@@ -91,23 +102,40 @@ class CommentController extends Controller
 		->add('email', 'text')
 		->add('url', 'text')
 		->add('content', 'textarea')
+		->add('isPost','hidden', array('data' => $origin, 'property_path' => FALSE))
 		->getForm();
 		
 		$validator = $this->get('validator');
 		$errors = $validator->validate($comment);
 		
-		if ($request->getMethod() == 'POST') {
-			$form->bindRequest($request);
-		
-			if ($form->isValid()) {
-				$em = $this->getDoctrine()->getEntityManager();
-				$em->persist($comment);
-				$em->flush();
-				return $this->redirect($this->generateUrl("blog_post_view", array('slug' => $slug)));
+		if ($request->getMethod() == 'POST') {	
+			$isPost = $request->get("form");
+			if ($isPost['isPost'] !== null) {
+				if ($origin == $isPost["isPost"]) {
+					//throw $this->createNotFoundException($isPost['isPost']);
+					
+					$display = true;
+					
+					$form->bindRequest($request);
+					
+					if ($form->isValid()) {
+						$em = $this->getDoctrine()->getEntityManager();
+						$em->persist($comment);
+						$em->flush();
+						return $this->redirect($this->generateUrl("blog_post_view", array('slug' => $slug)));
+					}	
+				}
 			}
 		}
 		
-		return $this->render('WebdevBlogBundle:Comment:newAnswer.html.twig', array('newAnswer' => $form->createView(), 'slug' => $slug, 'origin' => $origin));
+		if ($display == false) {
+			return $this->render('WebdevBlogBundle:Comment:newAnswer.html.twig', array('newAnswer' => $form->createView(), 'slug' => $slug, 'origin' => $origin));
+				
+		} else {
+			return $this->render('WebdevBlogBundle:Post:view.html.twig', array('newAnswer' => $form->createView(), 'slug' => $slug, 'origin' => $origin, 'post' => $post));
+			
+		}
+		
 	}
 	
 }
