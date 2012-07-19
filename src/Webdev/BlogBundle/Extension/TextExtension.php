@@ -35,8 +35,8 @@ class TextExtension extends \Twig_Extension
 		$time = $datetime->format('H:i');
 		
 		if($datetime > $yesterday)
-			$date = 'Heute';
+			$date = 'Today';
 	
-		return "{$date} um {$time} Uhr";;
+		return "{$date} at {$time}";;
 	}
 }

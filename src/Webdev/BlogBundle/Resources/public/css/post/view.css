@@ -79,7 +79,7 @@ div#blog_post_content p{
 div#blog_post_content a{
 	text-decoration: underline;
 }
-p a{
+div#blog_post_content p a{
 	text-decoration: underline;
 }
 

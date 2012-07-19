@@ -59,19 +59,29 @@
 		{{ post.content | raw }}
 	</div>
 
-	{# comments #}
+	
+	{# comment #}
 	<h3 id="post_comment_title" class="clear">Comments</h3>
 	<hr class="no_margin"/>
+	
+	{% for comment in post.comments %}
+	<br />
+	<div id="comment_{{ comment.id }}" class="blog_post_comment">
+		{% include 'WebdevBlogBundle:Comment:comment.html.twig' with { 'comment': comment } %}
+	</div>
+	{% else %}
+		No comments yet.
+	{% endfor %}
+	<br />
+	<hr class="no_margin"/>
+	
+	{# new comment #}
 	<div id="blog_post_comment_new">
 	{% block newComment %}
 		{% render 'WebdevBlogBundle:Comment:newComment' with { 'slug':post.slug } %}
 	{% endblock %}
 	</div>	
-	{% for comment in post.comments %}
-	<div id="comment_{{ comment.id }}" class="blog_post_comment">
-		{% include 'WebdevBlogBundle:Comment:comment.html.twig' with { 'comment': comment } %}
-	</div>
-	{% endfor %}
+	
 {% endblock %}
 
 

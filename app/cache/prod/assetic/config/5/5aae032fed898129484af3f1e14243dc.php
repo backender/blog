@@ -13,7 +13,7 @@ return array (
     ),
     2 => 
     array (
-      'output' => 'resources/compiled/layout.css',
+      'output' => '_controller/resources/compiled/layout.css',
       'name' => '80bf1c2',
       'debug' => NULL,
       'combine' => NULL,
@@ -30,7 +30,7 @@ return array (
     ),
     2 => 
     array (
-      'output' => 'resources/compiled/view.css',
+      'output' => '_controller/resources/compiled/view.css',
       'name' => 'ab1207e',
       'debug' => NULL,
       'combine' => NULL,
@@ -47,7 +47,7 @@ return array (
     ),
     2 => 
     array (
-      'output' => 'resources/compiled/view.js',
+      'output' => '_controller/resources/compiled/view.js',
       'name' => 'fc66e6e',
       'debug' => NULL,
       'combine' => NULL,

@@ -25,7 +25,7 @@ twig:
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
-    use_controller: false
+    use_controller: true
     bundles:        [ WebdevBlogBundle ]
     # java: /usr/bin/java
     filters:
@@ -34,7 +34,7 @@ assetic:
         #     jar: %kernel.root_dir%/java/compiler.jar
         # yui_css:
         #     jar: %kernel.root_dir%/java/yuicompressor-2.4.2.jar
-
+    
 # Doctrine Configuration
 doctrine:
     dbal:

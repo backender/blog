@@ -233,7 +233,7 @@ div#menu
 	width: 167px;
 	height: 200px;
 	margin: 25px 0 25px 5%;
-	background-image: url('/blog/web/resources/images/logo.png');
+	background-image: url("../../../../../blog/web/resources/images/logo.png");
 	display:block;	
 }
 

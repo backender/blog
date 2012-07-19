@@ -13,7 +13,7 @@ return array (
     ),
     2 => 
     array (
-      'output' => 'resources/compiled/base.css',
+      'output' => '_controller/resources/compiled/base.css',
       'name' => '3bdee21',
       'debug' => NULL,
       'combine' => NULL,
@@ -31,7 +31,7 @@ return array (
     ),
     2 => 
     array (
-      'output' => 'resources/compiled/base.js',
+      'output' => '_controller/resources/compiled/base.js',
       'name' => 'b24dae1',
       'debug' => NULL,
       'combine' => NULL,

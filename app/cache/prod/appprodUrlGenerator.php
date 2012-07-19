@@ -13,6 +13,19 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerator
 {
     static private $declaredRouteNames = array(
+       '_assetic_80bf1c2' => true,
+       '_assetic_80bf1c2_0' => true,
+       '_assetic_ab1207e' => true,
+       '_assetic_ab1207e_0' => true,
+       '_assetic_fc66e6e' => true,
+       '_assetic_fc66e6e_0' => true,
+       '_assetic_ffef2d3' => true,
+       '_assetic_ffef2d3_0' => true,
+       '_assetic_3bdee21' => true,
+       '_assetic_3bdee21_0' => true,
+       '_assetic_b24dae1' => true,
+       '_assetic_b24dae1_0' => true,
+       '_assetic_b24dae1_1' => true,
        'admin_dashboard' => true,
        'admin_blogroll' => true,
        'admin_blogroll_show' => true,
@@ -94,6 +107,71 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
         list($variables, $defaults, $requirements, $tokens) = $this->{'get'.$escapedName.'RouteInfo'}();
 
         return $this->doGenerate($variables, $defaults, $requirements, $tokens, $parameters, $name, $absolute);
+    }
+
+    private function get_assetic_80bf1c2RouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => '80bf1c2',  'pos' => NULL,  '_format' => 'css',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/layout.css',  ),));
+    }
+
+    private function get_assetic_80bf1c2_0RouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => '80bf1c2',  'pos' => 0,  '_format' => 'css',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/layout_layout_1.css',  ),));
+    }
+
+    private function get_assetic_ab1207eRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => 'ab1207e',  'pos' => NULL,  '_format' => 'css',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/view.css',  ),));
+    }
+
+    private function get_assetic_ab1207e_0RouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => 'ab1207e',  'pos' => 0,  '_format' => 'css',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/view_view_1.css',  ),));
+    }
+
+    private function get_assetic_fc66e6eRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => 'fc66e6e',  'pos' => NULL,  '_format' => 'js',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/view.js',  ),));
+    }
+
+    private function get_assetic_fc66e6e_0RouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => 'fc66e6e',  'pos' => 0,  '_format' => 'js',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/view_comment_1.js',  ),));
+    }
+
+    private function get_assetic_ffef2d3RouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => 'ffef2d3',  'pos' => NULL,  '_format' => 'css',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/view.css',  ),));
+    }
+
+    private function get_assetic_ffef2d3_0RouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => 'ffef2d3',  'pos' => 0,  '_format' => 'css',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/view_tagcloud_1.css',  ),));
+    }
+
+    private function get_assetic_3bdee21RouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => '3bdee21',  'pos' => NULL,  '_format' => 'css',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/base.css',  ),));
+    }
+
+    private function get_assetic_3bdee21_0RouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => '3bdee21',  'pos' => 0,  '_format' => 'css',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/base_base_1.css',  ),));
+    }
+
+    private function get_assetic_b24dae1RouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => 'b24dae1',  'pos' => NULL,  '_format' => 'js',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/base.js',  ),));
+    }
+
+    private function get_assetic_b24dae1_0RouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => 'b24dae1',  'pos' => 0,  '_format' => 'js',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/base_jquery-1.7_1.js',  ),));
+    }
+
+    private function get_assetic_b24dae1_1RouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'assetic.controller:render',  'name' => 'b24dae1',  'pos' => 1,  '_format' => 'js',), array (), array (  0 =>   array (    0 => 'text',    1 => '/resources/compiled/base_base_2.js',  ),));
     }
 
     private function getadmin_dashboardRouteInfo()
@@ -298,7 +376,7 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
 
     private function getpost_newAnswerRouteInfo()
     {
-        return array(array (  0 => 'slug',  1 => 'origin',), array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\CommentController::newAnswerAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'origin',  ),  2 =>   array (    0 => 'text',    1 => '/comment',  ),  3 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'slug',  ),  4 =>   array (    0 => 'text',    1 => '/post',  ),));
+        return array(array (  0 => 'slug',  1 => 'origin',), array (  '_controller' => 'Webdev\\BlogBundle\\Controller\\CommentController::newAnswerAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'origin',  ),  2 =>   array (    0 => 'text',    1 => '/answer',  ),  3 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'slug',  ),  4 =>   array (    0 => 'text',    1 => '/post',  ),));
     }
 
     private function getblog_post_indexRouteInfo()

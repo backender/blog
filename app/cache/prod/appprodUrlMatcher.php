@@ -25,6 +25,71 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         $allow = array();
         $pathinfo = urldecode($pathinfo);
 
+        // _assetic_80bf1c2
+        if ($pathinfo === '/resources/compiled/layout.css') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => '80bf1c2',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_80bf1c2',);
+        }
+
+        // _assetic_80bf1c2_0
+        if ($pathinfo === '/resources/compiled/layout_layout_1.css') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => '80bf1c2',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_80bf1c2_0',);
+        }
+
+        // _assetic_ab1207e
+        if ($pathinfo === '/resources/compiled/view.css') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => 'ab1207e',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_ab1207e',);
+        }
+
+        // _assetic_ab1207e_0
+        if ($pathinfo === '/resources/compiled/view_view_1.css') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => 'ab1207e',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_ab1207e_0',);
+        }
+
+        // _assetic_fc66e6e
+        if ($pathinfo === '/resources/compiled/view.js') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => 'fc66e6e',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_fc66e6e',);
+        }
+
+        // _assetic_fc66e6e_0
+        if ($pathinfo === '/resources/compiled/view_comment_1.js') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => 'fc66e6e',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_fc66e6e_0',);
+        }
+
+        // _assetic_ffef2d3
+        if ($pathinfo === '/resources/compiled/view.css') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => 'ffef2d3',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_ffef2d3',);
+        }
+
+        // _assetic_ffef2d3_0
+        if ($pathinfo === '/resources/compiled/view_tagcloud_1.css') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => 'ffef2d3',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_ffef2d3_0',);
+        }
+
+        // _assetic_3bdee21
+        if ($pathinfo === '/resources/compiled/base.css') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => '3bdee21',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_3bdee21',);
+        }
+
+        // _assetic_3bdee21_0
+        if ($pathinfo === '/resources/compiled/base_base_1.css') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => '3bdee21',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_3bdee21_0',);
+        }
+
+        // _assetic_b24dae1
+        if ($pathinfo === '/resources/compiled/base.js') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => 'b24dae1',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_b24dae1',);
+        }
+
+        // _assetic_b24dae1_0
+        if ($pathinfo === '/resources/compiled/base_jquery-1.7_1.js') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => 'b24dae1',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_b24dae1_0',);
+        }
+
+        // _assetic_b24dae1_1
+        if ($pathinfo === '/resources/compiled/base_base_2.js') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => 'b24dae1',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_b24dae1_1',);
+        }
+
         // admin_dashboard
         if (rtrim($pathinfo, '/') === '/admin') {
             if (substr($pathinfo, -1) !== '/') {
@@ -319,7 +384,7 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         }
 
         // post_newAnswer
-        if (0 === strpos($pathinfo, '/post') && preg_match('#^/post/(?P<slug>[^/]+?)/comment/(?P<origin>[^/]+?)/?$#xs', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/post') && preg_match('#^/post/(?P<slug>[^/]+?)/answer/(?P<origin>[^/]+?)/?$#xs', $pathinfo, $matches)) {
             if (substr($pathinfo, -1) !== '/') {
                 return $this->redirect($pathinfo.'/', 'post_newAnswer');
             }

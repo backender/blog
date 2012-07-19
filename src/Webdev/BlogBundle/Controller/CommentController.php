@@ -37,8 +37,8 @@ class CommentController extends Controller
 		
 		$form = $this->createFormBuilder($comment)
 		->add('name', 'text')
-		->add('email', 'text')
-		->add('url', 'text')
+		->add('email', 'text', array('required' => false))
+		->add('url', 'text', array('required' => false))
 		->add('content', 'textarea', array(
 				'label'  => 'Text',
 		))

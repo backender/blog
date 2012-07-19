@@ -13,7 +13,7 @@ return array (
     ),
     2 => 
     array (
-      'output' => 'resources/compiled/layout.css',
+      'output' => '_controller/resources/compiled/layout.css',
       'name' => '80bf1c2',
       'debug' => NULL,
       'combine' => NULL,

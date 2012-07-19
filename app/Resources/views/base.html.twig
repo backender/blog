@@ -13,11 +13,8 @@
 		
 			{% stylesheets 
 				'resources/css/base.css'
-
 				output='resources/compiled/base.css'
-				
 			%}
-			
 				<link href="{{ asset_url }}" rel="stylesheet" type="text/css">
 				
 				{{ tinymce_init() }}
@@ -29,14 +26,20 @@
 	</head>
 	
 	<body>
-		<a target="_blank" href="https://github.com/backender"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+		<a target="_blank" href="https://github.com/mjnet"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 		<div id="leftbar" class="ch-fixed-sidebar ch-left">
 			<div class="ch-box">	
 				<!-- your sidebar here -->
 				 <div id="menu">
 				 	<a href="{{ path('blog_post_index') }}"><h1><div class="box_black box_large inmenue">Backender</div></h1></a>
 				 	<a id="logo" href="{{ path('blog_post_index') }}"></a>
-				 	<div id="menu_social" class="box_black inmenue"><span style="margin-right:35px"><a target="_blank" href="http://facebook.com/mjnet">f</a></span><span style="margin-right:35px"><a target="_blank" href="https://github.com/backender">g</a></span><span style="margin-right:35px"><a target="_blank" href="http://twitter.com/mjnetch">t</a></span><span><a target="_blank" href="http://www.xing.com/profile/Marc_Juchli">x</a></span></div>
+				 	<div id="menu_social" class="box_black inmenue">
+				 		<span style="margin-right:25px"><a target="_blank" href="http://facebook.com/mjnet">f</a></span>
+				 		<span style="margin-right:25px"><a target="_blank" href="https://github.com/backender">g</a></span>
+				 		<span style="margin-right:25px"><a target="_blank" href="http://twitter.com/mjnetch">t</a></span>
+				 		<span style="margin-right:25px"><a target="_blank" href="http://ch.linkedin.com/pub/marc-juchli/33/215/424">in</a></span>
+				 		<span><a target="_blank" href="http://www.xing.com/profile/Marc_Juchli">x</a></span>
+				 	</div>
 				 	<div id="menu_tweet" class="inmenue">
 				 		<p>It’s always nice to get a feedback. Why not send <a target="_blank" href="http://twitter.com/mjnetch"><span style="font-weight:400;">@backender</span></a> a simple tweet on twitter?</p>
 				 	</div>

@@ -57,7 +57,6 @@ class Comment
      * @var string $email
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
      * @Assert\Email(
      *     message = "The email '{{ value }}' is not a valid email.",
      *     checkMX = true
@@ -70,7 +69,6 @@ class Comment
      * @var text $url
      *
      * @ORM\Column(name="url", type="text", nullable=true)
-     * @Assert\NotBlank()
      * @Assert\Url
      */
     private $url;
