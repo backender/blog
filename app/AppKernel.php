@@ -26,6 +26,13 @@ class AppKernel extends Kernel
         		
         	new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
         	new Trsteel\CkeditorBundle\TrsteelCkeditorBundle(),
+        	
+        	new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+        	new Sonata\jQueryBundle\SonatajQueryBundle(),
+        	new Sonata\AdminBundle\SonataAdminBundle(),
+        	new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+        	new Sonata\BlockBundle\SonataBlockBundle(),
+        	new Sonata\CacheBundle\SonataCacheBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

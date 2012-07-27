@@ -98,6 +98,22 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        'fos_user_resetting_check_email' => true,
        'fos_user_resetting_reset' => true,
        'fos_user_change_password' => true,
+       'sonata_admin_dashboard' => true,
+       'sonata_admin_retrieve_form_element' => true,
+       'sonata_admin_append_form_element' => true,
+       'sonata_admin_short_object_information' => true,
+       'sonata_admin_set_object_field_value' => true,
+       'admin_webdev_blog_post_list' => true,
+       'admin_webdev_blog_post_create' => true,
+       'admin_webdev_blog_post_batch' => true,
+       'admin_webdev_blog_post_edit' => true,
+       'admin_webdev_blog_post_delete' => true,
+       'admin_webdev_blog_post_show' => true,
+       'admin_webdev_blog_post_export' => true,
+       'sonata_cache_esi' => true,
+       'sonata_cache_js_async' => true,
+       'sonata_cache_js_sync' => true,
+       'sonata_cache_apc' => true,
     );
 
     /**
@@ -544,5 +560,85 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function getfos_user_change_passwordRouteInfo()
     {
         return array(array (), array (  '_controller' => 'FOS\\UserBundle\\Controller\\ChangePasswordController::changePasswordAction',), array (  '_method' => 'GET|POST',), array (  0 =>   array (    0 => 'text',    1 => '/profile/change-password',  ),));
+    }
+
+    private function getsonata_admin_dashboardRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CoreController::dashboardAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/sadmin/dashboard',  ),));
+    }
+
+    private function getsonata_admin_retrieve_form_elementRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'sonata.admin.controller.admin:retrieveFormFieldElementAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/sadmin/core/get-form-field-element',  ),));
+    }
+
+    private function getsonata_admin_append_form_elementRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'sonata.admin.controller.admin:appendFormFieldElementAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/sadmin/core/append-form-field-element',  ),));
+    }
+
+    private function getsonata_admin_short_object_informationRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'sonata.admin.controller.admin:getShortObjectDescriptionAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/sadmin/core/get-short-object-description',  ),));
+    }
+
+    private function getsonata_admin_set_object_field_valueRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'sonata.admin.controller.admin:setObjectFieldValueAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/sadmin/core/set-object-field-value',  ),));
+    }
+
+    private function getadmin_webdev_blog_post_listRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::listAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_list',), array (), array (  0 =>   array (    0 => 'text',    1 => '/sadmin/webdev/blog/post/list',  ),));
+    }
+
+    private function getadmin_webdev_blog_post_createRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::createAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_create',), array (), array (  0 =>   array (    0 => 'text',    1 => '/sadmin/webdev/blog/post/create',  ),));
+    }
+
+    private function getadmin_webdev_blog_post_batchRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::batchAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_batch',), array (), array (  0 =>   array (    0 => 'text',    1 => '/sadmin/webdev/blog/post/batch',  ),));
+    }
+
+    private function getadmin_webdev_blog_post_editRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::editAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_edit',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/sadmin/webdev/blog/post',  ),));
+    }
+
+    private function getadmin_webdev_blog_post_deleteRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::deleteAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_delete',), array (), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/sadmin/webdev/blog/post',  ),));
+    }
+
+    private function getadmin_webdev_blog_post_showRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::showAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_show',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/sadmin/webdev/blog/post',  ),));
+    }
+
+    private function getadmin_webdev_blog_post_exportRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_export',), array (), array (  0 =>   array (    0 => 'text',    1 => '/sadmin/webdev/blog/post/export',  ),));
+    }
+
+    private function getsonata_cache_esiRouteInfo()
+    {
+        return array(array (  0 => 'token',), array (  '_controller' => 'sonata.cache.esi:cacheAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'token',  ),  1 =>   array (    0 => 'text',    1 => '/sonata/cache/esi',  ),));
+    }
+
+    private function getsonata_cache_js_asyncRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'sonata.cache.js_async:cacheAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/sonata/cache/js-async',  ),));
+    }
+
+    private function getsonata_cache_js_syncRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'sonata.cache.js_sync:cacheAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/sonata/cache/js-sync',  ),));
+    }
+
+    private function getsonata_cache_apcRouteInfo()
+    {
+        return array(array (  0 => 'token',), array (  '_controller' => 'sonata.cache.apc:cacheAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'token',  ),  1 =>   array (    0 => 'text',    1 => '/sonata/cache/apc',  ),));
     }
 }

@@ -1,0 +1,3 @@
+[submodule "src/Sonata/AdminBundle"]
+	path = src/Sonata/AdminBundle
+	url = https://github.com/sonata-project/SonataAdminBundle.git

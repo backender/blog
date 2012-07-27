@@ -624,6 +624,89 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/sadmin')) {
+            // sonata_admin_dashboard
+            if ($pathinfo === '/sadmin/dashboard') {
+                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CoreController::dashboardAction',  '_route' => 'sonata_admin_dashboard',);
+            }
+
+            // sonata_admin_retrieve_form_element
+            if ($pathinfo === '/sadmin/core/get-form-field-element') {
+                return array (  '_controller' => 'sonata.admin.controller.admin:retrieveFormFieldElementAction',  '_route' => 'sonata_admin_retrieve_form_element',);
+            }
+
+            // sonata_admin_append_form_element
+            if ($pathinfo === '/sadmin/core/append-form-field-element') {
+                return array (  '_controller' => 'sonata.admin.controller.admin:appendFormFieldElementAction',  '_route' => 'sonata_admin_append_form_element',);
+            }
+
+            // sonata_admin_short_object_information
+            if ($pathinfo === '/sadmin/core/get-short-object-description') {
+                return array (  '_controller' => 'sonata.admin.controller.admin:getShortObjectDescriptionAction',  '_route' => 'sonata_admin_short_object_information',);
+            }
+
+            // sonata_admin_set_object_field_value
+            if ($pathinfo === '/sadmin/core/set-object-field-value') {
+                return array (  '_controller' => 'sonata.admin.controller.admin:setObjectFieldValueAction',  '_route' => 'sonata_admin_set_object_field_value',);
+            }
+
+            // admin_webdev_blog_post_list
+            if ($pathinfo === '/sadmin/webdev/blog/post/list') {
+                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::listAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_list',  '_route' => 'admin_webdev_blog_post_list',);
+            }
+
+            // admin_webdev_blog_post_create
+            if ($pathinfo === '/sadmin/webdev/blog/post/create') {
+                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::createAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_create',  '_route' => 'admin_webdev_blog_post_create',);
+            }
+
+            // admin_webdev_blog_post_batch
+            if ($pathinfo === '/sadmin/webdev/blog/post/batch') {
+                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::batchAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_batch',  '_route' => 'admin_webdev_blog_post_batch',);
+            }
+
+            // admin_webdev_blog_post_edit
+            if (0 === strpos($pathinfo, '/sadmin/webdev/blog/post') && preg_match('#^/sadmin/webdev/blog/post/(?P<id>[^/]+?)/edit$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::editAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_edit',)), array('_route' => 'admin_webdev_blog_post_edit'));
+            }
+
+            // admin_webdev_blog_post_delete
+            if (0 === strpos($pathinfo, '/sadmin/webdev/blog/post') && preg_match('#^/sadmin/webdev/blog/post/(?P<id>[^/]+?)/delete$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::deleteAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_delete',)), array('_route' => 'admin_webdev_blog_post_delete'));
+            }
+
+            // admin_webdev_blog_post_show
+            if (0 === strpos($pathinfo, '/sadmin/webdev/blog/post') && preg_match('#^/sadmin/webdev/blog/post/(?P<id>[^/]+?)/show$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::showAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_show',)), array('_route' => 'admin_webdev_blog_post_show'));
+            }
+
+            // admin_webdev_blog_post_export
+            if ($pathinfo === '/sadmin/webdev/blog/post/export') {
+                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction',  '_sonata_admin' => 'webdev.blog.admin.post',  '_sonata_name' => 'admin_webdev_blog_post_export',  '_route' => 'admin_webdev_blog_post_export',);
+            }
+
+        }
+
+        // sonata_cache_esi
+        if (0 === strpos($pathinfo, '/sonata/cache/esi') && preg_match('#^/sonata/cache/esi/(?P<token>[^/]+?)$#xs', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'sonata.cache.esi:cacheAction',)), array('_route' => 'sonata_cache_esi'));
+        }
+
+        // sonata_cache_js_async
+        if ($pathinfo === '/sonata/cache/js-async') {
+            return array (  '_controller' => 'sonata.cache.js_async:cacheAction',  '_route' => 'sonata_cache_js_async',);
+        }
+
+        // sonata_cache_js_sync
+        if ($pathinfo === '/sonata/cache/js-sync') {
+            return array (  '_controller' => 'sonata.cache.js_sync:cacheAction',  '_route' => 'sonata_cache_js_sync',);
+        }
+
+        // sonata_cache_apc
+        if (0 === strpos($pathinfo, '/sonata/cache/apc') && preg_match('#^/sonata/cache/apc/(?P<token>[^/]+?)$#xs', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'sonata.cache.apc:cacheAction',)), array('_route' => 'sonata_cache_apc'));
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

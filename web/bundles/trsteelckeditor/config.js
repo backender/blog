@@ -9,4 +9,8 @@ CKEDITOR.editorConfig = function( config )
     //config.language = 'en-au';
     //config.startupOutlineBlocks = true;
     //config.uiColor = '#AADC6E';
+	
+	config.extraPlugins = 'syntaxhighlight';
+	config.syntaxhighlightLangDefault = 'php;
+	config.toolbar_Full.push(['Code']);
 };

@@ -19,6 +19,15 @@ $loader->registerNamespaces(array(
     'Doctrine'         => __DIR__.'/../vendor/doctrine/lib',
 	'Stfalcon'         => __DIR__.'/../vendor/bundles', //tinymce
 	'Trsteel'		   => __DIR__.'/../vendor/bundles', //ckeditor
+	'Knp\Bundle' 	   => __DIR__.'/../vendor/bundles',
+    'Knp\Menu'   	   => __DIR__.'/../vendor/KnpMenu/src',
+	'Sonata'           => array(
+						  __DIR__.'/../vendor/sonata/src',
+						  __DIR__.'/../vendor/bundles',
+						  __DIR__.'/../src',
+						  __DIR__.'/../vendor/sonata-doctrine-extensions/src'
+	),
+		
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',

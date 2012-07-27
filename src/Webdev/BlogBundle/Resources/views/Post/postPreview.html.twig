@@ -3,7 +3,7 @@
 		<h1><p class="post_list_title"><a href="{{ path('blog_post_view', { 'slug': post.slug }) }}">{{ post.title }}</a></p></h1>
 		<p class="post_list_text">
 			{{ post.content | striptags | truncate }}<br />
-			<a href="{{ path('blog_post_view', { 'slug': post.slug }) }}">weiterlesen</a>		
+			<a href="{{ path('blog_post_view', { 'slug': post.slug }) }}">read more</a>		
 		</p>
 	</div>
 </div>
