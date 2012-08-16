@@ -30,3 +30,4 @@
     git=git://github.com/KnpLabs/KnpMenuBundle.git
     target=/bundles/Knp/Bundle/MenuBundle
     version=v1.0.0
+    
