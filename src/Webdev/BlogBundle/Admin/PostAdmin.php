@@ -17,11 +17,12 @@ class PostAdmin extends Admin
 	{
 		$formMapper
 		->add('title')
-		->add('content', 'textarea', array(
+		/*->add('content', 'textarea', array(
         		'attr' => array(
             	'class' => 'tinymce',
             	'data-theme' => 'advanced' // simple, medium, bbcode
-       		 )))
+       		 )))*/
+        ->add('content', null, array('required' => false, 'attr' => array('class' => 'ckeditor')))
 		->add('tags')
 		->add('user')
 		->add('created_at')
