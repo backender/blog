@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Backender\BlogBundle\Entity\Post
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Webdev\BlogBundle\Entity\PostRepository")
+ * @ORM\Entity(repositoryClass="Backender\BlogBundle\Entity\PostRepository")
  */
 class Post
 {
@@ -66,21 +66,15 @@ class Post
     private $clicks;
     
     /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+     */
+    private $comments;
+    
+    /**
      * @ORM\ManyToMany(targetEntity="Tag", inversedBy="posts")
      * @ORM\JoinTable(name="post_tags")
      */
     private $tags;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Webdev\AppBundle\Entity\User", inversedBy="posts")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="cascade")
-     */
-    private $user;
-    
-    /**
-	 * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
-     */
-    private $comments;
     
     
     public function __construct()
@@ -88,7 +82,7 @@ class Post
     	$this->created_at = new \DateTime();
     	$this->updated_at = new \DateTime();
     	$this->clicks = 0;
-    	$this->tags = new ArrayCollection();
+	   	$this->tags = new ArrayCollection();
     	$this->comments = new ArrayCollection();
     }
     
