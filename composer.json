@@ -22,7 +22,11 @@
         "sonata-project/block-bundle": "master",
         "knplabs/knp-menu-bundle":"1.1.*",
         "sonata-project/admin-bundle": "master",
-        "sonata-project/jquery-bundle": "master"
+        "sonata-project/jquery-bundle": "master",
+        "sonata-project/doctrine-orm-admin-bundle": "master",
+        "sonata-project/easy-extends-bundle": "master",
+        "sonata-project/user-bundle": "*",
+        "friendsofsymfony/user-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [

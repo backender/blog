@@ -1,0 +1,12 @@
+services:        
+    backender.blog.admin.post:
+      class: Backender\BlogBundle\Admin\PostAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Article Handling, label: Posts }
+      arguments: [null, Backender\BlogBundle\Entity\Post, SonataAdminBundle:CRUD]
+      
+    backender.blog.admin.comment:
+      class: Backender\BlogBundle\Admin\CommentAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Article Handling, label: Comments }
+      arguments: [null, Backender\BlogBundle\Entity\Comment, SonataAdminBundle:CRUD]

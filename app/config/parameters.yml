@@ -1,10 +1,10 @@
 parameters:
     database_driver:   pdo_mysql
-    database_host:     localhost
+    database_host:     codag.net
     database_port:     ~
-    database_name:     c1003
-    database_user:     root
-    database_password: root
+    database_name:     c1002
+    database_user:     c1002
+    database_password: mjdiablo
 
     mailer_transport:  smtp
     mailer_host:       localhost

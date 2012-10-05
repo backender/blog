@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Backender\BlogBundle\Entity\Post
+ * @ORM\Entity(repositoryClass="Backender\BlogBundle\Entity\PostRepository")
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Backender\BlogBundle\Entity\PostRepository")
  */
 class Post
 {
@@ -75,6 +75,12 @@ class Post
      * @ORM\JoinTable(name="post_tags")
      */
     private $tags;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="posts")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="cascade")
+     */
+    private $user;
     
     
     public function __construct()

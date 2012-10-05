@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Backender\BlogBundle\Entity\Tag
- *
- * @ORM\Table()
  * @ORM\Entity(repositoryClass="Backender\BlogBundle\Entity\TagRepository")
+ * 
+ * @ORM\Table()
  */
 class Tag
 {
