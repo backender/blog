@@ -18,7 +18,11 @@
         "sensio/generator-bundle": "2.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
-        "sonata-project/cache-bundle": "master"
+        "sonata-project/cache-bundle": "master",
+        "sonata-project/block-bundle": "master",
+        "knplabs/knp-menu-bundle":"1.1.*",
+        "sonata-project/admin-bundle": "master",
+        "sonata-project/jquery-bundle": "master"
     },
     "scripts": {
         "post-install-cmd": [
