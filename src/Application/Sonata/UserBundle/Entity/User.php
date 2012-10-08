@@ -10,6 +10,8 @@
 
 namespace Application\Sonata\UserBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 
 /**
@@ -27,6 +29,13 @@ class User extends BaseUser
      * @var integer $id
      */
     protected $id;
+    
+    /**
+     * @var integer $posts
+     *
+     * @ORM\OneToMany(targetEntity="Backender\BlogBundle\Entity\Post", mappedBy="user")
+     */
+    protected $posts;
 
     /**
      * Get id

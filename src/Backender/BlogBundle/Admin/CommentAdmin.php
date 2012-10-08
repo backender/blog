@@ -16,16 +16,17 @@ class CommentAdmin extends Admin
 		->add('post')
 		->add('name')
         ->add('content')
-		->add('created_at');
-	
+        ->add('origin')
+		;	
 	}
 	
 	protected function configureListFields(ListMapper $listMapper)
 	{
 		$listMapper
 		->add('id')
-		->addIdentifier('name')
-		->add('content')
+		->add('name')
+		->addIdentifier('post')
+		->addIdentifier('content')
 		->add('created_at')
 
 		// add custom action links

@@ -84,16 +84,16 @@ class Post
     
     
     public function __construct()
-    {
+    {	
     	$this->created_at = new \DateTime();
     	$this->updated_at = new \DateTime();
     	$this->clicks = 0;
-	   	$this->tags = new ArrayCollection();
-    	$this->comments = new ArrayCollection();
+	   	//$this->tags = new ArrayCollection();
+    	//$this->comments = new ArrayCollection();
     }
     
     public function __toString() {
-    	return $this->slug;
+    	return $this->title;
     }
 
     /**
@@ -283,7 +283,7 @@ class Post
      * @param Webdev\AppBundle\Entity\User $user
      * @return Post
      */
-    public function setUser(\Webdev\AppBundle\Entity\User $user)
+    public function setUser(\Application\Sonata\UserBundle\Entity\User $user)
     {
         $this->user = $user;
     

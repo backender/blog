@@ -40,7 +40,7 @@ class Comment
     private $content;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Backender\AppBundle\Entity\User", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="comments")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true, onDelete="cascade")
      */
     //private $user;
@@ -86,10 +86,11 @@ class Comment
     /**
      * @ORM\ManyToOne(targetEntity="Comment", inversedBy="answers")
      */
-    private $origin;
+    private $origin; // * @Assert\Collection\Optional()
     
     public function __construct()
     {
+    	$this->created_at = new \DateTime();
     	$this->answers = new ArrayCollection();
     }
     

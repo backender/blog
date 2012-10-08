@@ -15,12 +15,9 @@ class PostAdmin extends Admin
 		$formMapper
 		->add('title')
         ->add('content')
-		->add('tags')
-		->add('created_at')
-		// you can define help messages like this
-		->setHelps(array(
-				'title' => $this->trans('help_post_title')
-		));
+        //->add('user')
+		->add('slug')
+		;
 	
 	}
 	
@@ -32,7 +29,8 @@ class PostAdmin extends Admin
 		->add('slug')
 		->add('tags')
 		->add('created_at')
-
+		->add('comments', 'sonata_type_model', array('expanded' => true, 'compound' => true))
+		
 		// add custom action links
 		->add('_action', 'actions', array(
 				'actions' => array(
