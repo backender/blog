@@ -20,13 +20,13 @@ class PostListener
 
 		//Get user
 		$securityContext = $this->container->get('security.context');
-		$user = $securityContext->getToken()->getUser();
+		//$user = $securityContext->getToken()->getUser();
 		
 		//Set authenticated user as autor
-		$entity->setUser($user);
+		//$entity->setUser($user);
 
 		// ...
-		$postService = $this->container->get('backender.blog.post');
+		//$postService = $this->container->get('backender.blog.post');
 		// get title now...
 		// modify title to slug...
 		// $entity->setSlug($slug);
