@@ -1,6 +1,8 @@
 <?php
 namespace Backender\BlogBundle\Admin;
 
+use Backender\BlogBundle\Listener\PostListener;
+use Symfony\Component\Form\AbstractType;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -17,6 +19,10 @@ class PostAdmin extends Admin
         ->add('content')
         //->add('user')
 		->add('slug')
+		->add('user', 'text', array(
+   			'label' => 'Last name',
+		    'set_user' => true
+		))
 		;
 	
 	}
@@ -40,4 +46,5 @@ class PostAdmin extends Admin
 		))
 		;
 	}
+	
 }

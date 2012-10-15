@@ -1,35 +1,55 @@
 <?php
 namespace Backender\BlogBundle\Listener;
 
-use Doctrine\ORM\Event\LifecycleEventArgs;
+
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Form\Event\DataEvent;
+use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormEvents;
 
-class PostListener
+class PostListener implements EventSubscriberInterface
 {
-	protected $container;
+	private $factory;
+	private $container;
+	
+    public function __construct(FormFactoryInterface $factory, ContainerInterface $container)
+    {
+        $this->factory = $factory;
+        $this->container = $container;
+    }
 
-	public function __construct(ContainerInterface $container)
+    public static function getSubscribedEvents()
+    {
+    	return array(FormEvents::POST_SET_DATA => 'postSetData');
+    }
+
+	public function prePersist(DataEvent $event)
 	{
-		$this->container = $container;
-	}
 
+        $data = $event->getData();
+        $form = $event->getForm();
+        
+        // During form creation setData() is called with null as an argument
+        // by the FormBuilder constructor. We're only concerned with when
+        // setData is called with an actual Entity object in it (whether new,
+        // or fetched with Doctrine). This if statement let's us skip right
+        // over the null condition.
+        if (null === $data) {
+        	return;
+        }
+        
+        //Get user
+        $securityContext = $this->container->get('security.context');
+        $user = $securityContext->getToken()->getUser();
+        
+        //Check for already existing user
+        if (!$data->getUser()) {
+        	$form->add('user', $user);
+        }
 
-	public function prePersist(LifeCycleEventArgs $args)
-	{
-		$entity = $args->getEntity();
-
-		//Get user
-		$securityContext = $this->container->get('security.context');
-		//$user = $securityContext->getToken()->getUser();
 		
-		//Set authenticated user as autor
-		//$entity->setUser($user);
-
-		// ...
-		//$postService = $this->container->get('backender.blog.post');
-		// get title now...
-		// modify title to slug...
-		// $entity->setSlug($slug);
-		
 	}
+	
+
 }
