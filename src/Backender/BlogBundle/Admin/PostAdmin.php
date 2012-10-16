@@ -20,8 +20,7 @@ class PostAdmin extends Admin
         //->add('user')
 		->add('slug')
 		->add('user', 'text', array(
-   			'label' => 'Last name',
-		    'set_user' => true
+		    //'set_user' => true TODO: what's about this form.type overriding stuff?
 		))
 		;
 	
