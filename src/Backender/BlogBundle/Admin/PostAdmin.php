@@ -1,6 +1,8 @@
 <?php
 namespace Backender\BlogBundle\Admin;
 
+use Backender\BlogBundle\Listener\AddUserFieldSubscriber;
+
 use Backender\BlogBundle\Listener\PostListener;
 use Symfony\Component\Form\AbstractType;
 use Sonata\AdminBundle\Admin\Admin;
@@ -17,13 +19,17 @@ class PostAdmin extends Admin
 		$formMapper
 		->add('title')
         ->add('content')
+        ->add('slug')
         //->add('user')
-		->add('slug')
-		->add('user', 'text', array(
+		/*->add('user', 'text', array(
 		    //'set_user' => true TODO: what's about this form.type overriding stuff?
-		))
+		))*/
 		;
-	
+		
+		$userSubscriber = new AddUserFieldSubscriber($formMapper->getFormBuilder()->getFormFactory());
+		
+		$addUserSubscriber = $formMapper->get('adduserfield.subscriber');
+		$formMapper->getFormBuilder()->addEventSubscriber($addUserSubscriber);
 	}
 	
 	protected function configureListFields(ListMapper $listMapper)
