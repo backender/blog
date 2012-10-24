@@ -1,33 +1,39 @@
 <?php
 namespace Backender\BlogBundle\Listener;
 
+use Symfony\Component\Form\Event\DataEvent;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Doctrine\ORM\Event\LifecycleEventArgs;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class AddUserFieldSubscriber implements EventSubscriberInterface, ContainerAwareInterface
+
+class AddUserFieldSubscriber implements EventSubscriberInterface
 {
-	private $container;
+	private $factory;
 	
-	public function setContainer(ContainerInterface $container = null) {
-		$this->container = $container;
+	public function __construct(FormFactoryInterface $factory, $user)
+	{
+		$this->factory = $factory;
+		$this->user = $user;
 	}
 	
  	public static function getSubscribedEvents()
     {
         // Tells the dispatcher that we want to listen on the form.pre_set_data
         // event and that the preSetData method should be called.
-        return array(FormEvents::PRE_SET_DATA => 'preSetData');
+        return array(FormEvents::POST_SET_DATA => 'postSetData');
     }
     
-    public function preSetData()
+    public function postSetData(DataEvent $event)
     {
-    	$securityContext = $this->container->get('security.context');
-    	$user = $securityContext->getToken()->getUser();
-    	print_r($user);
+		$user = $this->user;
+		echo $user;
+		
+		$data = $event->getData();
+		$form = $event->getForm();
+		
+		//$form->add();
+		
     }
 	
 	public function prePersist(LifeCycleEventArgs $args)

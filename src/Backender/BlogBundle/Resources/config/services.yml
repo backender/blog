@@ -3,7 +3,7 @@ services:
       class: Backender\BlogBundle\Admin\PostAdmin
       tags:
         - { name: sonata.admin, manager_type: orm, group: Article Handling, label: Posts }
-      arguments: [null, Backender\BlogBundle\Entity\Post, SonataAdminBundle:CRUD]
+      arguments: [null, Backender\BlogBundle\Entity\Post, SonataAdminBundle:CRUD, @security.context]
       
     backender.blog.admin.comment:
       class: Backender\BlogBundle\Admin\CommentAdmin
@@ -15,19 +15,6 @@ services:
         class: Backender\BlogBundle\Extension\PostService
         calls:
             - [ setContainer, [ @service_container ] ]
-            
-    #post.listener:
-    #  class: Backender\BlogBundle\Listener\PostListener
-    #  calls:
-    #    - [ setContainer, [ @service_container ] ]
-    #  tags:
-    #    - { name: doctrine.event_listener, event: prePersist }
-    
-    adduserfield.subscriber:
-        class: Backender\BlogBundle\Listener\AddUserFieldSubscriber
-        calls: 
-          - [ setContainer, [ @service_container ] ]
-        
     
     #SYSMFONY CORE CLASSES (override)
     #form.type.form:

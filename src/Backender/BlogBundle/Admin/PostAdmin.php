@@ -1,8 +1,9 @@
 <?php
 namespace Backender\BlogBundle\Admin;
 
-use Backender\BlogBundle\Listener\AddUserFieldSubscriber;
 
+use Backender\BlogBundle\Listener\AddUserFieldSubscriber;
+use Symfony\Component\Security\Core\SecurityContextInterface;
 use Backender\BlogBundle\Listener\PostListener;
 use Symfony\Component\Form\AbstractType;
 use Sonata\AdminBundle\Admin\Admin;
@@ -13,6 +14,13 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class PostAdmin extends Admin
 {
+	protected $securityContext;
+	
+	public function __construct($code, $class, $baseControllerName, SecurityContextInterface $securityContext)
+	{
+		parent::__construct($code, $class, $baseControllerName);
+		$this->securityContext = $securityContext;
+	}
 
 	protected function configureFormFields(FormMapper $formMapper)
 	{
@@ -26,10 +34,13 @@ class PostAdmin extends Admin
 		))*/
 		;
 		
-		$userSubscriber = new AddUserFieldSubscriber($formMapper->getFormBuilder()->getFormFactory());
+		$user = $this->securityContext->getToken()->getUser();
+		$formFactory = $formMapper->getFormBuilder()->getFormFactory();
 		
-		$addUserSubscriber = $formMapper->get('adduserfield.subscriber');
-		$formMapper->getFormBuilder()->addEventSubscriber($addUserSubscriber);
+		$userSubscriber = new AddUserFieldSubscriber($formFactory, $user);
+		
+		//$addUserSubscriber = $formMapper->get('adduserfield.subscriber');
+		$formMapper->getFormBuilder()->addEventSubscriber($userSubscriber);
 	}
 	
 	protected function configureListFields(ListMapper $listMapper)
