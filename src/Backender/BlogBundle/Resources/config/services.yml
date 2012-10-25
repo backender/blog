@@ -13,8 +13,13 @@ services:
       
     backender.blog.post:
         class: Backender\BlogBundle\Extension\PostService
-        calls:
-            - [ setContainer, [ @service_container ] ]
+        #arguments: ['@service_container']
+            
+    backender.post.listener:
+      class: Backender\BlogBundle\Listener\PostListener
+      arguments: ['@service_container']
+      tags: 
+        - { name: doctrine.event_listener, event: prePersist }
     
     #SYSMFONY CORE CLASSES (override)
     #form.type.form:

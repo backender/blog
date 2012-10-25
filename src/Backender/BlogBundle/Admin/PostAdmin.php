@@ -28,25 +28,20 @@ class PostAdmin extends Admin
 		->add('title')
         ->add('content')
         ->add('slug')
-        //->add('user')
-		/*->add('user', 'text', array(
-		    //'set_user' => true TODO: what's about this form.type overriding stuff?
-		))*/
 		;
-		
+		/*
 		$user = $this->securityContext->getToken()->getUser();
 		$formFactory = $formMapper->getFormBuilder()->getFormFactory();
-		
 		$userSubscriber = new AddUserFieldSubscriber($formFactory, $user);
-		
-		//$addUserSubscriber = $formMapper->get('adduserfield.subscriber');
 		$formMapper->getFormBuilder()->addEventSubscriber($userSubscriber);
+		*/
 	}
 	
 	protected function configureListFields(ListMapper $listMapper)
 	{
 		$listMapper
 		->add('id')
+		->add('user')
 		->addIdentifier('title')
 		->add('slug')
 		->add('tags')
@@ -61,6 +56,12 @@ class PostAdmin extends Admin
 				)
 		))
 		;
+	}
+	
+	public function prePersist($post)
+	{
+		var_dump($post);
+		$post->setSlug('hoidu');
 	}
 	
 }

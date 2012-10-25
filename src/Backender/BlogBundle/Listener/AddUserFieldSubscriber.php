@@ -1,6 +1,8 @@
 <?php
 namespace Backender\BlogBundle\Listener;
 
+use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+
 use Symfony\Component\Form\Event\DataEvent;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -27,12 +29,15 @@ class AddUserFieldSubscriber implements EventSubscriberInterface
     public function postSetData(DataEvent $event)
     {
 		$user = $this->user;
-		echo $user;
 		
 		$data = $event->getData();
 		$form = $event->getForm();
-		
-		//$form->add();
+
+		if($form !== null) {
+			
+			//var_dump($data);
+			
+		}
 		
     }
 	
