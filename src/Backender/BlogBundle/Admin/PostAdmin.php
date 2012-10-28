@@ -1,7 +1,6 @@
 <?php
 namespace Backender\BlogBundle\Admin;
 
-
 use Backender\BlogBundle\Listener\AddUserFieldSubscriber;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Backender\BlogBundle\Listener\PostListener;
@@ -27,13 +26,9 @@ class PostAdmin extends Admin
 		$formMapper
 		->add('title')
         ->add('content')
+        ->add('tags', 'sonata_type_model', array('by_reference' => false))
 		;
-		/*
-		$user = $this->securityContext->getToken()->getUser();
-		$formFactory = $formMapper->getFormBuilder()->getFormFactory();
-		$userSubscriber = new AddUserFieldSubscriber($formFactory, $user);
-		$formMapper->getFormBuilder()->addEventSubscriber($userSubscriber);
-		*/
+
 	}
 	
 	protected function configureListFields(ListMapper $listMapper)

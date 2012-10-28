@@ -10,6 +10,12 @@ services:
       tags:
         - { name: sonata.admin, manager_type: orm, group: Article Handling, label: Comments }
       arguments: [null, Backender\BlogBundle\Entity\Comment, SonataAdminBundle:CRUD]
+
+    backender.blog.admin.tag:
+      class: Backender\BlogBundle\Admin\TagAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Article Handling, label: Tags }
+      arguments: [null, Backender\BlogBundle\Entity\Tag, SonataAdminBundle:CRUD]
       
     backender.blog.post:
         class: Backender\BlogBundle\Extension\PostService
