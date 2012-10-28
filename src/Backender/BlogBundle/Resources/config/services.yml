@@ -3,7 +3,7 @@ services:
       class: Backender\BlogBundle\Admin\PostAdmin
       tags:
         - { name: sonata.admin, manager_type: orm, group: Article Handling, label: Posts }
-      arguments: [null, Backender\BlogBundle\Entity\Post, SonataAdminBundle:CRUD, @security.context]
+      arguments: [null, Backender\BlogBundle\Entity\Post, SonataAdminBundle:CRUD, @service_container]
       
     backender.blog.admin.comment:
       class: Backender\BlogBundle\Admin\CommentAdmin
@@ -15,7 +15,7 @@ services:
         class: Backender\BlogBundle\Extension\PostService
         #arguments: ['@service_container']
             
-    backender.post.listener:
+    backender.blog.post.listener:
       class: Backender\BlogBundle\Listener\PostListener
       arguments: ['@service_container']
       tags: 

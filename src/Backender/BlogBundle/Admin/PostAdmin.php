@@ -3,7 +3,7 @@ namespace Backender\BlogBundle\Admin;
 
 
 use Backender\BlogBundle\Listener\AddUserFieldSubscriber;
-use Symfony\Component\Security\Core\SecurityContextInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Backender\BlogBundle\Listener\PostListener;
 use Symfony\Component\Form\AbstractType;
 use Sonata\AdminBundle\Admin\Admin;
@@ -16,10 +16,10 @@ class PostAdmin extends Admin
 {
 	protected $securityContext;
 	
-	public function __construct($code, $class, $baseControllerName, SecurityContextInterface $securityContext)
+	public function __construct($code, $class, $baseControllerName, ContainerInterface $container)
 	{
 		parent::__construct($code, $class, $baseControllerName);
-		$this->securityContext = $securityContext;
+		$this->container = $container;
 	}
 
 	protected function configureFormFields(FormMapper $formMapper)
@@ -27,7 +27,6 @@ class PostAdmin extends Admin
 		$formMapper
 		->add('title')
         ->add('content')
-        ->add('slug')
 		;
 		/*
 		$user = $this->securityContext->getToken()->getUser();
@@ -60,8 +59,8 @@ class PostAdmin extends Admin
 	
 	public function prePersist($post)
 	{
-		var_dump($post);
-		$post->setSlug('hoidu');
+		$postService = $this->container->get('backender.blog.post');
+		$post->setSlug($postService->createSlug($post->getTitle()));
 	}
 	
 }
