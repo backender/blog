@@ -26,7 +26,8 @@ class PostAdmin extends Admin
 		$formMapper
 		->add('title')
         ->add('content')
-        ->add('tags', 'sonata_type_model', array('by_reference' => false))
+        ->add('tags', 'sonata_type_model',array('expanded' => true, 'by_reference' => false, 'compound' => true, 'multiple' => true));
+		//->add('tags', 'sonata_type_collection', array('by_reference' => false))
 		;
 
 	}
@@ -57,5 +58,6 @@ class PostAdmin extends Admin
 		$postService = $this->container->get('backender.blog.post');
 		$post->setSlug($postService->createSlug($post->getTitle()));
 	}
+	
 	
 }

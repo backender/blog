@@ -1,6 +1,8 @@
 <?php
 namespace Backender\BlogBundle\Admin;
 
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -14,6 +16,7 @@ class TagAdmin extends Admin
 	{
 		$formMapper
 		->add('name')
+		//->add('posts')
 		;	
 	}
 	
@@ -22,6 +25,7 @@ class TagAdmin extends Admin
 		$listMapper
 		->add('id')
 		->addIdentifier('name')
+		->add('posts')
 		;
 	}
 }

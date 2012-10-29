@@ -1,9 +1,9 @@
 <?php
 
 namespace Backender\BlogBundle\Entity;
-
+use Symfony\Component\Validator\Constraints\Collection\Optional;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,14 +31,8 @@ class Tag
     private $name;
 
     /**
-     * @var integer $quantifier
-     *
-     * @ORM\Column(name="quantifier", type="integer")
-     */
-    private $quantifier;
-
-    /**
      * @ORM\ManyToMany(targetEntity="Post", mappedBy="tags")
+     * @Assert\Blank
      */
     private $posts;
     
