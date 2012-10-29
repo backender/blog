@@ -36,6 +36,13 @@ class Post
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
      */
     private $slug;
+    
+    /**
+     * @var text $excerpt
+     *
+     * @ORM\Column(name="excerpt", type="text", nullable=true)
+     */
+    private $excerpt;
 
     /**
      * @var text $content
@@ -77,7 +84,7 @@ class Post
     private $tags;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="cascade")
      */
     private $user;
@@ -331,5 +338,28 @@ class Post
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set excerpt
+     *
+     * @param string $excerpt
+     * @return Post
+     */
+    public function setExcerpt($excerpt)
+    {
+        $this->excerpt = $excerpt;
+    
+        return $this;
+    }
+
+    /**
+     * Get excerpt
+     *
+     * @return string 
+     */
+    public function getExcerpt()
+    {
+        return $this->excerpt;
     }
 }
