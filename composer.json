@@ -27,7 +27,8 @@
         "sonata-project/easy-extends-bundle": "master",
         "sonata-project/user-bundle": "*",
         "friendsofsymfony/user-bundle": "*",
-        "knplabs/knp-disqus-bundle": "dev-master"
+        "knplabs/knp-disqus-bundle": "dev-master",
+        "eko/feedbundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

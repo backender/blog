@@ -1,5 +1,5 @@
 {
-    "hash": "e1b5b09e3a9a77cdbb43c099eced6582",
+    "hash": "1923590e24872631110fc6e23195236e",
     "packages": [
         {
             "name": "doctrine/common",
@@ -269,6 +269,51 @@
             "keywords": [
                 "database",
                 "orm"
+            ]
+        },
+        {
+            "name": "eko/feedbundle",
+            "version": "dev-master",
+            "target-dir": "Eko/FeedBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eko/FeedBundle",
+                "reference": "1b1a11b3745a2ef43530ab09c152dec21e39b210"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/eko/FeedBundle/zipball/1b1a11b3745a2ef43530ab09c152dec21e39b210",
+                "reference": "1b1a11b3745a2ef43530ab09c152dec21e39b210",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">=2.0,<2.2-dev"
+            },
+            "time": "1350586531",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Eko\\FeedBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Composieux",
+                    "email": "vincent.composieux@gmail.com"
+                }
+            ],
+            "description": "A Symfony bundle to build RSS feeds from entities",
+            "homepage": "http://github.com/eko/FeedBundle",
+            "keywords": [
+                "bundle",
+                "atom",
+                "feed",
+                "rss"
             ]
         },
         {
@@ -2023,6 +2068,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "knplabs/knp-disqus-bundle": 20
+        "knplabs/knp-disqus-bundle": 20,
+        "eko/feedbundle": 20
     }
 }

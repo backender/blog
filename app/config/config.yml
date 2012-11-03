@@ -145,5 +145,14 @@ knp_disqus:
     forums:
         lorem:
             shortname: %knp_disqus.lorem.shortname%
-            
+
+eko_feed:
+    feeds:
+        Post:
+            title:       'Backender articles'
+            description: 'Latests articles of Backender Blog'
+            link:        'http://backender.ch'
+            encoding:    'utf-8'
+            author:      'Marc Juchli' # Only required for Atom feeds
+                        
                 

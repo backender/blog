@@ -3,6 +3,7 @@
 namespace Backender\BlogBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Eko\FeedBundle\Item\ItemInterface;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,354 +13,343 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  */
-class Post
-{
-    /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+class Post implements ItemInterface {
+	/**
+	 * @var integer $id
+	 *
+	 * @ORM\Column(name="id", type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
 
-    /**
-     * @var string $title
-     *
-     * @ORM\Column(name="title", type="string", length=255)
-     */
-    private $title;
+	/**
+	 * @var string $title
+	 *
+	 * @ORM\Column(name="title", type="string", length=255)
+	 */
+	private $title;
 
-    /**
-     * @var string $slug
-     *
-     * @ORM\Column(name="slug", type="string", length=255, unique=true)
-     */
-    private $slug;
-    
-    /**
-     * @var text $excerpt
-     *
-     * @ORM\Column(name="excerpt", type="text", nullable=true)
-     */
-    private $excerpt;
+	/**
+	 * @var string $slug
+	 *
+	 * @ORM\Column(name="slug", type="string", length=255, unique=true)
+	 */
+	private $slug;
 
-    /**
-     * @var text $content
-     *
-     * @ORM\Column(name="content", type="text")
-     */
-    private $content;
+	/**
+	 * @var text $excerpt
+	 *
+	 * @ORM\Column(name="excerpt", type="text", nullable=true)
+	 */
+	private $excerpt;
 
-    /**
-     * @var datetime $created_at
-     *
-     * @ORM\Column(name="created_at", type="datetime")
-     */
-    private $created_at;
+	/**
+	 * @var text $content
+	 *
+	 * @ORM\Column(name="content", type="text")
+	 */
+	private $content;
 
-    /**
-     * @var datetime $updated_at
-     *
-     * @ORM\Column(name="updated_at", type="datetime")
-     */
-    private $updated_at;
+	/**
+	 * @var datetime $created_at
+	 *
+	 * @ORM\Column(name="created_at", type="datetime")
+	 */
+	private $created_at;
 
-    /**
-     * @var integer $clicks
-     *
-     * @ORM\Column(name="clicks", type="integer")
-     */
-    private $clicks;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
-     */
-    private $comments;
-    
-    /**
-     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="posts")
-     * @ORM\JoinTable(name="post_tags")
-     */
-    private $tags;
+	/**
+	 * @var datetime $updated_at
+	 *
+	 * @ORM\Column(name="updated_at", type="datetime")
+	 */
+	private $updated_at;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="cascade")
-     */
-    private $user;
-    
-    
-    public function __construct()
-    {	
-    	$this->created_at = new \DateTime();
-    	$this->updated_at = new \DateTime();
-    	$this->clicks = 0;
-	   	//$this->tags = new ArrayCollection();
-    	//$this->comments = new ArrayCollection();
-    }
-    
-    public function __toString() {
-    	return $this->title;
-    }
+	/**
+	 * @var integer $clicks
+	 *
+	 * @ORM\Column(name="clicks", type="integer")
+	 */
+	private $clicks;
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+	/**
+	 * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+	 */
+	private $comments;
 
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return Post
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    
-        return $this;
-    }
+	/**
+	 * @ORM\ManyToMany(targetEntity="Tag", inversedBy="posts")
+	 * @ORM\JoinTable(name="post_tags")
+	 */
+	private $tags;
 
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
+	/**
+	 * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="cascade")
+	 */
+	private $user;
 
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Post
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-    
-        return $this;
-    }
+	public function __construct() {
+		$this->created_at = new \DateTime();
+		$this->updated_at = new \DateTime();
+		$this->clicks = 0;
+		//$this->tags = new ArrayCollection();
+		//$this->comments = new ArrayCollection();
+	}
 
-    /**
-     * Get slug
-     *
-     * @return string 
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
+	public function __toString() {
+		return $this->title;
+	}
 
-    /**
-     * Set content
-     *
-     * @param string $content
-     * @return Post
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-    
-        return $this;
-    }
+	/**
+	 * Get id
+	 *
+	 * @return integer 
+	 */
+	public function getId() {
+		return $this->id;
+	}
 
-    /**
-     * Get content
-     *
-     * @return string 
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
+	/**
+	 * Set title
+	 *
+	 * @param string $title
+	 * @return Post
+	 */
+	public function setTitle($title) {
+		$this->title = $title;
 
-    /**
-     * Set created_at
-     *
-     * @param \DateTime $createdAt
-     * @return Post
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->created_at = $createdAt;
-    
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get created_at
-     *
-     * @return \DateTime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
+	/**
+	 * Get title
+	 *
+	 * @return string 
+	 */
+	public function getTitle() {
+		return $this->title;
+	}
 
-    /**
-     * Set updated_at
-     *
-     * @param \DateTime $updatedAt
-     * @return Post
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updated_at = $updatedAt;
-    
-        return $this;
-    }
+	/**
+	 * Set slug
+	 *
+	 * @param string $slug
+	 * @return Post
+	 */
+	public function setSlug($slug) {
+		$this->slug = $slug;
 
-    /**
-     * Get updated_at
-     *
-     * @return \DateTime 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
+		return $this;
+	}
 
-    /**
-     * Set clicks
-     *
-     * @param integer $clicks
-     * @return Post
-     */
-    public function setClicks($clicks)
-    {
-        $this->clicks = $clicks;
-    
-        return $this;
-    }
+	/**
+	 * Get slug
+	 *
+	 * @return string 
+	 */
+	public function getSlug() {
+		return $this->slug;
+	}
 
-    /**
-     * Get clicks
-     *
-     * @return integer 
-     */
-    public function getClicks()
-    {
-        return $this->clicks;
-    }
+	/**
+	 * Set content
+	 *
+	 * @param string $content
+	 * @return Post
+	 */
+	public function setContent($content) {
+		$this->content = $content;
 
-    /**
-     * Add tags
-     *
-     * @param Backender\BlogBundle\Entity\Tag $tags
-     * @return Post
-     */
-    public function addTag(\Backender\BlogBundle\Entity\Tag $tags)
-    {
-        $this->tags[] = $tags;
-    
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Remove tags
-     *
-     * @param Backender\BlogBundle\Entity\Tag $tags
-     */
-    public function removeTag(\Backender\BlogBundle\Entity\Tag $tags)
-    {
-        $this->tags->removeElement($tags);
-    }
+	/**
+	 * Get content
+	 *
+	 * @return string 
+	 */
+	public function getContent() {
+		return $this->content;
+	}
 
-    /**
-     * Get tags
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
+	/**
+	 * Set created_at
+	 *
+	 * @param \DateTime $createdAt
+	 * @return Post
+	 */
+	public function setCreatedAt($createdAt) {
+		$this->created_at = $createdAt;
 
-    /**
-     * Set user
-     *
-     * @param Webdev\AppBundle\Entity\User $user
-     * @return Post
-     */
-    public function setUser(\Application\Sonata\UserBundle\Entity\User $user)
-    {
-        $this->user = $user;
-    
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get user
-     *
-     * @return Webdev\AppBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
+	/**
+	 * Get created_at
+	 *
+	 * @return \DateTime 
+	 */
+	public function getCreatedAt() {
+		return $this->created_at;
+	}
 
-    /**
-     * Add comments
-     *
-     * @param Backender\BlogBundle\Entity\Comment $comments
-     * @return Post
-     */
-    public function addComment(\Backender\BlogBundle\Entity\Comment $comments)
-    {
-        $this->comments[] = $comments;
-    
-        return $this;
-    }
+	/**
+	 * Set updated_at
+	 *
+	 * @param \DateTime $updatedAt
+	 * @return Post
+	 */
+	public function setUpdatedAt($updatedAt) {
+		$this->updated_at = $updatedAt;
 
-    /**
-     * Remove comments
-     *
-     * @param Backender\BlogBundle\Entity\Comment $comments
-     */
-    public function removeComment(\Backender\BlogBundle\Entity\Comment $comments)
-    {
-        $this->comments->removeElement($comments);
-    }
+		return $this;
+	}
 
-    /**
-     * Get comments
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
+	/**
+	 * Get updated_at
+	 *
+	 * @return \DateTime 
+	 */
+	public function getUpdatedAt() {
+		return $this->updated_at;
+	}
 
-    /**
-     * Set excerpt
-     *
-     * @param string $excerpt
-     * @return Post
-     */
-    public function setExcerpt($excerpt)
-    {
-        $this->excerpt = $excerpt;
-    
-        return $this;
-    }
+	/**
+	 * Set clicks
+	 *
+	 * @param integer $clicks
+	 * @return Post
+	 */
+	public function setClicks($clicks) {
+		$this->clicks = $clicks;
 
-    /**
-     * Get excerpt
-     *
-     * @return string 
-     */
-    public function getExcerpt()
-    {
-        return $this->excerpt;
-    }
+		return $this;
+	}
+
+	/**
+	 * Get clicks
+	 *
+	 * @return integer 
+	 */
+	public function getClicks() {
+		return $this->clicks;
+	}
+
+	/**
+	 * Add tags
+	 *
+	 * @param Backender\BlogBundle\Entity\Tag $tags
+	 * @return Post
+	 */
+	public function addTag(\Backender\BlogBundle\Entity\Tag $tags) {
+		$this->tags[] = $tags;
+
+		return $this;
+	}
+
+	/**
+	 * Remove tags
+	 *
+	 * @param Backender\BlogBundle\Entity\Tag $tags
+	 */
+	public function removeTag(\Backender\BlogBundle\Entity\Tag $tags) {
+		$this->tags->removeElement($tags);
+	}
+
+	/**
+	 * Get tags
+	 *
+	 * @return Doctrine\Common\Collections\Collection 
+	 */
+	public function getTags() {
+		return $this->tags;
+	}
+
+	/**
+	 * Set user
+	 *
+	 * @param Webdev\AppBundle\Entity\User $user
+	 * @return Post
+	 */
+	public function setUser(\Application\Sonata\UserBundle\Entity\User $user) {
+		$this->user = $user;
+
+		return $this;
+	}
+
+	/**
+	 * Get user
+	 *
+	 * @return Webdev\AppBundle\Entity\User 
+	 */
+	public function getUser() {
+		return $this->user;
+	}
+
+	/**
+	 * Add comments
+	 *
+	 * @param Backender\BlogBundle\Entity\Comment $comments
+	 * @return Post
+	 */
+	public function addComment(\Backender\BlogBundle\Entity\Comment $comments) {
+		$this->comments[] = $comments;
+
+		return $this;
+	}
+
+	/**
+	 * Remove comments
+	 *
+	 * @param Backender\BlogBundle\Entity\Comment $comments
+	 */
+	public function removeComment(
+			\Backender\BlogBundle\Entity\Comment $comments) {
+		$this->comments->removeElement($comments);
+	}
+
+	/**
+	 * Get comments
+	 *
+	 * @return Doctrine\Common\Collections\Collection 
+	 */
+	public function getComments() {
+		return $this->comments;
+	}
+
+	/**
+	 * Set excerpt
+	 *
+	 * @param string $excerpt
+	 * @return Post
+	 */
+	public function setExcerpt($excerpt) {
+		$this->excerpt = $excerpt;
+
+		return $this;
+	}
+
+	/**
+	 * Get excerpt
+	 *
+	 * @return string 
+	 */
+	public function getExcerpt() {
+		return $this->excerpt;
+	}
+	public function getFeedItemTitle() {
+		return $this->getTitle();
+	}
+	public function getFeedItemDescription() {
+		return $this->getExcerpt();
+	}
+	public function getFeedItemLink() {
+		return $this->getSlug();
+	}
+	public function getFeedItemPubDate() {
+		return $this->getCreatedAt();
+
+	}
+
 }
