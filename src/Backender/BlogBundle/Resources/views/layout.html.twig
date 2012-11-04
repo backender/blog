@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+        <div id="content">
+            {% block content %}
+            
+            	{% block title %}{% endblock %}
+            
+            {% endblock content %}
+            
+            {%block sider %}{%endblock sider %}
+        </div>
+
+{% endblock body %}
