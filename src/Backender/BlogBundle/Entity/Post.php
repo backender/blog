@@ -342,7 +342,7 @@ class Post implements ItemInterface {
 		return $this->getTitle();
 	}
 	public function getFeedItemDescription() {
-		return $this->getExcerpt();
+		return $this->getContent();
 	}
 	public function getFeedItemLink() {
 		return $this->getSlug();
