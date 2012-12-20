@@ -26,7 +26,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ 'BackenderBlogBundle' ]
+    bundles:        [ 'BackenderBlogBundle', 'BackenderEpiceditorBundle' ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -182,3 +182,33 @@ sonata_media:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media
             create:     false
+
+#BackenderEpiceditorBundle
+twig:
+    form:
+        resources:
+            - 'BackenderEpiceditorBundle:Form:epiceditor_widget.html.twig'
+
+
+backender_epiceditor:
+    class:                Backender\EpiceditorBundle\Form\Type\EpiceditorType
+    container:            epiceditor
+    basepath:             %kernel.root_dir%/../web
+    #basepath:             /git/blog/web
+    clientSideStorage:    true
+    localStorageName:     epiceditor
+    parser:               marked
+    focusOnLoad:          false
+    file:
+        name:                 epiceditor
+        defaultContent:       ~
+        autoSave:             100
+    theme:
+        base:                 /themes/base/epiceditor.css
+        preview:              /themes/preview/github.css
+        editor:               /themes/editor/epic-dark.css
+    shortcut:
+        modifier:             18
+        fullscreen:           70
+        preview:              80
+        edit:                 79

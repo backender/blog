@@ -2,43 +2,29 @@
 
 {% block content %}
 
+    <form action="{{ path('home') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
 
-    {% javascripts '@BackenderBlogBundle/Resources/public/epiceditor/js/epiceditor.min.js' %}
-    	<script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    
-    <div id="epiceditor"></div>
-    
+        <input type="submit" />
+    </form>
+
+    <input id="syncWithServerBtn" type="submit" value="test" />
+
 <script type="text/javascript">
-		var opts = {
-		  container: 'epiceditor',
-		  basePath: '../',
-		  clientSideStorage: true,
-		  localStorageName: 'epiceditor',
-		  parser: marked,
-		  file: {
-		    name: 'epiceditor',
-		    defaultContent: '',
-		    autoSave: 100
-		  },
-		  theme: {
-		    base:'bundles/backenderblog/epiceditor/themes/base/epiceditor.css',
-		    preview:'bundles/backenderblog/epiceditor/themes/preview/preview-dark.css',
-		    editor:'bundles/backenderblog/epiceditor/themes/editor/epic-dark.css'
-		  },
-		  focusOnLoad: false,
-		  shortcut: {
-		    modifier: 18,
-		    fullscreen: 70,
-		    preview: 80,
-		    edit: 79
-		  }
-		}
-		var editor = new EpicEditor(opts).load();
+
+    syncWithServerBtn.onclick = function () {
+        var theContent = editor.exportFile();
+        saveToServerAjaxCall('/save', theContent, function () {
+            console.log('Data was saved to the database.');
+        });
+    }
+
+    function saveToServerAjaxCall(path, data) {
+        alert(path + " -> " + data);
+    }
 
 </script>
 
-Hello
-			
+
 
 {% endblock %}

@@ -26,9 +26,8 @@ class PostAdmin extends Admin
 		$formMapper
 		->add('title')
 		->add('excerpt')
-        ->add('content')
+        ->add('content', 'epiceditor')
         ->add('tags', 'sonata_type_model',array('expanded' => true, 'by_reference' => false, 'compound' => true, 'multiple' => true));
-		//->add('tags', 'sonata_type_collection', array('by_reference' => false))
 		;
 
 	}
