@@ -53,8 +53,6 @@ doctrine:
         auto_mapping: true
 
 
-
-
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
@@ -63,6 +61,9 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
+#
+# BACKEND
+#
 
 sonata_block:
     default_contexts: [cms]
@@ -183,25 +184,18 @@ sonata_media:
             directory:  %kernel.root_dir%/../web/uploads/media
             create:     false
 
-#BackenderEpiceditorBundle
-twig:
-    form:
-        resources:
-            - 'BackenderEpiceditorBundle:Form:epiceditor_widget.html.twig'
-
 
 backender_epiceditor:
     class:                Backender\EpiceditorBundle\Form\Type\EpiceditorType
     container:            epiceditor
-    basepath:             %kernel.root_dir%/../web
-    #basepath:             /git/blog/web
+    basepath:             /~marc/blog/web/bundles/backenderepiceditor
     clientSideStorage:    true
     localStorageName:     epiceditor
     parser:               marked
     focusOnLoad:          false
     file:
         name:                 epiceditor
-        defaultContent:       ~
+        defaultContent:
         autoSave:             100
     theme:
         base:                 /themes/base/epiceditor.css
@@ -212,3 +206,7 @@ backender_epiceditor:
         fullscreen:           70
         preview:              80
         edit:                 79
+
+#
+# FRONTEND
+#

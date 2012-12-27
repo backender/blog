@@ -26,7 +26,30 @@ class PostAdmin extends Admin
 		$formMapper
 		->add('title')
 		->add('excerpt')
-        ->add('content', 'epiceditor')
+        ->add('content', 'epiceditor', array(
+            'container'             => 'epiceditor',
+            'basepath'              => '/~marc/blog/web/bundles/backenderepiceditor',
+            'clientSideStorage'     => true,
+            'localStorageName'      => 'epiceditor',
+            'parser'                => 'marked',
+            'focusOnLoad'           => false,
+            'file'                  => array(
+                'name'              => 'epiceditor',
+                'defaultContent'    => '',
+                'autoSave'          => 100
+            ),
+            'theme'                 => array(
+                'base'              => '/themes/base/epiceditor.css',
+                'preview'           => '/themes/preview/github.css',
+                'editor'            => '/themes/editor/epic-dark.css'
+            ),
+            'shortcut'              => array(
+                'modifier'          => 18,
+                'fullscreen'        => 70,
+                'preview'           => 80,
+                'edit'              => 79
+            )
+        ))
         ->add('tags', 'sonata_type_model',array('expanded' => true, 'by_reference' => false, 'compound' => true, 'multiple' => true));
 		;
 
@@ -55,8 +78,11 @@ class PostAdmin extends Admin
 	
 	public function prePersist($post)
 	{
+        $user = $this->container->get('security.context')->getToken()->getUser();
+
 		$postService = $this->container->get('backender.blog.post');
 		$post->setSlug($postService->createSlug($post->getTitle()));
+        $post->setUser($user);
 	}
 	
 	
