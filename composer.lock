@@ -1,5 +1,5 @@
 {
-    "hash": "a6eff0f1ad468de842ec94a3f4070f9e",
+    "hash": "07d382e97082795b9ca8f54e3e52797e",
     "packages": [
         {
             "name": "doctrine/common",
@@ -1080,6 +1080,55 @@
             "keywords": [
                 "curl",
                 "http client"
+            ]
+        },
+        {
+            "name": "liip/theme-bundle",
+            "version": "dev-master",
+            "target-dir": "Liip/ThemeBundle",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/liip/LiipThemeBundle.git",
+                "reference": "84610163c17599c3d55a0be7103469493c332bde"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/liip/LiipThemeBundle/archive/84610163c17599c3d55a0be7103469493c332bde.zip",
+                "reference": "84610163c17599c3d55a0be7103469493c332bde",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">=2.0,<2.3-dev"
+            },
+            "require-dev": {
+                "symfony/console": ">=2.0,<2.3-dev"
+            },
+            "time": "1356305936",
+            "type": "symfony-bundle",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Liip\\ThemeBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/liip/LiipThemeBundle/contributors"
+                },
+                {
+                    "name": "Liip AG",
+                    "homepage": "http://www.liip.ch/"
+                }
+            ],
+            "description": "Provides theming support for #Symfony2 Bundles",
+            "keywords": [
+                "themes",
+                "theming"
             ]
         },
         {
@@ -2358,6 +2407,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "knplabs/knp-disqus-bundle": 20,
-        "eko/feedbundle": 20
+        "eko/feedbundle": 20,
+        "liip/theme-bundle": 20
     }
 }

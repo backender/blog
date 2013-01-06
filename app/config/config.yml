@@ -212,3 +212,7 @@ backender_epiceditor:
         fullscreen:           70
         preview:              80
         edit:                 79
+
+liip_theme:
+    themes: ['web', 'tablet', 'phone']
+    active_theme: 'web'

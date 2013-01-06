@@ -34,6 +34,7 @@ class AppKernel extends Kernel
         	new FOS\UserBundle\FOSUserBundle(),
         	new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
         	new Eko\FeedBundle\EkoFeedBundle(),
+            new Liip\ThemeBundle\LiipThemeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
