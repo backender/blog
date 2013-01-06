@@ -30,7 +30,8 @@
         "knplabs/knp-disqus-bundle": "dev-master",
         "eko/feedbundle": "dev-master",
         "sonata-project/media-bundle": "master",
-        "liip/theme-bundle": "dev-master"
+        "liip/theme-bundle": "dev-master",
+        "Backender/epiceditor-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [
