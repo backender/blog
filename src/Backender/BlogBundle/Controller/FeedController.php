@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Response;
 class FeedController extends Controller
 {
     /**
-     * @Route("/feed")
+     * @Route("/feed/{type}", defaults={"type" = "atom"}, name="post_feed")
      * @return Response XML Feed
      */
-    public function PostFeedAction()
+    public function PostFeedAction($type)
     {
     	//TODO: When post view is implemented, I should make reverse url generate here instead of manual building url!
     	$request = $this->container->get('request');
@@ -28,6 +28,10 @@ class FeedController extends Controller
         $feed = $this->get('eko_feed.feed.manager')->get('Post');
         $feed->addFromArray($articles);
 
-        return new Response($feed->render('atom')); // or 'atom'
+        if($type == "rss" || $type == "atom") {
+            return new Response($feed->render($type));
+        } else{
+            throw new \Exception("Unknown feed type.");
+        }
     }
 }
