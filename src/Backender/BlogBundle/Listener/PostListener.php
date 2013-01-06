@@ -27,7 +27,7 @@ class PostListener
 		if ($entity instanceof Post) {
 		
 			//Set authenticated user as autor
-			$entity->setUser($user);
+			//$entity->setUser($user);
 	
 			//Set slug
 			//$postService = $this->container->get('backender.blog.post');
