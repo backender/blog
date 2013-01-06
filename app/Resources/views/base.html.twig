@@ -1,18 +1,90 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-			
-        {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}
-    		
-        {% endblock %}
-		
-    </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head>
+    <meta http-equiv="Content-Type" content="" charset="UTF-8" />
+
+    <title></title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    <!--[if gte IE 7]><!-->
+    <link rel="stylesheet" href="{{ asset('bundles/backenderblog/css/style.css') }}" type="text/css" media="screen" charset="utf-8" />
+    <!-- <![endif]-->
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="{{ asset('bundles/backenderblog/css/style_ie.css') }}" type="text/css" media="screen" charset="utf-8" />
+    <![endif]-->
+
+    <!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/backenderblog/css/style_ie6.css') }}" />
+    <![endif]-->
+
+    <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="{{ path('post_feed', {'type': 'rss'}) }}" />
+    <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="{{ path('post_feed', {'type': 'atom'}) }}" />
+    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery-1.3.2.min.js" charset="utf-8">
+
+    </script>
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+
+</head>
+
+<body>
+
+<div id="siteWrapper">
+
+    {% block navigation %}
+
+        <h1 class="vcard author"><a href="<?php echo get_option('home'); ?>/" title="Home" class="fn"><?php  bloginfo('name');?></a></h1>
+
+        <div id="mainNav">
+            <ul>
+                <?php wp_list_pages('title_li=&depth=1'); ?>
+            </ul>
+        </div>
+
+        <div id="subNav">
+            <ul>
+                <?php echo $children; ?>
+            </ul>
+        </div>
+        <?php } ?>
+
+        <div id="siteDescription">
+            <?php  bloginfo('description'); ?>
+        </div>
+
+    {% endblock %}
+
+    {% block body %}{% endblock %}
+    {% block javascripts %}
+
+    {% endblock %}
+
+</div>
+
+<div id="footer">
+
+    <!-- Footer Links -->
+
+    <h5>Elsewhere</h5>
+    <ul class="elsewhere">
+        <?php wp_list_bookmarks('categorize=0&title_li=&category_name=footer&show_images=0'); ?>
+    </ul>
+
+    <!-- Search Field -->
+
+    <div class="footerContent">
+        <form method="get" id="searchform" action="<?php bloginfo('url'); ?>/">
+            <div id="search">
+                <input type="text" value="<?php the_search_query(); ?>" name="s" id="s" />
+                <input type="submit" id="searchsubmit" value="Search" />
+            </div>
+        </form>
+
+
+        <p>&copy; <?php bloginfo('name'); ?>. Powered by <a href="http://wordpress.org/">WordPress</a> and <a href="http://jimbarraud.com/manifest/">Manifest</a></p>
+    </div>
+</div>
+
+</body>
 </html>

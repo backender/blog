@@ -16,16 +16,41 @@ use Backender\BlogBundle\Entity\Post;
 class PostController extends Controller
 {   
     /**
-     * @Route("/", name="home")
+     * @Route("/")
+     * @Route("/blog", name="blog_post_index")
      * @Template()
      */
     public function indexAction()
     {
-	   	$entity = new Post();
-        $form = $this->createFormBuilder($entity)
-            ->add('content', 'epiceditor')
-            ->getForm();
+        $em = $this->getDoctrine()->getEntityManager();
 
-        return array('form' => $form->createView());
+        $posts = $em->getRepository('BackenderBlogBundle:Post')->findAll();
+
+        if (!$posts) {
+            throw $this->createNotFoundException('No posts available.');
+        }
+
+        return array(
+            'posts' => $posts
+        );
+    }
+
+    /**
+     * @Route("/blog/{slug}/", name="blog_post_view")
+     * @Template()
+     */
+    public function showAction($slug)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $post = $em->getRepository('BackenderBlogBundle:Post')->findBySlug($slug);
+
+        if (!$post) {
+            throw $this->createNotFoundException('Unable to find Blog post.');
+        }
+
+        return array(
+            'post' => $post
+        );
     }
 }
