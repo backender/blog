@@ -16,11 +16,20 @@ services:
       tags:
         - { name: sonata.admin, manager_type: orm, group: Article Handling, label: Tags }
       arguments: [null, Backender\BlogBundle\Entity\Tag, SonataAdminBundle:CRUD]
-      
+
+    backender.blog.admin.blogroll:
+      class: Backender\BlogBundle\Admin\BlogrollAdmin
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Article Handling, label: Blogroll }
+      arguments: [null, Backender\BlogBundle\Entity\Blogroll, SonataAdminBundle:CRUD]
+
     backender.blog.post:
         class: Backender\BlogBundle\Extension\PostService
         #arguments: ['@service_container']
-            
+
+    backender.blog.blogroll.controller:
+        class: Backender\BlogBundle\Controller\BlogrollController
+
     backender.blog.post.listener:
       class: Backender\BlogBundle\Listener\PostListener
       arguments: ['@service_container']
