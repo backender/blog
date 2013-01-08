@@ -28,7 +28,7 @@ class PostAdmin extends Admin
 		->add('excerpt')
         ->add('content', 'epiceditor', array(
             'container'             => 'epiceditor',
-            'basepath'              => '/~marc/blog/web/bundles/backenderepiceditor',
+            'basepath'              => '/git/blog/web/bundles/backenderepiceditor',
             'clientSideStorage'     => true,
             'localStorageName'      => 'epiceditor',
             'parser'                => 'marked',
@@ -40,7 +40,7 @@ class PostAdmin extends Admin
             ),
             'theme'                 => array(
                 'base'              => '/themes/base/epiceditor.css',
-                'preview'           => '/themes/preview/github.css',
+                'preview'           => '/themes/preview/bartik.css',
                 'editor'            => '/themes/editor/epic-dark.css'
             ),
             'shortcut'              => array(
@@ -83,6 +83,7 @@ class PostAdmin extends Admin
 		$postService = $this->container->get('backender.blog.post');
 		$post->setSlug($postService->createSlug($post->getTitle()));
         $post->setUser($user);
+
 	}
 	
 	

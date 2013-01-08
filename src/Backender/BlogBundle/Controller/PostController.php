@@ -36,10 +36,10 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/blog/{slug}/", name="blog_post_view")
+     * @Route("/blog/{slug}", name="blog_post_view")
      * @Template()
      */
-    public function showAction($slug)
+    public function viewAction($slug)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
