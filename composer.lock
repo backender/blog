@@ -1,5 +1,5 @@
 {
-    "hash": "5f0793fa4d07031b3dfd6dda640c55d8",
+    "hash": "cad863f9ad97f12b5a91880aded36501",
     "packages": [
         {
             "name": "backender/epiceditor-bundle",
@@ -46,6 +46,66 @@
                 "markdown",
                 "editor",
                 "epiceditor"
+            ]
+        },
+        {
+            "name": "dflydev/markdown",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dflydev/dflydev-markdown.git",
+                "reference": "11f8faa2d17f717a038b4d372abd22a6ac4a15dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/dflydev/dflydev-markdown/archive/11f8faa2d17f717a038b4d372abd22a6ac4a15dc.zip",
+                "reference": "11f8faa2d17f717a038b4d372abd22a6ac4a15dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "time": "2012-07-15 16:31:27",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "dflydev\\markdown": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Dragonfly Development Inc.",
+                    "email": "info@dflydev.com",
+                    "homepage": "http://dflydev.com"
+                },
+                {
+                    "name": "Beau Simensen",
+                    "email": "beau@dflydev.com",
+                    "homepage": "http://beausimensen.com"
+                },
+                {
+                    "name": "Michel Fortin",
+                    "homepage": "http://michelf.com"
+                },
+                {
+                    "name": "John Gruber",
+                    "homepage": "http://daringfireball.net"
+                }
+            ],
+            "description": "PHP Markdown & Extra",
+            "homepage": "http://github.com/dflydev/dflydev-markdown",
+            "keywords": [
+                "markdown"
             ]
         },
         {
@@ -123,19 +183,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal",
-                "reference": "cb3ec49cb4401bd1c8be6ba9671f651802586eaf"
+                "reference": "4c33f633c48eeafe3408b308f6fc51743a21a3b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/dbal/archive/cb3ec49cb4401bd1c8be6ba9671f651802586eaf.zip",
-                "reference": "cb3ec49cb4401bd1c8be6ba9671f651802586eaf",
+                "url": "https://github.com/doctrine/dbal/archive/4c33f633c48eeafe3408b308f6fc51743a21a3b7.zip",
+                "reference": "4c33f633c48eeafe3408b308f6fc51743a21a3b7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "doctrine/common": "2.3.*"
             },
-            "time": "2012-12-23 20:28:39",
+            "time": "2013-01-07 20:03:43",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -257,12 +317,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/doctrine/doctrine2.git",
-                "reference": "019094655b6606852a3e3231de93425d9913bac4"
+                "reference": "f5bb8be884fab26f1bf72e7c55f97d226028b9d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/doctrine2/archive/019094655b6606852a3e3231de93425d9913bac4.zip",
-                "reference": "019094655b6606852a3e3231de93425d9913bac4",
+                "url": "https://github.com/doctrine/doctrine2/archive/f5bb8be884fab26f1bf72e7c55f97d226028b9d9.zip",
+                "reference": "f5bb8be884fab26f1bf72e7c55f97d226028b9d9",
                 "shasum": ""
             },
             "require": {
@@ -274,7 +334,7 @@
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
-            "time": "2012-12-24 10:18:12",
+            "time": "2013-01-07 20:05:04",
             "bin": [
                 "bin/doctrine",
                 "bin/doctrine.php"
@@ -492,18 +552,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/jdorn/sql-formatter.git",
-                "reference": "7cc05be93fc352be9c551bf5a45c7b930f5d9e2a"
+                "reference": "a31cb6ffd64a8f7efa8e92f46b99fe9f990f9299"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jdorn/sql-formatter/archive/7cc05be93fc352be9c551bf5a45c7b930f5d9e2a.zip",
-                "reference": "7cc05be93fc352be9c551bf5a45c7b930f5d9e2a",
+                "url": "https://github.com/jdorn/sql-formatter/archive/a31cb6ffd64a8f7efa8e92f46b99fe9f990f9299.zip",
+                "reference": "a31cb6ffd64a8f7efa8e92f46b99fe9f990f9299",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-12-29 19:41:32",
+            "time": "2013-01-08 17:30:08",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -795,12 +855,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/Gaufrette",
-                "reference": "755b67d8b61ee94051d2bfd131bc98d47587e3d3"
+                "reference": "a6bf24fca203734927ee2cd8c175f7478f0cc439"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/KnpLabs/Gaufrette/archive/755b67d8b61ee94051d2bfd131bc98d47587e3d3.zip",
-                "reference": "755b67d8b61ee94051d2bfd131bc98d47587e3d3",
+                "url": "https://github.com/KnpLabs/Gaufrette/archive/a6bf24fca203734927ee2cd8c175f7478f0cc439.zip",
+                "reference": "a6bf24fca203734927ee2cd8c175f7478f0cc439",
                 "shasum": ""
             },
             "require": {
@@ -825,7 +885,7 @@
                 "ext-zip": "to use the Zip adapter",
                 "ext-apc": "to use the APC adapter"
             },
-            "time": "2013-01-02 19:22:19",
+            "time": "2013-01-08 07:01:43",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -911,6 +971,66 @@
                 "forum",
                 "comments",
                 "disqus"
+            ]
+        },
+        {
+            "name": "knplabs/knp-markdown-bundle",
+            "version": "dev-master",
+            "target-dir": "Knp/Bundle/MarkdownBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpMarkdownBundle",
+                "reference": "1a31848de5aad77b32d2b152bdce51cfbc9edcca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/KnpLabs/KnpMarkdownBundle/archive/1a31848de5aad77b32d2b152bdce51cfbc9edcca.zip",
+                "reference": "1a31848de5aad77b32d2b152bdce51cfbc9edcca",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": ">=2.0,<2.3-dev",
+                "dflydev/markdown": "1.0.*@dev"
+            },
+            "suggest": {
+                "symfony/twig-bundle": "to use the Twig markdown filter",
+                "ext-sundown": "to use optional support for php-sundown extension instead of php implementation"
+            },
+            "time": "2012-10-17 19:09:15",
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\MarkdownBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://github.com/KnpLabs/KnpMarkdownBundle/contributors"
+                }
+            ],
+            "description": "Knplabs markdown bundle transforms markdown into html",
+            "homepage": "http://github.com/KnpLabs/KnpMarkdownBundle",
+            "keywords": [
+                "markdown",
+                "knp",
+                "knplabs",
+                "bundle"
             ]
         },
         {
@@ -1189,33 +1309,30 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "dev-master",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog",
-                "reference": "39e8151a93bc136026ae965bd08b8a230115c6a6"
+                "reference": "1.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Seldaek/monolog/archive/39e8151a93bc136026ae965bd08b8a230115c6a6.zip",
-                "reference": "39e8151a93bc136026ae965bd08b8a230115c6a6",
+                "url": "https://github.com/Seldaek/monolog/zipball/1.2.1",
+                "reference": "1.2.1",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "psr/log": ">=1.0,<2.0"
+                "php": ">=5.3.0"
             },
             "require-dev": {
-                "mlehner/gelf-php": "1.0.*",
-                "doctrine/couchdb": "dev-master"
+                "mlehner/gelf-php": "1.0.*"
             },
             "suggest": {
                 "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-                "ext-mongo": "Allow sending log messages to a MongoDB server",
-                "doctrine/couchdb": "Allow sending log messages to a CouchDB server"
+                "ext-mongo": "Allow sending log messages to a MongoDB server"
             },
-            "time": "2013-01-06 20:47:20",
+            "time": "2012-08-29 04:53:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1245,45 +1362,6 @@
             "keywords": [
                 "log",
                 "logging"
-            ]
-        },
-        {
-            "name": "psr/log",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/log",
-                "reference": "1.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
-                "reference": "1.0.0",
-                "shasum": ""
-            },
-            "time": "2012-12-21 11:40:51",
-            "type": "library",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for logging libraries",
-            "keywords": [
-                "log",
-                "psr",
-                "psr-3"
             ]
         },
         {
@@ -1563,12 +1641,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCacheBundle",
-                "reference": "2d8e5f615bcfa3679f7e438c3250fcb1f82e5281"
+                "reference": "c89d2db291912a866c41f4aa010f4ca45d5bca18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sonata-project/SonataCacheBundle/archive/2d8e5f615bcfa3679f7e438c3250fcb1f82e5281.zip",
-                "reference": "2d8e5f615bcfa3679f7e438c3250fcb1f82e5281",
+                "url": "https://github.com/sonata-project/SonataCacheBundle/archive/c89d2db291912a866c41f4aa010f4ca45d5bca18.zip",
+                "reference": "c89d2db291912a866c41f4aa010f4ca45d5bca18",
                 "shasum": ""
             },
             "require": {
@@ -1588,7 +1666,7 @@
                 "ext-apc": "Caching with ext/apc",
                 "ext-memcached": "Caching with ext/memcached"
             },
-            "time": "2012-12-21 20:01:36",
+            "time": "2013-01-07 17:18:32",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1995,12 +2073,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataNotificationBundle",
-                "reference": "d0acd36a606a42a6178d165b38e20e8414f0356c"
+                "reference": "2ecec0ffc2568e747f81d8b44950971ad7d22c56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sonata-project/SonataNotificationBundle/archive/d0acd36a606a42a6178d165b38e20e8414f0356c.zip",
-                "reference": "d0acd36a606a42a6178d165b38e20e8414f0356c",
+                "url": "https://github.com/sonata-project/SonataNotificationBundle/archive/2ecec0ffc2568e747f81d8b44950971ad7d22c56.zip",
+                "reference": "2ecec0ffc2568e747f81d8b44950971ad7d22c56",
                 "shasum": ""
             },
             "require": {
@@ -2016,7 +2094,7 @@
                 "guzzle/guzzle": "*",
                 "liip/monitor": "*"
             },
-            "time": "2013-01-02 14:03:19",
+            "time": "2013-01-07 17:23:04",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2054,12 +2132,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle",
-                "reference": "42085aab9104d8bf50f73f8b7a2f3226e5b3de04"
+                "reference": "2ea728bb62cf4a83042a89c7c937fa1315c2386b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sonata-project/SonataUserBundle/archive/42085aab9104d8bf50f73f8b7a2f3226e5b3de04.zip",
-                "reference": "42085aab9104d8bf50f73f8b7a2f3226e5b3de04",
+                "url": "https://github.com/sonata-project/SonataUserBundle/archive/2ea728bb62cf4a83042a89c7c937fa1315c2386b.zip",
+                "reference": "2ea728bb62cf4a83042a89c7c937fa1315c2386b",
                 "shasum": ""
             },
             "require": {
@@ -2076,7 +2154,7 @@
             "suggest": {
                 "sonata-project/doctrine-orm-admin-bundle": "dev-master"
             },
-            "time": "2013-01-05 19:42:43",
+            "time": "2013-01-07 17:26:46",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -2227,26 +2305,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle",
-                "reference": "fcc047547f2caf009d2157dd6d1c5b33ac3113f7"
+                "reference": "0e9e829acaff387adbf62862ebe3e07abedd3845"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/MonologBundle/archive/fcc047547f2caf009d2157dd6d1c5b33ac3113f7.zip",
-                "reference": "fcc047547f2caf009d2157dd6d1c5b33ac3113f7",
+                "url": "https://github.com/symfony/MonologBundle/archive/0e9e829acaff387adbf62862ebe3e07abedd3845.zip",
+                "reference": "0e9e829acaff387adbf62862ebe3e07abedd3845",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "monolog/monolog": "1.*",
                 "symfony/monolog-bridge": ">=2.1.0,<2.3-dev",
                 "symfony/dependency-injection": ">=2.1.0,<2.3-dev",
-                "symfony/config": ">=2.1.0,<2.3-dev"
+                "symfony/config": ">=2.1.0,<2.3-dev",
+                "monolog/monolog": ">=1.0,<1.3-dev"
             },
             "require-dev": {
                 "symfony/yaml": ">=2.1.0,<2.3-dev",
                 "symfony/config": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-05 15:36:41",
+            "time": "2013-01-07 10:57:41",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2342,12 +2420,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "d786e093415768b82ab7abd98ce05009db3bd1bc"
+                "reference": "1949ce0ed744e2b9134464c9c690aa931816ec1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/d786e093415768b82ab7abd98ce05009db3bd1bc.zip",
-                "reference": "d786e093415768b82ab7abd98ce05009db3bd1bc",
+                "url": "https://github.com/symfony/symfony/archive/1949ce0ed744e2b9134464c9c690aa931816ec1f.zip",
+                "reference": "1949ce0ed744e2b9134464c9c690aa931816ec1f",
                 "shasum": ""
             },
             "require": {
@@ -2396,7 +2474,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": ">=1.0,<1.3-dev"
             },
-            "time": "2013-01-05 20:33:45",
+            "time": "2013-01-08 16:57:17",
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -2479,18 +2557,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "ddd4b732f9aa182edb54b89891c7fd25668354a4"
+                "reference": "3111e1265db1026323c589a5bd2d152871d7bbab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/ddd4b732f9aa182edb54b89891c7fd25668354a4.zip",
-                "reference": "ddd4b732f9aa182edb54b89891c7fd25668354a4",
+                "url": "https://github.com/fabpot/Twig/archive/3111e1265db1026323c589a5bd2d152871d7bbab.zip",
+                "reference": "3111e1265db1026323c589a5bd2d152871d7bbab",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-01-05 10:14:46",
+            "time": "2013-01-08 16:56:12",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2532,6 +2610,7 @@
     "stability-flags": {
         "knplabs/knp-disqus-bundle": 20,
         "eko/feedbundle": 20,
-        "liip/theme-bundle": 20
+        "liip/theme-bundle": 20,
+        "knplabs/knp-markdown-bundle": 20
     }
 }

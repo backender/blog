@@ -35,6 +35,7 @@ class AppKernel extends Kernel
         	new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
         	new Eko\FeedBundle\EkoFeedBundle(),
             new Liip\ThemeBundle\LiipThemeBundle(),
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
