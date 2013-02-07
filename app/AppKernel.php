@@ -36,6 +36,7 @@ class AppKernel extends Kernel
         	new Eko\FeedBundle\EkoFeedBundle(),
             new Liip\ThemeBundle\LiipThemeBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
